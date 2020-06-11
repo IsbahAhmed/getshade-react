@@ -3,18 +3,18 @@ import React from 'react'
 import Section from '../../Components/Section/Section'
 import Heading from '../../Components/Heading/Heading'
 import Paragraph from '../../Components/Paragraph/Paragraph'
+import SideCart from '../../Components/SideCart/SideCart'
 const Home = () => {
     return (
-      <div >
-  <Section >
-  <Heading>
-       Heading
-     </Heading>
-     <Paragraph>
-       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione temporibus tempora praesentium, recusandae maiores aliquid culpa! Explicabo officia ea voluptates architecto obcaecati sequi error incidunt, earum harum quae laudantium consectetur!
-     </Paragraph>
-  </Section>
-      </div>
+   <React.Fragment>
+      <Section >
+      {/* <div className="flex-center" style={{height:"50vw",background:"pink"}}>
+      <h1>Slider</h1>
+      </div> */}
+  
+    </Section>
+      
+   </React.Fragment>
     );
 }
 

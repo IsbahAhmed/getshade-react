@@ -3,7 +3,10 @@ import "./Navbar.css"
 import cartIcon from '../../assets/img/shopping-cart.svg';
 import logo from "../../assets/img/logo-plane.png"
 import { Link } from 'react-router-dom';
-const Navbar = () => {
+
+const Navbar = (props) => {
+    
+    var {cartToglleHandler} = props;
     return (
         <div className="nav">
            <div className="logo">
@@ -27,8 +30,8 @@ const Navbar = () => {
 </div>
 <div className="cart-icon cart-123 flex-center" id="cart-icon">
 
-   <img src={cartIcon} alt=""/>
-        <div className='cart-count flex-center'></div>
+   <img src={cartIcon} onClick={()=> cartToglleHandler(true)} alt=""/>
+        <div className='cart-count flex-center' ></div>
         </div>
         </div>
     )

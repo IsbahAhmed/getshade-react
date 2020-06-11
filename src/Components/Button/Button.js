@@ -1,9 +1,10 @@
 import React from 'react'
-
-const Button = () => {
+import "./Button.css"
+const Button = (props) => {
+    var {style,value,link} = props
     return (
-        <div>
-            <button>Submit</button>
+        <div className="btn-container">
+            <button style={{...style}}>{value}</button>
         </div>
     )
 }

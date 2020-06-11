@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react'
+
 
 import './App.css';
 import { Route, Switch} from 'react-router-dom';
@@ -10,13 +11,16 @@ import Shipping from './Pages/Shipping/Shipping';
 import UserProfile from "./Pages/UserProfile/UserProfile"
 import Thankyou from './Pages/Thankyou/Thankyou';
 import Cart from './Pages/Cart/Cart';
-import Navbar from './Components/Navbar/Navbar';
 import About from './Pages/About/About';
+import Globals from './Components/Globals/Globals';
 
-function App() {
-  return (
-    <React.Fragment>
-      <Navbar/>
+
+export class App extends Component {
+  
+  render() {
+    return (
+      <React.Fragment>
+    <Globals/>
     <Switch>
     <Route path="/" component={Home} exact/>
     <Route path="/shop/:type" component={Shop}/>
@@ -31,7 +35,8 @@ function App() {
     
     </Switch>
     </React.Fragment>
-  );
+    )
+  }
 }
 
-export default App;
+export default App
