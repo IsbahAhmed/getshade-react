@@ -1,0 +1,93 @@
+.nav{
+    display: grid;
+    height: 12rem;
+
+    grid-template-columns: 30fr 45fr repeat(5,7fr); 
+    grid-template-areas: "logo . home shop drop cart .";
+    font-weight: bold;
+    background: white;
+    width: 100vw;
+    z-index: 200;
+
+    }
+    .nav a{
+        font-family: var(--font-main);
+        font-size: 1.4rem;
+    }
+    .nav > div{
+        cursor: pointer;
+        position: relative;
+        justify-self: center;
+    }
+    
+    .logo{
+        grid-area: logo;
+        /* background: rgb(43, 15, 15); */
+        display: grid;
+        color: black;
+        grid-template-columns: 10rem 70fr;
+        /* justify-items: center; */
+        align-items: center;
+    }
+    .logo img{
+        width: 10rem;
+        height: 35% ;
+        border-right: 1px solid rgba(0, 0, 0, 0.616);
+    }
+    .logo h3{
+    padding: 0 0 0 3rem;
+    font-size: 3rem;
+    transform: translateY(2px);
+    font-family: 'Jhon Wick';
+    }
+    .home{
+        grid-area: home;
+        /* background: rgb(24, 165, 170); */
+    position: relative;
+    }
+    .shop{
+        grid-area: shop;
+        /* background: lightgrey; */
+    
+    }
+    .about{
+        grid-area: drop;
+        /* background: rgb(128, 240, 175); */
+    
+    }
+    .cart-icon{
+        grid-area: cart;
+        /* background: lightcyan; */
+    
+    }
+    .cart-icon img{
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+    }
+    .hover{
+        position: relative;
+       
+    }
+    .hover:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 45%;
+        transform: translateY(5px);
+        content: "";
+        /* display: block; */
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        /* background: rgb(240, 240, 236); */
+        background: black;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    
+    
+        width: 0;
+      }
+      .hover:hover:after { 
+        width: 100%; 
+        left: 0; 
+        
+      }
+    

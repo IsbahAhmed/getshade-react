@@ -1,38 +1,31 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
+:root{
+  /* fonts */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+--font-main:'Quicksand', sans-serif;
+--font-bold:'Quicksand:400', sans-serif;
+
+--font-raleway:'Raleway', sans-serif;
+
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html{
+  
+      font-size: 62.5%; /* 1rem = 10px */
+      text-decoration: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+html a{
+  text-decoration: none;
+  color: inherit;
+}
+/* nav */
+.flex-center{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  align-items: center;
 }

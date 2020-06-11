@@ -1,0 +1,2 @@
+export var CREATE_NEW_USER = "CREATE_NEW_USER";
+export var REMOVE_USER = 'REMOVE_USER'

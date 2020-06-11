@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import { Route, Switch} from 'react-router-dom';
+import Home from './Pages/Home/Home';
+import Shop from './Pages/Shop/Shop';
+import Auth from './Pages/Auth/Auth';
+import ProductDetail from './Pages/ProductDetail/ProductDetail';
+import Shipping from './Pages/Shipping/Shipping';
+import UserProfile from "./Pages/UserProfile/UserProfile"
+import Thankyou from './Pages/Thankyou/Thankyou';
+import Cart from './Pages/Cart/Cart';
+import Navbar from './Components/Navbar/Navbar';
+import About from './Pages/About/About';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Navbar/>
+    <Switch>
+    <Route path="/" component={Home} exact/>
+    <Route path="/shop/:type" component={Shop}/>
+    <Route path="/auth" component={Auth}/>
+    <Route path="/productDetail/:pId" component={ProductDetail}/>
+    <Route path="/shipping" component={Shipping}/>
+    <Route path="/userProfile/:uid" component={UserProfile}/>
+    <Route path="/thankyou/:orderId" component={Thankyou}/>
+    <Route path="/cart" component={Cart}/>
+<Route path="/about" component={About}/>
+
+    
+    </Switch>
+    </React.Fragment>
   );
 }
 
