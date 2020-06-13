@@ -6,13 +6,16 @@ import SideCart from '../SideCart/SideCart'
 
  class Globals extends Component {
  state ={
-    cartToggleValue:false
+    cartToggleValue:false,
+    initialRender:false
  }
  cartToglleHandler = (toggleValue)=>{
-     console.log("kjhkkl")
+    
 this.setState({
-   cartToggleValue: toggleValue
+   cartToggleValue: toggleValue,
+   initialRender:true
 })
+
 }
     render() {
     
@@ -21,7 +24,7 @@ this.setState({
       
                 <Navbar cartToglleHandler={this.cartToglleHandler}/>
               
-      <SideCart cartToggleValue={this.state.cartToggleValue} cartToglleHandler={this.cartToglleHandler}/>
+      <SideCart initialRender={this.state.initialRender} cartToggleValue={this.state.cartToggleValue} cartToglleHandler={this.cartToglleHandler}/>
             </div>
         )
     }

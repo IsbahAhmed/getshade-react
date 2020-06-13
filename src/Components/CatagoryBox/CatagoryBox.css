@@ -1,0 +1,76 @@
+.logopng img{
+    width: 7rem;
+    height: 4rem;
+    
+    transform: translate(2rem,1.2rem);
+    
+    }
+  
+    .animate-catbox {
+        animation: boxes 1200ms cubic-bezier(0,.52,.84,1.24) 300ms 1 normal forwards;
+    }
+    @keyframes boxes{
+        0%{
+            opacity: 0;
+    
+    
+        }
+        100%{
+            opacity: 1;
+    transform: translateX(0rem);
+    
+        }
+    }
+   .cat-box{
+       position: relative;
+   }
+ 
+    .cat-name{
+        transition: opacity 300ms ease-in;
+        transition-delay: 300ms;
+        opacity: 0;
+        font-size: 2rem;
+        /* letter-spacing: -2px; */
+        color: white;
+        font-family: var(--font-raleway);
+        /* text-transform: uppercase; */
+        z-index: 40;
+        position: absolute;
+    }
+    .cat-image{
+        width: 100%;height: 100%;
+        transition: all 300ms ease-in-out;
+    
+    }
+    
+    
+    
+    .cat-image:hover{
+        transform: scale(1.2)
+    
+    }
+    .cat-image:hover .cat-name{
+        opacity: 1;
+    }
+    .cat-box .cat-image img{
+        /* background: url("../../assets/img/authentic-box.jpg");
+        background-size: 100% 100% , cover; */
+        width: 100%;
+        height: 100%;
+    }
+    .cat-box .cat-image::after{
+        content: "";
+        width: 100%;height: 100%;
+        /* background: linear-gradient(rgba(0, 0, 0, 0.548),rgba(72, 46, 73, 0.671)); */
+        background:linear-gradient(rgba(0, 0, 0, 0.671),rgba(0, 0, 0, 0.671));
+    
+        opacity: 0;
+        transition: 500ms ease ;
+        position: absolute;
+    }
+   
+    .cat-image:hover:after{
+        opacity: 1;
+    }
+   
+   

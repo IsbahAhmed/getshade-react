@@ -13,6 +13,7 @@ import Thankyou from './Pages/Thankyou/Thankyou';
 import Cart from './Pages/Cart/Cart';
 import About from './Pages/About/About';
 import Globals from './Components/Globals/Globals';
+import Footer from './Components/Footer/Footer';
 
 
 export class App extends Component {
@@ -34,6 +35,7 @@ export class App extends Component {
 
     
     </Switch>
+   <Footer/>
     </React.Fragment>
     )
   }

@@ -1,0 +1,67 @@
+.footer{
+	margin-top: 7rem;
+	height: 30rem;
+	font-family: var(--font-raleway);
+	font-size: 1.2rem; 
+    background: radial-gradient(circle, rgba(229,228,235,0.4458158263305322) 0%, rgba(34,34,33,0.43461134453781514) 0%, rgba(66,68,69,1) 100%), 
+    url("../../assets/img/footer-background.jpg");
+	background-size: 100% 100%, cover;
+	filter: saturate(0.2);
+	display: grid;
+	grid-template-columns: 12fr repeat(3,25fr) 12fr;
+	/* grid-template-rows: 10fr 80fr 10fr; */
+	grid-template-areas: ". foot-logo foot-cont foot-links .";
+	color: white;
+	grid-gap: 7rem;
+	grid-column-gap: 15rem;
+}
+.footer > div{
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+}
+/* .footer > div :first-child{
+	margin-top: 20%;
+} */
+.foot-logo{
+	grid-area: foot-logo;
+
+}
+
+.foot-logo img{
+	width: 7rem;
+	height: 5rem;
+}
+.foot-logo h1{
+	font-family: 'Jhon Wick';
+	margin-bottom: 1rem;
+}
+.foot-cont{
+	grid-area: foot-cont;
+	
+}
+.foot-cont > *, ul li{
+	margin-bottom: 1rem;
+}
+.foot-cont ul li{
+	transition: 300ms ease;
+}
+.foot-cont ul li:hover{
+	transform: translateX(5px);
+}
+.foot-cont h2{
+	margin-bottom: 2rem;
+	font-family: var(--font-main);
+}
+
+ ul{
+	list-style: none;
+}
+.foot-links{
+	grid-area: foot-links;
+}
+.foot-links h2{
+	margin-bottom: 2rem;
+	font-family: var(--font-main);
+}
+
