@@ -4,9 +4,12 @@ import Section from '../../Components/Section/Section'
 import Heading from '../../Components/Heading/Heading'
 import Paragraph from '../../Components/Paragraph/Paragraph'
 import SideCart from '../../Components/SideCart/SideCart'
-import "./Home.css"
+import "./Home.css";
+
 import CatagoryBox from '../../Components/CatagoryBox/CatagoryBox'
 import TopSeller from '../../Components/TopSeller/TopSeller'
+import Button from '../../Components/Button/Button'
+import NewProducts from '../../Components/NewProducts/NewProducts'
 const Home = () => {
     return (
    <React.Fragment>
@@ -21,7 +24,7 @@ const Home = () => {
   <div className="cat-heading">
     {/* <div class="line"> </div> */}
     <h4>catagories</h4>
-  </div>
+  </div> 
   <div className="cats">
       <CatagoryBox catName={"Watches"}/>
       <CatagoryBox/>
@@ -30,7 +33,24 @@ const Home = () => {
 </div>
 
       </Section>
+
       <TopSeller/>
+      <Section>
+        <div className="extra-section">
+        <div className="content">
+          <Heading fontSize="30">
+            THE CLASSIC MEN ISSUE
+          </Heading>
+          <Paragraph fontWeight="500" fontSize="16">
+            Our sustainable comintment is reflected in everything we do.
+            <br/> Our way of reinviting materials and a new approch to.
+          </Paragraph>
+          <Button value="SHOP NOW" style={{letterSpacing:"2px",padding:"1.3rem 3rem"}} 
+          colorScheme="white" backgroundColor="transparent"/>
+        </div>
+        </div>
+      </Section>
+      <NewProducts/>
    </React.Fragment>
     );
 }

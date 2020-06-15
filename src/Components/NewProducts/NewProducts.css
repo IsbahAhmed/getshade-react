@@ -1,0 +1,37 @@
+.new-products{
+    margin-top: 5rem;
+   display: grid;
+   grid-template-rows: minmax(7rem,min-content);
+   grid-template-columns:2rem 30fr 70fr 2rem;
+   grid-gap: 2rem;
+   grid-template-areas:". leftBox rightSect .";
+    /* background: lightblue; */
+}
+
+.left-box{
+    padding: 5rem 0;
+    grid-area: leftBox;
+    height: 60rem;
+    background:linear-gradient(rgba(0, 0, 0, 0.521),rgba(0, 0, 0, 0.521)), url("../../assets/img/watche-collection-potrait.jpg");
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.line{
+    width: 7rem;
+    height: 3px;
+    background: white;
+}
+.left-box > *{
+    margin: 2rem 0 0 3rem;
+}
+.right-sect{
+    grid-area: rightSect;
+display: grid;
+grid-template-columns: repeat(auto-fit,30rem);
+justify-content: center;
+align-items: center;
+grid-gap: 2rem;
+
+}

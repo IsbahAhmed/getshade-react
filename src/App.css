@@ -17,6 +17,14 @@ body{
 
 --font-raleway:'Raleway', sans-serif;
 
+--blue:rgb(0, 109, 172);
+--lightBlue:rgb(5, 153, 238);
+--green:rgb(0, 146, 102);
+--lightgreen:rgb(0, 207, 145);
+--black:rgb(27, 27, 27);
+--lightblack:rgb(73, 73, 73);
+--yellow:rgb(236, 234, 95);
+--lightyellow:rgb(238, 236, 144);
 }
 html{
   
@@ -32,4 +40,9 @@ html a{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+/* trasparent-button */
+.transparent-button button{
+  background: transparent;
+  border: 1px solid white;
 }

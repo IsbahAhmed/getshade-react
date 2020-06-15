@@ -2,11 +2,11 @@ import React from 'react'
 import itemImage from "../../assets/img/item-1.jpg";
 import  './Product.css'
 const Product = (props) => {
-var {imagePath,itemName,itemPrice,newArrival} = props
+var {imagePath,itemName,itemPrice,newArrival,style} = props
 
     return (
         
-    <div className="item item-setting" id="">
+    <div className="item item-setting" style={{...style}} id="">
   <div className="pic">
     <div className="new">
       <p>New Arrival</p>

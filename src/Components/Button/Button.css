@@ -2,4 +2,34 @@
 outline: none;
 font-family: var(--font-raleway);
 font-size: 1.6rem;
+cursor: pointer;
+transition:all 200ms ease-in-out;
+}
+.btn-container button:active{
+    transform: scale(0.9);
+}
+.white-scheme{
+    color:white;
+    border:1px solid white;
+}
+/* .white-scheme:hover{
+    background: rgb(170, 170, 170);
+} */
+.blue-scheme{
+    color:white;
+    border:1px solid var(--blue);
+    background: var(--blue);
+}
+.blue-scheme:hover{
+    background: var(--lightBlue);
+}
+.black-scheme{
+    color:white;
+    border:1px solid var(--black);
+    background: var(--black);
+
+}
+.black-scheme:hover{
+    background: var(--lightblack);
+
 }
