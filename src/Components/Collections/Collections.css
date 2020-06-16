@@ -1,0 +1,60 @@
+.collections{
+    height: 50vw;
+    margin: 5rem;
+    display: grid;
+    grid-template-rows: 10fr 40fr 40fr 10fr;
+    grid-template-columns: 5fr 45fr 45fr 5fr;
+    grid-gap: 2rem;
+    grid-template-areas: ". . . ."
+                        ". c1 c2 ."
+                        ". c3 c2 ."
+                        ". . . .";
+}
+.collections > div img{
+    width: 100%;
+    height: 100%;
+    transition: all 500ms ease-in-out;
+}
+.collections > div{
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  
+}
+.collections > div h1{
+    color: white;
+    position: absolute;
+   left: 50%;
+   /* transform: translateX(-50%); */
+   top: 50%;
+   z-index: 10;
+   letter-spacing: 5px;
+   font-family: var(--font-raleway);
+   pointer-events: none;
+}
+.collections > div:after{
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    left: 0;
+    background: rgba(0, 0, 0, 0.603);
+    /* z-index: 10; */
+    pointer-events: none;
+}
+.collections > div img:hover{
+    transform: scale(1.2);
+}
+.c1{
+    grid-area: c1;
+  
+}
+.c2{
+    grid-area: c2;
+
+}
+.c3{
+    grid-area: c3;
+
+}

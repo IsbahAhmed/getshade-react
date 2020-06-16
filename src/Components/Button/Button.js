@@ -3,7 +3,7 @@ import "./Button.css"
 const Button = (props) => {
   
     var {style,value,link,colorScheme,backgroundColor} = props;
-    console.log(colorScheme)
+
 var classVarient = "";
     switch (colorScheme) {
         case "black":
@@ -21,7 +21,6 @@ var classVarient = "";
      
     }
   
-console.log(classVarient)
     return (
         <div className="btn-container">
             <button 

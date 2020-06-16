@@ -10,6 +10,8 @@ import CatagoryBox from '../../Components/CatagoryBox/CatagoryBox'
 import TopSeller from '../../Components/TopSeller/TopSeller'
 import Button from '../../Components/Button/Button'
 import NewProducts from '../../Components/NewProducts/NewProducts'
+import Collections from '../../Components/Collections/Collections'
+import NewsLetter from '../../Components/NewsLetter/NewsLetter'
 const Home = () => {
     return (
    <React.Fragment>
@@ -51,6 +53,8 @@ const Home = () => {
         </div>
       </Section>
       <NewProducts/>
+      <Collections/>
+      <NewsLetter/>
    </React.Fragment>
     );
 }

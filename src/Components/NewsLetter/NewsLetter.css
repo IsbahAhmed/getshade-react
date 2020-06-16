@@ -1,0 +1,26 @@
+.newsletter{
+    height: 40rem;
+    background: radial-gradient(white,rgba(105, 105, 105, 0.116));
+    display: grid;
+    grid-template-rows: repeat(2,50fr);
+}
+.newsletter > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.input-xs{
+    width: 50%;
+    /* background: lightcoral; */
+    height: 10rem;
+  
+   
+}
+.input-xs > div {
+    width: 100%;
+    display: grid;
+    /* align-items: end; */
+    grid-template-columns: 80fr 20fr;
+    border-bottom: 1px solid black;
+}
