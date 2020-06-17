@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import StyledInput from '../StyledInput/StyledInput'
 import "./NewsLetter.css"
-import Paragraph from '../Paragraph/Paragraph'
+
 import Button from '../Button/Button'
 import Heading from '../Heading/Heading'
 const NewsLetter = () => {

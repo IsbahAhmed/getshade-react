@@ -15,17 +15,22 @@ const Navbar = (props) => {
                    </div>
 <div className="home hover flex-center">
     <Link to="/">
-    Home
+    HOME
     </Link>
     </div>
 <div className="shop hover flex-center">
     <Link to="/shop/all">
-    Shop
+    SHOP
     </Link>
 </div>
 <div className="about hover flex-center">
     <Link to="/about">
-    About
+    ABOUT
+    </Link>
+</div>
+<div className="contact hover flex-center">
+    <Link to="/about">
+  CONTACT
     </Link>
 </div>
 <div className="cart-icon cart-123 flex-center" id="cart-icon">

@@ -1,0 +1,8 @@
+.shop-page{
+    display: grid;
+    grid-template-columns: 10fr 80fr 10fr;
+    grid-template-areas: ". main-shop .";
+}
+.main-shop{
+grid-area: main-shop;
+}

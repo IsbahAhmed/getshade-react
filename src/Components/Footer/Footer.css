@@ -1,6 +1,7 @@
 .footer{
-	margin-top: 7rem;
-	height: 30rem;
+	/* margin-top: 7rem; */
+	height: min-content;
+	padding: 5rem 0;
 	font-family: var(--font-raleway);
 	font-size: 1.2rem; 
     background: radial-gradient(circle, rgba(229,228,235,0.4458158263305322) 0%, rgba(34,34,33,0.43461134453781514) 0%, rgba(66,68,69,1) 100%), 
@@ -18,7 +19,7 @@
 .footer > div{
 	display: flex;
 	flex-flow: column;
-	justify-content: center;
+	/* justify-content: center; */
 }
 /* .footer > div :first-child{
 	margin-top: 20%;
@@ -59,6 +60,10 @@
 }
 .foot-links{
 	grid-area: foot-links;
+
+}
+.foot-links *{
+	margin-bottom: 1rem;
 }
 .foot-links h2{
 	margin-bottom: 2rem;
