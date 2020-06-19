@@ -2,7 +2,16 @@
     display: grid;
     grid-template-columns: 10fr 80fr 10fr;
     grid-template-areas: ". main-shop .";
+    margin-bottom: 5rem;
 }
 .main-shop{
 grid-area: main-shop;
+}
+.shop-grid{
+    margin-top: 5rem;
+  
+    display: grid;
+    grid-template-columns: 20fr 80fr;
+    grid-template-areas: "filters products";
+    grid-column-gap: 2rem;
 }

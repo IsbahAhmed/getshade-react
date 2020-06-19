@@ -1,0 +1,13 @@
+.shop-products{
+    grid-area: products;
+    display: grid;
+    grid-template-rows: 5rem minmax(5rem,min-content);
+   
+  
+}
+.main-product-sec{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,30rem);
+    grid-gap: 2rem;
+
+}

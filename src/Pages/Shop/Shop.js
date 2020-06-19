@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./Shop.css"
 import ShopHeader from '../../Components/ShopHeader/ShopHeader'
+import ShopProducts from '../../Components/ShopProducts/ShopProducts'
+import ShopFilters from '../../Components/ShopFilters/ShopFilters'
 const Shop = () => {
   
     return (
@@ -19,6 +21,10 @@ const Shop = () => {
             </div> */}
     <div className="main-shop">
         <ShopHeader/>
+        <div className="shop-grid">
+          <ShopFilters/>
+         <ShopProducts/>
+        </div>
     </div>
         </div>
     )

@@ -1,0 +1,58 @@
+.shop-filters{
+    grid-area: filters;
+    display: grid;
+    grid-template-rows: repeat(auto-fit,minmax(5rem,min-content));
+
+    align-items: center;
+}
+.shop-filters > *{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.267);
+
+}
+.filter-row-setting{
+    /* border-top: 1px solid rgba(0, 0, 0, 0.267); */
+    width: 100%;
+    display: grid;
+    grid-template-rows: 6rem min-content;
+ 
+}
+
+
+.name-filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.toggle-icon{
+    transition: transform 300ms ease;
+    transform-origin: center;
+   user-select: none;
+}
+.crossed{
+    transform: rotate(45deg);
+    transform-origin: center;
+
+}
+.price-filter{
+   
+justify-content: space-evenly;
+padding-bottom: 2rem;
+}
+.color-filter{
+   
+    justify-content: space-evenly;
+padding-bottom: 2rem;
+}
+.color-select{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    /* margin: 1rem; */
+
+    cursor: pointer;
+
+}
+.selected-color{
+ border:1px solid rgb(150, 1, 1)   
+}

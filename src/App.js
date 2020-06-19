@@ -14,6 +14,7 @@ import Cart from './Pages/Cart/Cart';
 import About from './Pages/About/About';
 import Globals from './Components/Globals/Globals';
 import Footer from './Components/Footer/Footer';
+import Error404 from './Pages/Error404/Error404';
 
 
 export class App extends Component {
@@ -24,15 +25,15 @@ export class App extends Component {
     <Globals/>
     <Switch>
     <Route path="/" component={Home} exact/>
-    <Route path="/shop/:type" component={Shop}/>
-    <Route path="/auth" component={Auth}/>
-    <Route path="/productDetail/:pId" component={ProductDetail}/>
-    <Route path="/shipping" component={Shipping}/>
-    <Route path="/userProfile/:uid" component={UserProfile}/>
-    <Route path="/thankyou/:orderId" component={Thankyou}/>
-    <Route path="/cart" component={Cart}/>
-<Route path="/about" component={About}/>
-
+    <Route path="/shop/:type" component={Shop} exact/>
+    <Route path="/auth" component={Auth} exact/>
+    <Route path="/productDetail/:pId" component={ProductDetail} exact/>
+    <Route path="/shipping" component={Shipping} exact/>
+    <Route path="/userProfile/:uid" component={UserProfile}exact/>
+    <Route path="/thankyou/:orderId" component={Thankyou}exact/>
+    <Route path="/cart" component={Cart} exact/>
+<Route path="/about" component={About} exact/>
+<Route path="/:any" component={Error404} />
     
     </Switch>
    <Footer/>
