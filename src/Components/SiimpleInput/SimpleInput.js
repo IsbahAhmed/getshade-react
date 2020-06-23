@@ -2,10 +2,11 @@ import React from 'react'
 import "./SimpleInput.css"
 const SimpleInput = (props) => {
     var {value = "",width,type,placeholder = "label",
-    style,fontSize = "16",...restProps} = props;
+    style,fontSize = "16",label="label",...restProps} = props;
 
     return (
         <div className="simple-input-container" style={{minWidth:"min-content",width}}>
+            <label>{label}</label>
             <input 
             value={value}
 

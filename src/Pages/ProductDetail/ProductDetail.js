@@ -7,9 +7,26 @@ import Button from "../../Components/Button/Button";
 import SimpleInput from "../../Components/SiimpleInput/SimpleInput";
 import { getSiblings } from "../../Utility/Utility";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
-const ProductDetail = () => {
+const ProductDetail = (props) => {
+  var {match:{params:{pId}}} = props;
+  var history = useHistory();
+ var productSwitcher = (pId,type)=>{
+   pId = Number(pId);
+   if(type === "prev"){
+    if(pId > 1){
+      pId = pId - 1;
+    }
+    }
+    else{
+      pId = pId+ 1;
+    }
+    
+    console.log(pId)
+   var link = `/productDetail/${pId}`
+  history.push(link)
+ }
     var [quantity,setQuantity] = useState(0)
     var colorSelector = (e)=>{
         var siblings = getSiblings(e.target)
@@ -30,9 +47,17 @@ const ProductDetail = () => {
         </Paragraph>
         <Paragraph>
      <div className="prev-next-links">
-     <div id="prev-link"><FontAwesomeIcon flip="horizontal" icon={faGreaterThan}/>Prev</div> 
+     <div id="prev-link" onClick={()=> productSwitcher(pId,"prev")}>
+   
+       <FontAwesomeIcon flip="horizontal" icon={faGreaterThan}/>Prev
+
+       </div> 
         |
-        <div id="next-link">Next <FontAwesomeIcon icon={faGreaterThan}/></div>
+        <div id="next-link" onClick={()=> productSwitcher(pId,"next")}>
+ 
+          Next <FontAwesomeIcon icon={faGreaterThan}/>
+        
+        </div>
      </div>
             </Paragraph>
       </div>

@@ -1,0 +1,14 @@
+.payment-method{
+    display: flex;
+    height: 6rem;
+    background: rgba(122, 122, 122, 0.521);
+    justify-content: space-between;
+    align-items: center;
+
+
+
+}
+input[type=radio]{
+    cursor: pointer;
+    
+}

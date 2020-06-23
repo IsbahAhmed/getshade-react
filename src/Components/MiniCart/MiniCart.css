@@ -1,0 +1,50 @@
+.mini-cart{
+    font-family: var(--font-raleway);
+    grid-area: miniCart;
+    background: rgba(178, 214, 211, 0.164);
+    border-left: 1px solid rgba(0, 0, 0, 0.096);
+    display: grid;
+    grid-template-rows: 20fr 80fr;
+    grid-template-columns: 10fr 80fr 10fr;
+    grid-template-areas: ". . ."
+                        " . mini-cart-main .";
+}
+.mini-cart-main{
+    grid-area: mini-cart-main;
+}
+.mini-cart-main > *{
+  
+    border-bottom: 1px solid rgb(163, 163, 163);
+}
+.mini-cart-list-items{
+    display: grid;
+    grid-template-rows: repeat(auto-fit,12rem);
+}
+
+.mini-cart-list-items > div:hover .remove-this{
+opacity: 1;
+
+}
+.discount-form-container{
+    height: 10rem;
+}
+.amounts{
+    height: 10rem;
+    display: grid;
+    grid-template-columns: repeat(2,50fr);
+    grid-template-rows: repeat(2,50fr);
+    align-items: center;
+    
+}
+.st-am{
+    justify-self: end;
+}
+.sh-am{
+    justify-self: end;
+}
+.tot{
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

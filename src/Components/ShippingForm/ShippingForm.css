@@ -1,0 +1,37 @@
+.shipping-form{
+    grid-area: sform;
+    display: grid;
+    grid-template-columns: 5fr 90fr 5fr;
+    grid-template-rows: 20fr 80fr;
+    grid-template-areas: ". breadCrumb ."
+                        ". form .";
+}
+.breadCrumb{
+    grid-area: breadCrumb;
+}
+form{
+    grid-area: form;
+}
+form > div{
+   margin: 2rem 0;
+}
+.fname{
+    display: grid;
+    grid-template-columns: 50fr 50fr;
+    grid-column-gap: 10px;
+   
+}
+.billing{
+    display: grid;
+    grid-template-columns: 80fr 20fr;
+    grid-column-gap: 10px;
+}
+.postal{
+    display: grid;
+    grid-template-columns: 50fr 50fr;
+    grid-column-gap: 10px;
+}
+.v1-logo img{
+width: 15rem;
+height: 7rem;
+}

@@ -1,0 +1,50 @@
+.item-row-setting{
+    height: 15rem;
+    display: grid;
+    align-items: center;
+    grid-template-areas: "improduct rs qty total";
+    grid-template-columns: 55fr repeat(3,15fr);
+    
+    }
+    .improduct{
+        grid-area: improduct;
+        display: grid;
+        grid-template-columns: 40fr 60fr;
+        grid-column-gap:1.5rem;
+        grid-template-areas: "thumb info";
+    }
+    .improduct img{
+        width: 80%;
+        /* height: 100%s; */
+    }
+    .thumbnail{
+        grid-area: thumb;
+        
+    }
+    .info{
+        grid-area: info;
+        display: grid;
+        
+    }
+    #remove{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .item-price{grid-area: rs;}
+    .quantity{
+        grid-area: qty;
+      }
+    #empty{
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    color: rgb(94, 94, 94);
+    }
+    
+    
+    .total-price{
+     grid-area: total;
+     /* display: grid;
+     justify-content: end; */
+    }
+    

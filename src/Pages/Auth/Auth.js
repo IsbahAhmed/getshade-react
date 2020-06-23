@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import "./Auth.css";
+import {Link} from "react-router-dom"
 
-const Auth = () => {
+const Auth = (props) => {
     return (
-        <div>
-            Auth
+        <div className="auth-page-container">
+           <div className="brc">
+               <Link to="/">
+               HOME
+               </Link>
+               
+           </div>
+           <div className="auth-main"></div>
         </div>
     )
 }

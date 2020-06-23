@@ -3,6 +3,8 @@ import arrow from "../../assets/img/right-arrow.svg"
 import Button from '../Button/Button'
 import "./SideCart.css"
 import { useState } from 'react'
+import SideCartListItem from '../SideCart_ListItem/SideCartListItem'
+import SideCartItemList from '../Sidecart_ItemList/SideCartList'
 
 const SideCart = (props) => {
    var {cartToglleHandler,cartToggleValue,initialRender} = props
@@ -34,7 +36,7 @@ const SideCart = (props) => {
                 <h2 style={{alignSelf: "center", marginLeft: "30%"}} >CART</h2>
             </div>
             <div className="item-list">
-                  
+                 <SideCartItemList/>
             </div>
             <div className="amount-total">
              

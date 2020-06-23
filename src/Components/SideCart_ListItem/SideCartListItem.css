@@ -1,0 +1,45 @@
+.row-setting{
+
+
+    display: grid;
+    grid-template-columns: 30fr 70fr;
+    grid-template-areas:"pic price";
+    padding: 10px;
+    position: relative;
+}
+.item-image-setting{
+    grid-area: pic;
+ border: 2px solid black;
+}
+.item-image-setting img{
+    width: 100%;
+    height: 100%;
+    
+}
+.price-item-setting{
+    text-align: center;
+    display: grid;
+    /* grid-auto-flow: column; */
+    /* font-family: var(--font-main); */
+    justify-content: center;
+    /* align-items: center; */
+}
+.amount-total{
+    grid-area: total;
+    color: rgb(29, 29, 29);
+    padding: 2rem;
+
+}
+
+.remove-this{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 2rem;
+    height: 2rem;
+    opacity: 0;
+    transition: all 300ms ease;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+

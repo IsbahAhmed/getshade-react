@@ -2,10 +2,13 @@ import React from 'react'
 import itemImage from "../../assets/img/item-1.jpg";
 import  './Product.css'
 import Paragraph from '../Paragraph/Paragraph';
-
+import {useHistory as history} from "react-router-dom"
 const Product = (props) => {
 var {imagePath,itemName,itemPrice,newArrival,style} = props
 
+var productDetail = ()=>{
+  history.push("/productDetail")
+}
     return (
         
     <div className="item item-setting" style={{...style}} id="">

@@ -48,26 +48,27 @@ const ShopFilters = () => {
           </div>
           <div className="filter-options price-filter" 
           style={pricefilterScale === 1 ? {display:"flex"}:{display:"none"}}>
-           <div className="from" style={{width:"7rem"}}>
+           <div className="from" style={{width:"8rem"}}>
                <Paragraph style={{marginBottom:"1rem"}} fontWeight="600">
                   Min
                </Paragraph>
-               <SimpleInput width="6rem" type="number" value={priceMinValue} 
-               min={priceMinValue}
+               <SimpleInput  label="" type="number" value={priceMinValue} 
+               min="0"
                max={priceMaxValue}
                onChange={(e)=> {
           
                    setPrice_minValue(e.target.value)}}
                placeholder=""/>
            </div>
-           <div className="to" style={{width:"7rem"}} >
+           <div className="to" style={{width:"8rem"}} >
            <Paragraph style={{marginBottom:"1rem"}} fontWeight="600">
                    Max
                </Paragraph>
            <SimpleInput
-                min={priceMinValue}
-                max={priceMaxValue}
-           type="number" width="6rem"
+                min="0"
+                max="4000"
+                label=""
+           type="number" 
             onChange={(e)=> setPrice_maxValue(e.target.value)}
            value={priceMaxValue} placeholder=""/>
 

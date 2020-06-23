@@ -1,9 +1,12 @@
 import React from 'react'
-
-const Shipping = () => {
+import "./Shipping.css"
+import ShippingForm from '../../Components/ShippingForm/ShippingForm'
+import MiniCart from '../../Components/MiniCart/MiniCart'
+const Shipping = (props) => {
     return (
-        <div>
-            Shipping
+        <div className="shipping-container">
+            <ShippingForm/>
+            <MiniCart/>
         </div>
     )
 }

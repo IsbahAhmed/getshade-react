@@ -1,0 +1,18 @@
+.auth-page-container{
+    display: grid;
+    grid-template-rows: 10rem minmax(60rem,min-content);
+    grid-template-columns: 10fr 80fr 10fr;
+    grid-template-areas: "brc brc brc"
+                        ". auth-main .";
+}
+.brc{
+    grid-area: brc;
+    background: var(--lightblack);
+    display: flex;
+    color: white;
+    font-size: 1.6rem;
+    
+}
+.auth-main{
+    grid-area: auth-main;
+}

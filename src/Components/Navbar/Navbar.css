@@ -2,8 +2,8 @@
     display: grid;
     height: 12rem;
 
-    grid-template-columns: 30fr 30fr repeat(5,6fr) 10fr; 
-    grid-template-areas: "logo . home shop drop contact cart .";
+    grid-template-columns: 30fr 22fr repeat(6,7fr) 5fr; 
+    grid-template-areas: "logo . home shop drop contact auth cart";
     font-weight: bold;
     background: white;
     width: 100vw;
@@ -58,6 +58,9 @@
     .contact{
         grid-area: contact;
     }
+    .auth{
+        grid-area: auth;
+    }
     .cart-icon{
         grid-area: cart;
         /* background: lightcyan; */
@@ -93,4 +96,4 @@
         left: 0; 
         
       }
-    
+   

@@ -1,0 +1,11 @@
+.shipping-container{
+    display: grid;
+    grid-template-rows: minmax(70rem,min-content) 5rem;
+    grid-template-columns: 60fr 40fr;
+ grid-template-areas: "sform miniCart"
+                    ". miniCart";
+    /* background: lightblue; */
+}
+
+/* 03002592759 */
+
