@@ -1,0 +1,22 @@
+.list-container{
+    position: relative;
+    width: 100%;
+    font-family: var(--font-raleway);
+}
+.list-container li{
+    display: flex;
+}
+.list-container li > *{
+    margin: 0 5px;
+}
+.list-icon{
+    /* position: absolute;
+    left: 0; */
+    width: 2rem;
+    height: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+}

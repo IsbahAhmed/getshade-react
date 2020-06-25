@@ -1,0 +1,18 @@
+.signin-form{
+    width: 100%;
+  
+}
+.signin-form > *{
+    margin: 3rem 0;
+}
+.sign-in-btn{
+    display: flex;
+    align-items: center;
+}
+.forget-link{
+    cursor: pointer;
+    transition: color 200mss ease-in-out;
+}
+.forget-link:hover{
+    color: var(--lightblack);
+}

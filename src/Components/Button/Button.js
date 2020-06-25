@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./Button.css"
 const Button = (props) => {
   
-    var {style,value,link,colorScheme,backgroundColor} = props;
+    var {style,value,link,colorScheme,backgroundColor,...restProps} = props;
 
 var classVarient = "";
     switch (colorScheme) {
@@ -26,6 +26,7 @@ var classVarient = "";
             <button 
             style={{...style,backgroundColor}}
             className={classVarient}
+            {...restProps}
             >{value}</button>
         </div>
     )

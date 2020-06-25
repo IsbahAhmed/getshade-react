@@ -1,9 +1,11 @@
 .auth-page-container{
+    background: white;
     display: grid;
-    grid-template-rows: 10rem minmax(60rem,min-content);
+    grid-template-rows: 10rem minmax(30rem,min-content) 5rem;
     grid-template-columns: 10fr 80fr 10fr;
     grid-template-areas: "brc brc brc"
-                        ". auth-main .";
+                        ". auth-main ."
+                        "sp sp sp";
 }
 .brc{
     grid-area: brc;
@@ -11,8 +13,17 @@
     display: flex;
     color: white;
     font-size: 1.6rem;
-    
+    align-items: center;
 }
-.auth-main{
-    grid-area: auth-main;
+.brc > :nth-child(1){
+margin-left: 10rem;
+}
+
+.brc > *{
+    padding: 0 0.5rem;
+}
+.sp{
+    grid-area: sp;
+    background: white;
+    z-index: 20;
 }

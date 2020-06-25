@@ -1,0 +1,12 @@
+.auth-main{
+    grid-area: auth-main;
+    display: grid;
+    grid-template-rows: 10fr 58fr 32fr ;
+
+}
+.forget-password-container{
+
+    z-index: 20;
+    background: white;
+
+}
