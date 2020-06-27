@@ -1,0 +1,11 @@
+.u-dash-main{
+    grid-area: u-dash;
+    display: grid;
+    grid-template-columns: 30fr 70fr;
+    column-gap: 2rem;
+}
+.dash-pages{
+
+    border: 1px solid var(--bordercolor);
+    border-top: 2px solid var(--black);
+}

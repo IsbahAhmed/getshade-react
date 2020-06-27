@@ -1,0 +1,20 @@
+.user-dashboard{
+    display: grid;
+    grid-template-rows: 12rem minmax(50rem,min-content) 5rem;
+    grid-template-columns: 10fr 80fr 10fr;
+    grid-template-areas: ". u-head ."
+                        ". u-dash ."
+                        ". . .";
+    row-gap: 2rem;
+}
+.user-dashboard-header{
+    grid-area: u-head;
+    background: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: capitalize;
+}
+.user-dashboard-header > *{
+    margin: 0 2rem;
+}

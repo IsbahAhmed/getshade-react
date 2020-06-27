@@ -1,0 +1,19 @@
+.dash-nav{
+    background: var(--lightblack);
+    display: grid;
+    grid-template-rows: repeat(5,20fr);
+}
+.dash-nav > *{
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-left: 5rem;
+    transition: background 200ms ease-in-out;
+    letter-spacing: 2px;
+}
+.dash-nav > *:hover{
+    background: rgb(61, 61, 61);
+}
+.selected-dash-nav-link{
+background: rgb(61, 61, 61);
+}
