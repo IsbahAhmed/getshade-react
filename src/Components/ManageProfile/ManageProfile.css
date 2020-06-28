@@ -1,4 +1,4 @@
-.manage-profile-container,.order-page-container,.custom-address{
+.manage-profile-container,.order-page-container,.custom-address,.wishlist-container{
     display: grid;
     grid-template-rows: 2rem 1fr 2rem;
     grid-template-columns: 2rem 1fr 2rem;
@@ -7,7 +7,7 @@
                         ". . .";
    /* overflow-y: scroll; */
 }
-.manage-profile-main,.order-page-main,.custom-address-main{
+.manage-profile-main,.order-page-main,.custom-address-main,.wishlist-main{
     grid-area: p-main;
  
 }

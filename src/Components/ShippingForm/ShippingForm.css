@@ -9,10 +9,10 @@
 .breadCrumb{
     grid-area: breadCrumb;
 }
-form{
+.shipping-form form{
     grid-area: form;
 }
-form > div{
+.shipping-form form > div{
    margin: 2rem 0;
 }
 .fname{

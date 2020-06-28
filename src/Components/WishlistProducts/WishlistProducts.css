@@ -1,0 +1,9 @@
+.wishlist-products{
+    margin-top: 3rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,24rem);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    justify-content: center;
+}

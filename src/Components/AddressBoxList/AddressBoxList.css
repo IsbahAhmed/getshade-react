@@ -1,0 +1,6 @@
+.addresses{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,48%);
+   justify-content: space-between;
+   row-gap: 2rem;
+    }

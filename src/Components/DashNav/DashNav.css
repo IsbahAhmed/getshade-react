@@ -2,7 +2,7 @@
     height: 40rem;
     background: var(--lightblack);
     display: grid;
-    grid-template-rows: repeat(5,20fr);
+    grid-template-rows: repeat(4,25fr);
 }
 .dash-nav > *{
     display: flex;

@@ -1,0 +1,81 @@
+.address-box{
+   
+    height: 30rem;
+    border: 1px solid var(--bordercolor);
+    border-top: 2px solid var(--black);
+    display: grid;
+    grid-template-rows: 20fr 80fr;
+}
+.address-name{
+border-bottom: 1px solid var(--bordercolor);
+display: grid;
+grid-template-columns: 80fr 20fr;
+position: relative;
+
+}
+.ad-opt{
+    background: lightgray;
+    font-size: 2rem;
+    color: var(--lightblack);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 300ms ease-in-out;
+    position: relative;
+}
+.ad-opt:hover{
+    background: rgb(172, 172, 172);
+}
+.drop-down{
+  cursor: initial;
+ 
+    position: absolute;
+    content:"";
+    background: rgb(255, 255, 255);
+    width: 20rem;
+    height: 10rem;
+  left: 80%;
+    bottom: -10rem;
+    -webkit-box-shadow: 0px 0px 18px 0px rgba(207,207,207,1);
+-moz-box-shadow: 0px 0px 18px 0px rgba(207,207,207,1);
+box-shadow: 0px 0px 18px 0px rgba(207,207,207,1);
+display: none;
+align-items: center;
+
+}
+.drop-down-on{
+ display: flex;
+}
+.drop-down li{
+    cursor: pointer;
+    position: relative;
+    width: max-content;
+    font-size: 1.8rem;
+    margin-left: 2rem;
+}
+.drop-down ul li:after{
+    content: "";
+    background: var(--black);
+    width: 110%;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+.drop-down li:hover::after{
+    transform: scaleX(1);
+
+}
+.address-des{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.address-des > * {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}

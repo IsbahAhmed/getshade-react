@@ -17,7 +17,7 @@ const UserDashboardWrapper = () => {
             <Route path="/userProfile/:uid/orders" component={Orders} exact/>
             <Route path="/userProfile/:uid/" component={ManageProfile} exact/>
             <Route path="/userProfile/:uid/addresses" component={Addresses} exact/>
-            <Route path="/userProfile/:uid/payments" component={Payments} exact/>
+
             <Route path="/userProfile/:uid/wishlist" component={Wishlist} exact/>
             
             </Switch>

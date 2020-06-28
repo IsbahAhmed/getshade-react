@@ -29,9 +29,7 @@ const DashNav = (props) => {
       <Link  className={selectedNavLink === "/userProfile/123/addresses" ? "selected-dash-nav-link":""} to="/userProfile/123/addresses">
         <Paragraph>Addresses</Paragraph>
       </Link>
-      <Link  className={selectedNavLink === "/userProfile/123/payments" ? "selected-dash-nav-link":""} to="/userProfile/123/payments">
-        <Paragraph>Payments</Paragraph>
-      </Link>
+    
       <Link  className={selectedNavLink === "/userProfile/123/wishlist" ? "selected-dash-nav-link":""} to="/userProfile/123/wishlist">
         <Paragraph>Wishlist</Paragraph>
       </Link>

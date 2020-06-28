@@ -4,6 +4,7 @@ font-family: var(--font-raleway);
 font-size: 1.4rem;
 cursor: pointer;
 transition:all 200ms ease-in-out;
+letter-spacing: 2px;
 }
 .btn-container button:active{
     transform: scale(0.9);

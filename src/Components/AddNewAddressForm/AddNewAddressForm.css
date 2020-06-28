@@ -1,0 +1,9 @@
+.add-new-address{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3,33fr);
+    column-gap: 2rem;
+}
+.add-new-address > *{
+    margin: 1rem 0;
+}
