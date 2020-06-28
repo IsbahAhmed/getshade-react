@@ -21,7 +21,7 @@ transition:all 200ms ease-in-out;
     background: var(--blue);
 }
 .blue-scheme:hover{
-    background: var(--lightBlue);
+    background: var(--lightblue);
 }
 .black-scheme{
     color:white;
@@ -31,5 +31,14 @@ transition:all 200ms ease-in-out;
 }
 .black-scheme:hover{
     background: var(--lightblack);
+
+}
+.red-scheme{
+    color: white;
+    border:1px solid var(--red);
+    background: var(--red);
+}
+.red-scheme:hover{
+    background: var(--lightred);
 
 }

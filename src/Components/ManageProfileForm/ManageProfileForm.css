@@ -1,0 +1,8 @@
+.manage-profile-form-container{
+ display: grid;
+ grid-template-columns: repeat(4,25fr);
+
+}
+.manage-profile-form-container > div{
+  margin: 1rem;
+}

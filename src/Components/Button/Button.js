@@ -15,6 +15,9 @@ var classVarient = "";
           case "blue":
               classVarient = "blue-scheme" 
               break;
+              case "red":
+                  classVarient = "red-scheme"
+                  break;
           default:
           classVarient = "blue-scheme"
           break;

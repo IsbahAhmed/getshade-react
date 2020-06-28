@@ -1,0 +1,9 @@
+.custom-address-main{
+grid-area: p-main;
+
+}
+.addresses{
+display: grid;
+grid-template-columns: repeat(auto-fit,45%);
+
+}
