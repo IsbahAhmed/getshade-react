@@ -1,0 +1,23 @@
+.about-main{
+display: flex;
+justify-content: center;
+}
+.about-main > div{
+    width: 40%;
+    display: flex;
+    flex-flow: column;
+ 
+justify-content: center;
+
+}
+.about-content{
+   
+}
+.about-content > *{
+    margin: 1rem 2rem;
+}
+.xc-pix{
+    background: url("../../assets/img/about-main-content.jpg");
+    background-size: 100% 100% , cover;
+    transform: translateY(-10%);
+}

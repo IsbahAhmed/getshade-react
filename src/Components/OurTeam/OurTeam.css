@@ -1,0 +1,40 @@
+.a-team{
+    display: grid;
+    grid-template-rows: 20fr 80fr;
+    
+}
+.leadership{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.leadership > *{
+    margin: 1rem 0;
+}
+.team-members{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.team-box{
+    width: 33%;
+    height: 95%;
+
+    margin: 0 1rem;
+    display: grid;
+    grid-template-rows: 85fr 15fr;
+
+}
+.t-img{
+background-size: 100% 100% , cover;
+
+}
+.team-name{
+    background: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
