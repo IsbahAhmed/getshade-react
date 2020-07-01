@@ -13,8 +13,8 @@
 	/* grid-template-rows: 10fr 80fr 10fr; */
 	grid-template-areas: ". foot-logo foot-cont foot-links .";
 	color: white;
-	grid-gap: 7rem;
-	grid-column-gap: 15rem;
+	grid-gap: 2rem;
+	
 }
 .footer > div{
 	display: flex;
@@ -70,3 +70,21 @@
 	font-family: var(--font-main);
 }
 
+@media only screen and (max-width:768px){
+	.footer{
+		/* margin-top: 7rem; */
+		height: 90rem;
+	
+		/* grid-template-columns: 12fr repeat(3,25fr) 12fr; */
+		grid-template-columns: 5fr 90fr 5fr;
+		grid-template-rows: 12fr repeat(3,25fr) 12fr;
+		/* grid-template-areas: ". foot-logo foot-cont foot-links ."; */
+		grid-template-areas: ". . ."
+							". foot-logo ."
+							". foot-cont ."
+							". foot-links .";
+		grid-gap: 2rem;
+		column-gap: 15rem;
+		padding: 0;
+	}
+}

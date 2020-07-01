@@ -1,0 +1,41 @@
+.contact-page-container{
+    margin: 5rem 0;
+    display: grid;
+    grid-template-rows: 30vw;
+    grid-template-columns: 5fr 90fr  5fr;
+    grid-template-areas: ". contact-main .";
+}
+
+.contact-main{
+    grid-area: contact-main
+    ;
+   
+    display: grid;
+    grid-template-columns: repeat(3,33fr);
+    column-gap: 1rem;
+}
+.contact-form > *{
+    margin-bottom: 1rem;
+}
+.store-address{
+
+}
+.store-address > *{
+    margin: 1rem 2rem;
+ 
+}
+@media only screen and (max-width:768px){
+    .contact-page-container{
+     
+      height: 100vh;
+
+    }
+    .contact-main{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3,33fr);
+    }
+    .message-box{
+        height: 20rem;
+    }
+    
+}

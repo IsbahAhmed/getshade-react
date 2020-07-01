@@ -1,0 +1,21 @@
+.text-area-container {
+width: 100%;
+
+}
+.text-area-container textarea{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    transition: all 200ms ease-in-out;
+    font-family: var(--font-raleway);
+    box-sizing: border-box;
+    color: grey;
+    border: 1px solid rgba(150, 150, 150, 0.603);
+    padding: 1rem;
+    margin-top: 5px;
+}
+.text-area-container textarea:focus{
+    outline: none!important;
+    border-color: lightblue;
+    color: black;
+}
