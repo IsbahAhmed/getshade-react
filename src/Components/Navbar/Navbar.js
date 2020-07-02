@@ -9,7 +9,7 @@ import MobileNav from '../MobileNav/MobileNav';
 
 const Navbar = (props) => {
     // var [slectedLink,linkSelector] = useState("home")
-  var [navbar,setNavbar] = useState("normal")  ;
+  var [navbar,setNavbar] = useState("mobile")  ;
   React.useEffect(() => {
         function handleResize() {
         // console.log()
@@ -20,15 +20,18 @@ const Navbar = (props) => {
             setNavbar("normal")
         }
   }
-  window.addEventListener("resize",handleResize)
   window.addEventListener("load",handleResize)
+
+  window.addEventListener("resize",handleResize)
         })
     var {cartToglleHandler} = props;
 
     return (
         <div>
             {
-                navbar === "normal"?
+                navbar === "mobile"?
+                <MobileNav/>
+                :
                 (     <div className="nav">
                 <div className="logo">
                     <img src={logo}/>
@@ -65,8 +68,8 @@ const Navbar = (props) => {
              <div className='cart-count flex-center' ></div>
              </div>
              </div>)
-             : 
-             <MobileNav/>
+             
+            
             }
         </div>
     )
