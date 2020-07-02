@@ -49,3 +49,13 @@ html a{
   background: transparent;
   border: 1px solid white;
 }
+@media only screen and (max-width:768px){
+  html{
+    font-size: 50%;
+  }
+}
+@media only screen and (max-width:425px){
+  html{
+    font-size: 40%;
+  }
+}

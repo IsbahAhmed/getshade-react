@@ -21,7 +21,7 @@
     overflow: hidden;
   
 }
-.collections > div h1{
+.collection-name h1{
     color: white;
     position: absolute;
    left: 50%;
@@ -57,4 +57,28 @@
 .c3{
     grid-area: c3;
 
+}
+@media only screen and (max-width:1024px){
+    .collection-name h1{
+     font-size: 130%;
+    }
+}
+@media only screen and (max-width:768px){
+    .collection-name h1{
+     font-size: 100%;
+    }
+}
+@media only screen and (max-width:425px){
+ .collections{
+  min-height: 100vw;
+  height: min-content;
+    grid-template-rows: 5fr 20fr 50fr 20fr 5fr;
+    grid-template-columns: 5fr 90fr 5fr;
+    grid-template-areas: ". . ."
+                        ". c1 ."
+                        ". c2 ."
+                        ". c3 ."
+                        ". . ."
+    ;
+ }
 }

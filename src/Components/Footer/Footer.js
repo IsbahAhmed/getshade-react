@@ -10,7 +10,7 @@ const Footer = () => {
    
             <h1>Get Shade</h1>
 
-            <Paragraph>
+            <Paragraph style={{marginRight:"5rem"}}>
               Get Shade is an online sunglasses store that has continually
               featured a variety of high-quality imported and affordable
               products since day one. Our passion for excellence has driven us

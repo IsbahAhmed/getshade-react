@@ -13,19 +13,19 @@ const Collections = () => {
     return (
         <div className="collections">
             <div className="c1" onClick={()=>routeChange("c1")}> 
-              <Heading >
+              <Heading className="collection-name" >
                  <h1> New <br/> Opticans.</h1>
               </Heading>
         <img src={c1} alt=""/>
             </div>
             <div className="c2" onClick={()=>routeChange("c2")}>
-            <Heading >
+            <Heading className="collection-name" >
                  <h1> Extensive Collection</h1>
               </Heading>
         <img src={c2} alt=""/>
             </div>
             <div className="c3" onClick={()=>routeChange("c3")}>
-            <Heading >
+            <Heading className="collection-name" >
                  <h1> Looking Good. <br/>
            
                  </h1>

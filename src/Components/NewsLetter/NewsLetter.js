@@ -10,7 +10,7 @@ const NewsLetter = () => {
     return (
         <div className="newsletter">
             <div className="text-part">
-               <Heading fontSize="25">
+               <Heading className="text-part-h" fontSize="25">
                Getshade is here <br/> for creative pros to carry, build & hack life better
                </Heading>
             </div>
@@ -33,7 +33,7 @@ const NewsLetter = () => {
                    </div>
                    <div className="xs2 ">
                     <Button value="SUBSCRIBE &rarr;" colorScheme="black" 
-                    style={{color:"black",paddingBottom:"1rem",border:"none",fontWeight:"600",letterSpacing:"3px"}}
+                    style={{color:"black",paddingBottom:"1rem",border:"none",width:"max-content",fontWeight:"600",letterSpacing:"3px"}}
                      backgroundColor="transparent"/>
                    </div>
                  </div>

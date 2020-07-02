@@ -30,8 +30,65 @@
     grid-area: rightSect;
 display: grid;
 grid-template-columns: repeat(auto-fit,30rem);
+height: 70rem;
 justify-content: center;
 align-items: center;
 grid-gap: 2rem;
+overflow-y: auto;
+overflow-x: hidden;
 
 }
+.right-sect::-webkit-scrollbar{
+
+    width: 1rem;
+    border-radius: 1rem; 
+
+}
+/* Track */
+.right-sect::-webkit-scrollbar-track {
+    /* background: #f1f1f1; */
+  }
+   
+  /* Handle */
+  .right-sect::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 4rem; 
+
+
+  }
+  
+  /* Handle on hover */
+  .right-sect::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+@media only screen and (max-width:768px){
+    .left-box{
+        height: 50rem;
+    }
+}
+@media only screen and (max-width:425px){
+    .new-products{
+        margin-top: 5rem;
+       display: grid;
+       grid-template-rows: minmax(7rem,min-content);
+       grid-template-columns:2rem 40fr 60fr 2rem;
+       grid-gap: 2rem;
+       grid-template-areas:". leftBox rightSect .";
+        /* background: lightblue; */
+    }
+  }
+
+  @media only screen and (max-width:375px){
+    .left-box{
+        height: 30rem;
+    }
+    .new-products{
+       height: min-content;
+       grid-template-rows:2rem 40fr 60fr 2rem;
+       grid-template-columns: 5fr 90fr 5fr;
+       grid-gap: 2rem;
+       grid-template-areas:". . ."
+        ". leftBox ." ". rightSect ." ". . .";
+        /* background: lightblue; */
+    }
+  }

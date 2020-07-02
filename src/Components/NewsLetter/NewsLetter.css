@@ -24,3 +24,24 @@
     grid-template-columns: 80fr 20fr;
     border-bottom: 1px solid black;
 }
+@media only screen and (max-width:425px){
+    .input-xs{
+        width: 80%;
+        /* background: lightcoral; */
+        height: 10rem;
+      
+       
+    }
+    .input-xs > div {
+        width: 100%;
+        display: grid;
+        /* align-items: end; */
+        grid-template-columns: 80fr 20fr;
+        border-bottom: 1px solid black;
+    }
+}
+@media only screen and (max-width:375px){
+    .text-part-h{
+        margin: 4rem;
+    }
+}
