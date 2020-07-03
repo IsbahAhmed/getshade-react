@@ -22,14 +22,14 @@ const AddNewAddressForm = () => {
           <div style={{gridColumn:"1 / span 3"}}>
               <SimpleInput placeholder="Address..." label="ADDRESS"/>
           </div>
-          <div className="">
+          <div className="s-cont">
               <Select label="SELECT COUNTRY" options={countryDetails} defaultOption="Select Country"/>
           </div>
-          <div className="">
+          <div className="p-code">
           <SimpleInput placeholder="Postal code" label="POSTAL"/>
 
           </div>
-          <div className="">
+          <div className="apt">
           <SimpleInput placeholder="Apt#" label="APT#"/>
           </div>
           <div className="">

@@ -48,3 +48,8 @@ opacity: 1;
     justify-content: space-between;
     align-items: center;
 }
+@media screen and (max-width:425px){
+    .mini-cart{
+        padding-bottom: 2rem;
+    }
+}

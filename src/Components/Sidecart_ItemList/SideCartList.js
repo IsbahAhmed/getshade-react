@@ -6,6 +6,8 @@ const SideCartItemList = () => {
         <React.Fragment>
             <SideCartListItem/>
             <SideCartListItem/>
+            <SideCartListItem/>
+
         </React.Fragment>
     )
 }

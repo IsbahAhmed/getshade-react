@@ -4,14 +4,14 @@ import  './Product.css'
 import Paragraph from '../Paragraph/Paragraph';
 import {useHistory as history} from "react-router-dom"
 const Product = (props) => {
-var {imagePath,itemName,itemPrice,newArrival,style} = props
+var {imagePath,itemName,itemPrice,newArrival,style,className} = props;
 
 var productDetail = ()=>{
   history.push("/productDetail")
 }
     return (
         
-    <div className="item item-setting" style={{...style}} id="">
+    <div className={`item item-setting ${className}`} style={{...style}} id="">
       <div className="quick-view">
       <Paragraph>
       Quick View 

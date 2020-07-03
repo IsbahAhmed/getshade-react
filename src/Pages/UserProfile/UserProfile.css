@@ -18,3 +18,10 @@
 .user-dashboard-header > *{
     margin: 0 2rem;
 }
+@media screen and (max-width:1024px){
+    .user-dashboard{
+    grid-template-columns: 5fr 90fr 5fr;
+
+    }
+}
+

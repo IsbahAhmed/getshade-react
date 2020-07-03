@@ -6,8 +6,14 @@
   
 }
 .main-product-sec{
+    justify-content: center;
     display: grid;
     grid-template-columns: repeat(auto-fit,30rem);
     grid-gap: 2rem;
 
+}
+@media only screen and (max-width:425px){
+ .main-product-sec{
+     grid-template-columns: repeat(auto-fit,20rem);
+ }
 }

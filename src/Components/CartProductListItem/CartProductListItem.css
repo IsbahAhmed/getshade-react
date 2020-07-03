@@ -10,7 +10,7 @@
         grid-area: improduct;
         display: grid;
         grid-template-columns: 40fr 60fr;
-        grid-column-gap:1.5rem;
+        column-gap:1.5rem;
         grid-template-areas: "thumb info";
     }
     .improduct img{
@@ -47,4 +47,20 @@
      /* display: grid;
      justify-content: end; */
     }
-    
+    @media screen and (max-width:425px)
+    {
+        .item-row-setting{
+            grid-template-areas: "improduct rs qty total";
+            grid-template-columns: 43fr repeat(3,19fr);
+            height: 20rem;
+        }
+        .improduct{
+          
+            grid-template-columns: 1fr;
+            grid-template-areas: 40fr 60fr;
+            grid-template-areas: "thumb" "info";
+        }
+        .info > *{
+            margin:5px
+        }
+    }

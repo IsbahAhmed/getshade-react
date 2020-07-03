@@ -29,7 +29,14 @@
 .postal{
     display: grid;
     grid-template-columns: 50fr 50fr;
-    grid-column-gap: 10px;
+    column-gap: 10px;
+}
+@media screen and (max-width:375px){
+    .postal{
+        grid-template-columns: 1fr;
+        grid-template-rows: 50fr 50fr;
+        row-gap: 2rem;
+    }
 }
 .v1-logo img{
 width: 15rem;

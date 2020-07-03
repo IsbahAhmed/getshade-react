@@ -13,5 +13,13 @@ grid-area: main-shop;
     display: grid;
     grid-template-columns: 20fr 80fr;
     grid-template-areas: "filters products";
-    grid-column-gap: 2rem;
+    column-gap: 2rem;
 }
+@media screen and (max-width:425px){
+  .shop-grid{
+    grid-template-columns: 1fr;
+    grid-template-rows: 20vh min-content;
+    grid-template-areas: "filters" "products";
+  }
+}
+

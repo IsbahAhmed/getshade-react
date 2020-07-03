@@ -15,7 +15,7 @@ const Cart = (props) => {
      
   <div className="two-btn">
   <div className="flex-center">
-  <Link to="/shop">
+  <Link to="/shop/all">
       <Paragraph>
       <FontAwesomeIcon icon={faLessThan}/> Continue Shopping
       </Paragraph>
@@ -39,30 +39,23 @@ const Cart = (props) => {
   </div>
 
   <div className="total-etc">
-    <div className="col-1">
-    
- 
-    </div>
-    <div className="col-3">
-    <Heading>
-        Subtotal
+      <div className="ssl">
+     
+      </div>
+      <div className="checkout-system">
+      <Heading>
+      Subtotal
     </Heading>
-  
-    </div>
-    <div className="col-4">
-    <Paragraph>
-        2000
+   
+
+   <Paragraph style={{justifySelf:"end"}}>
+      2000
     </Paragraph>
-    </div>
-    <div className="ssl" />
-    <div className="checkout-btn">
-    
-     <div className="btn">
+     <div className="btn" style={{gridColumn:"1/ span 2"}}>
      <Link to="/shipping/x12" >
-    <Button value="CHECK OUT" style={{width:"35rem",height:"5rem"}} colorScheme="black"/>
+    <Button value="CHECK OUT" style={{width:"100%",height:"5rem"}} colorScheme="black"/>
     </Link>
      </div>
-      {/* dont Select it by id in css */}
     </div>
   </div>
 

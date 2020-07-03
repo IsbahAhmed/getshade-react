@@ -28,7 +28,7 @@ const MobileMenu = (props) => {
             <Link to="/">HOME</Link>
             </Heading>
             <Heading>
-            <Link to="/shop">SHOP</Link>
+            <Link to="/shop/all">SHOP</Link>
             </Heading>
             <Heading>
             <Link to="/about">ABOUT</Link>

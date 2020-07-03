@@ -9,10 +9,23 @@
     display: flex;
     align-items: center;
 }
+
 .forget-link{
     cursor: pointer;
     transition: color 200mss ease-in-out;
 }
 .forget-link:hover{
     color: var(--lightblack);
+}
+@media screen and (max-width:375px){
+    .sign-in-btn{
+        width: 100%;
+        flex-flow: column;
+    }
+    .sign-in-btn > *{
+        margin: 1rem 0;
+    }
+    .sign-in-btn .btn-container , .sign-in-btn button{
+        width: 100% !important;
+    }
 }

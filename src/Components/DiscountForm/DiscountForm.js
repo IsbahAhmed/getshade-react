@@ -9,7 +9,7 @@ const DiscountForm = (props) => {
      
     <form action="" className="flex-center discount-form">
     <SimpleInput value={inputValue} onChange={(e)=> setInputValue(e.target.value)} width="100%" label="" placeholder="Enter discount coupon" required/>
-          <Button value="Apply" style={{width:"8rem",height:"4rem",marginTop:"5px"}}/>
+          <Button value="Apply" style={{width:"8rem",height:"5rem",marginTop:"5px"}}/>
     </form>
 
     )

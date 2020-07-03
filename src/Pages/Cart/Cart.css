@@ -3,12 +3,13 @@
     /* min-height: min-content; */
     display: grid;
     grid-template-columns: minmax(10rem,1fr) minmax(min-content,90rem) minmax(10rem,1fr);
-    grid-template-rows: 5rem minmax(16rem,min-content) 17rem 5rem;
+    grid-template-rows: 5rem minmax(16rem,min-content) minmax(17rem,min-content) 5rem;
     grid-template-areas: ". x-btn ."
                         ". items-list ."
                         ". etc ."
                        ". . ." ;
-
+    row-gap: 1rem;
+ 
 }
 .two-btn{
     grid-area: x-btn;
@@ -25,8 +26,11 @@
     display: grid;
     
     grid-template-rows: 6.4rem minmax(15rem,1fr);
+
     grid-template-areas: "headings "
                         "products"
+                        ;
+    row-gap: 1rem;
   
     
 }
@@ -34,7 +38,7 @@
 
     grid-area: headings;
     display: grid;
-    grid-template-columns: 55fr repeat(3,15fr);
+    grid-template-columns: 55fr repeat(3,minmax(max-content,15fr));
     align-items: end;
     
     border-bottom: 1px solid black;
@@ -42,6 +46,7 @@
 }
 .headings > *{
     padding-bottom: 10px;
+    
 }
 .headings p2{
 justify-self: end;
@@ -50,57 +55,51 @@ justify-self: end;
 
 
 .total-etc{
-    margin-top: 7rem;
+    /* margin-top: 7rem; */
     
     grid-area: etc;
     display: grid;
-    grid-template-columns: repeat(4,25fr);
-    grid-template-rows: 50fr 50fr;
-    grid-template-areas: "enterPromo . shipping total"
-                        "ssl ssl check check";
+    grid-template-columns: repeat(2,50fr);
+    /* grid-template-rows: 50fr 50fr; */
+
     
 }
 
-.col-1{
-    grid-area: enterPromo;
-    display: flex;
-    flex-flow: column;
-}
-.col-1 p{
-    padding: 1rem;
-}
-.col-3{
-    grid-area: shipping;
-    display: grid;
-    
-}
-.col-4{
-    grid-area: total;
-    display: grid;
-    justify-content: end;
-}
+
 .ssl{
-    grid-area: ssl;
+ 
     background: lightgray
 }
-.checkout-btn{
-    border-top: 1px solid black;
-    grid-area: check;
+.checkout-system{
     display: grid;
-    grid-template-columns: 50fr 50fr;
     grid-template-rows: 50fr 50fr;
-    grid-template-areas: "col1 col2"
-                        "btn btn";
-    align-items: center;
+    grid-template-columns: 50fr 50fr;
 }
 #total{
    justify-self: end;
 }
-.checkout-btn .btn{
-    grid-area: btn;
-    justify-self: center;
-    align-self: center;
-    /* padding: 1rem 16rem; */
-   /* height: 5rem; */
-    font-family: var(--font-main);
+
+@media screen and (max-width:425px){
+    .cart-container{
+    
+        grid-template-columns: 5fr 90fr 5fr;
+        grid-template-rows: 5rem minmax(16rem,min-content) minmax(15rem,min-content) 5rem;
+        grid-template-areas: ". x-btn ."
+                            ". items-list ."
+                            ". etc ."
+                           ". . ." ;
+        row-gap: 1rem;
+     
+    }
+    .total-etc{
+    grid-template-columns: 1fr;
+    grid-template-rows: 50fr 50fr;
+    }
+    .headings{
+    grid-template-columns: 43fr repeat(3,minmax(max-content,19fr));
+
+    }
+    .ssl{
+        margin-top: 2rem;
+    }
 }

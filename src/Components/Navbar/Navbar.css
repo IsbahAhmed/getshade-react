@@ -2,8 +2,8 @@
     display: grid;
     height: 12rem;
 
-    grid-template-columns: 30fr 22fr repeat(6,7fr) 5fr; 
-    grid-template-areas: "logo . home shop drop contact auth cart";
+    grid-template-columns: 30fr 17fr repeat(6,8fr) 5fr; 
+    grid-template-areas: "logo . home shop drop contact auth cart .";
     font-weight: bold;
     background: white;
     width: 100vw;
@@ -70,6 +70,24 @@
         width: 3rem;
         height: 3rem;
         cursor: pointer;
+    }
+    .cart-count{
+        width: 2.5rem;
+        height: 2.5rem;
+        background: var(--lightblack);
+        border-radius: 50%;
+        margin-left: 0.5rem;
+        color: white;
+        font-size: 1.4rem;
+        font-family: var(--font-raleway);
+        transition: transform 100ms ease-out;
+        transform: scale(0);
+    }
+    .cart-123 img{
+        cursor: pointer;
+    }
+    .pop-count{
+        transform: scale(1);
     }
     .hover{
         position: relative;

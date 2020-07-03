@@ -11,13 +11,15 @@ const Auth = (props) => {
     return (
         <div className="auth-page-container">
            <div className="brc">
-               <Link to="/">
+    
+         <Link to="/">
                Home
                </Link>
-               <FontAwesomeIcon icon={faGreaterThan} />
-               <Paragraph>
+            /
+               <Link to="/auth">
                    Account
-               </Paragraph>
+               </Link>
+      
            </div>
      <div className="auth-main">
      <AuthMain/>

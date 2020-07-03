@@ -88,3 +88,18 @@
 		padding: 0;
 	}
 }
+@media only screen and (max-width:425px){
+	.footer{
+	
+		grid-template-columns: 5fr 90fr 5fr;
+		grid-template-rows: 12fr repeat(3,25fr) 12fr;
+	
+		grid-template-areas: ". . ."
+							". foot-logo ."
+							". foot-cont ."
+							". foot-links .";
+		grid-gap: 2rem;
+		column-gap: 4rem;
+		padding: 0;
+	}
+}

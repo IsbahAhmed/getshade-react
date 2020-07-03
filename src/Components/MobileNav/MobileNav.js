@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHamburger,
   faBars,
-  faTimes,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useEffect } from "react";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import { Link } from "react-router-dom";
 
 const MobileNav = () => {
   var [mobile_menuStyle, toggleMobileMenu] = useState({
@@ -52,6 +53,7 @@ const MobileNav = () => {
   return (
     <div>
       <div className="mobile-nav">
+
         <div className="m-menu flex-center">
           {/* <img src="img/menu.svg" id="ham" /> */}
           <FontAwesomeIcon
@@ -63,7 +65,9 @@ const MobileNav = () => {
           <img src={logo} />
         </div>
         <div className="m-cart flex-center cart-123">
-          <img src={cartIcon} />
+         <Link to="/cart">
+         <img src={cartIcon} />
+         </Link>
           <div className="cart-count flex-center" />
         </div>
       </div>

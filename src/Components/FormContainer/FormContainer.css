@@ -10,7 +10,7 @@
    display: flex;
    flex-flow: column;
    justify-content: center;
-  
+  box-sizing: border-box;
 border: 1px solid rgb(173, 173, 173);
 border-top: 2px solid var(--black);
 
@@ -78,4 +78,18 @@ transform: translateY(102%);
 .signupFormArea{
     grid-area: signupFormArea;
 
+}
+@media screen and (max-width:425px){
+    .form-container{
+        height: min-content;
+        flex-flow: column;
+    }
+    .box{
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .signup-form-container{
+        width: 100%;
+    }
+    
 }

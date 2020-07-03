@@ -9,7 +9,8 @@ import MobileNav from '../MobileNav/MobileNav';
 
 const Navbar = (props) => {
     // var [slectedLink,linkSelector] = useState("home")
-  var [navbar,setNavbar] = useState("mobile")  ;
+  var [navbar,setNavbar] = useState("mobile");
+  var [cartCount,setCountValue] = useState(0)
   React.useEffect(() => {
         function handleResize() {
         // console.log()
@@ -65,7 +66,9 @@ const Navbar = (props) => {
      <div className="cart-icon cart-123 flex-center" id="cart-icon">
      
         <img src={cartIcon} onClick={()=> cartToglleHandler(true)} alt=""/>
-             <div className='cart-count flex-center' ></div>
+            <div className={`cart-count flex-center ${(cartCount > 0) && "pop-count"}`} >
+            {cartCount}
+            </div>
              </div>
              </div>)
              

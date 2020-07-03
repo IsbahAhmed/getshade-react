@@ -1,7 +1,7 @@
 .about-container{
     margin-top: 5rem;
     display: grid;
-    grid-template-rows: 50rem 40rem 50vw minmax(40rem,min-content);
+    grid-template-rows: 50rem 40rem 50vw minmax(30vw,min-content);
     grid-template-columns: 10fr 80fr 10fr;
     grid-template-areas: ". a-header ."
                             ". a-main-content ."
@@ -63,4 +63,20 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .shop-text > *{
     margin: 0.5rem 2rem;
+}
+@media screen and (min-width:1440px){
+.about-container{
+ grid-template-columns: minmax(5rem,1fr) 118rem minmax(5rem,1fr);
+
+}
+}
+@media screen and (max-width:425px){
+    .about-container{
+        grid-template-rows: 50rem 30rem minmax(80vw,min-content) minmax(70vw,min-content);
+    }
+}
+@media screen and (max-width:340px){
+    .about-container{
+        grid-template-columns: 5fr 90fr 5fr;
+    }
 }

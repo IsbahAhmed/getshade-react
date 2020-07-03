@@ -4,6 +4,12 @@
     grid-template-columns: 30fr 70fr;
     column-gap: 2rem;
 }
+@media screen and (max-width:425px){
+ .u-dash-main{
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+ }
+}
 .dash-pages{
 
     border: 1px solid var(--bordercolor);

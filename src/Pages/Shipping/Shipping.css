@@ -8,4 +8,14 @@
 }
 
 /* 03002592759 */
+@media screen and (max-width:425px){
+    .shipping-container{
+        grid-template-columns: 5fr 90fr 5fr;
+        grid-template-areas: "miniCart miniCart miniCart"
+                            ". sform ."
+                            ". . .";
+    grid-template-rows: minmax(30rem,min-content) minmax(30rem,min-content) 5rem;
+        
+    }
+}
 

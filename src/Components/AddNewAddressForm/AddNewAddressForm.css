@@ -4,6 +4,17 @@
     grid-template-columns: repeat(3,33fr);
     column-gap: 2rem;
 }
+@media screen and (max-width:425px){
+ .s-cont{
+     grid-column: 1/span 3;
+ }
+ .p-code{
+     grid-column: 1 / span 3;
+ }
+ .apt{
+     grid-column: 1 / span 3;
+ }
+}
 .add-new-address > *{
     margin: 1rem 0;
 }
