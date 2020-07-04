@@ -1,0 +1,21 @@
+.thanku-container{
+    background: radial-gradient(white,rgba(105, 105, 105, 0.116));
+    display: grid;
+    grid-template-columns: 10fr 80fr 10fr;
+    grid-template-rows: 5rem minmax(30rem,min-content) 5rem;
+    grid-template-areas: ". . ."
+                        ". thank-main ."
+                        " . . .";
+}
+.thank-main{
+    grid-area: thank-main;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-flow: column;
+ text-align: center;
+ 
+}
+.thank-main > *{
+    margin: 1rem 0;
+}
