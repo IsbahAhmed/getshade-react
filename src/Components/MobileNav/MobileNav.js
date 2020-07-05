@@ -19,29 +19,34 @@ const MobileNav = () => {
     opacity: "0",
   });
   var [displayValue, setDisplayValue] = useState(false);
+
+
+  var timeOut_1 = () => setTimeout(() => {
+    toggleMobileMenu((prevState) => {
+      return {
+        ...prevState,
+        opacity: "1",
+      };
+    });
+  }, 300);
+  var  timeOut_2 = () =>  setTimeout(() => {
+    toggleMobileMenu((prevState) => {
+      return {
+        ...prevState,
+        display: "none",
+      };
+    });
+  }, 300);
   var mobileMenuOn = () => {
     if (displayValue) {
-      setTimeout(() => {
-        toggleMobileMenu((prevState) => {
-          return {
-            ...prevState,
-            opacity: "1",
-          };
-        });
-      }, 300);
+
+      timeOut_1()
       toggleMobileMenu((prevState) => ({
         ...prevState,
         display: "grid",
       }));
     } else {
-      setTimeout(() => {
-        toggleMobileMenu((prevState) => {
-          return {
-            ...prevState,
-            display: "none",
-          };
-        });
-      }, 300);
+      timeOut_2()
       toggleMobileMenu((prevState) => ({
         ...prevState,
         opacity: "0",
@@ -72,6 +77,8 @@ const MobileNav = () => {
         </div>
       </div>
       <MobileMenu
+      timeOut_1={timeOut_1}
+      timeOut_2={timeOut_2}
         mobile_menuStyle={mobile_menuStyle}
         mobileMenuOn={mobileMenuOn}
         setDisplayValue={setDisplayValue}

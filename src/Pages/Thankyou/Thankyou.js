@@ -2,6 +2,7 @@ import React from 'react'
 import "./Thankyou.css"
 import Heading from '../../Components/Heading/Heading'
 import Paragraph from '../../Components/Paragraph/Paragraph'
+import QuickView from '../../Components/QuickView/QuickView'
 const Thankyou = () => {
     return (
         <div className="thanku-container">
@@ -18,6 +19,7 @@ const Thankyou = () => {
                 We will send you confirmation email shortly.
             </Paragraph>
           </div>
+        
         </div>
     )
 }

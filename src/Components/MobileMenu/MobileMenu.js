@@ -5,10 +5,16 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import Heading from "../Heading/Heading"
 import {Link} from "react-router-dom"
 const MobileMenu = (props) => {
-    var {mobile_menuStyle,mobileMenuOn,setDisplayValue,displayValue} = props;
+    var {mobile_menuStyle,mobileMenuOn,setDisplayValue,displayValue,timeOut_1,timeOut_2} = props;
   useEffect(() => {
    mobileMenuOn()
   }, [displayValue])
+  useEffect(()=>{
+return ()=>{
+clearTimeout(timeOut_1)
+clearTimeout(timeOut_2)
+}
+  },[])
     return (
         <div
         className={`mobile-menu `}
