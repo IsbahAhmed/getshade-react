@@ -2,19 +2,20 @@ import React, { useEffect } from "react";
 import Modal from "react-modal";
 import "./QuickView.css";
 import Heading from "../Heading/Heading";
-import Paragraph from "../Paragraph/Paragraph";
+
 import { Link } from "react-router-dom";
-import SimpleInput from "../SiimpleInput/SimpleInput";
-import Button from "../Button/Button";
-import img from "../../assets/img/item-1.jpg";
+
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { getSiblings } from "../../Utility/Utility";
-
+import {v4 as uuid} from "uuid"
+import QVquantity from "../QVquantity/QVquantity";
 Modal.setAppElement("#root");
 
-const QuickView = ({ setModal }) => {
+const QuickView = ({ setModal , productInfo}) => {
+
+  var {name,price,descriptions,imagesLinks,selectedColors,productId} = productInfo
   var [modalStyle, setModalStyle] = useState({
     width: "90",
 
@@ -27,7 +28,7 @@ const QuickView = ({ setModal }) => {
         flexFlow: "column",
       }));
     } else if (window.innerWidth > 425) {
-      console.log(window.innerWidth);
+     
 
       setModalStyle((prevState) => ({
         ...prevState,
@@ -46,19 +47,18 @@ const QuickView = ({ setModal }) => {
     };
   }, []);
 
-  var colorSelector = (e)=>{
-    var siblings = getSiblings(e.target)
+  var colorSelector = (e) => {
+    var siblings = getSiblings(e.target);
     var ele = e.target;
-    ele.classList.add("selected-color")
- 
-    siblings.forEach((sib)=>{
-      sib.classList.remove("selected-color")
-    })
+    ele.classList.add("selected-color");
 
-  }
+    siblings.forEach((sib) => {
+      sib.classList.remove("selected-color");
+    });
+  };
 
   var { width, display, flexFlow } = modalStyle;
-  console.log(modalStyle);
+
   return (
     <Modal
       isOpen={true}
@@ -85,44 +85,41 @@ const QuickView = ({ setModal }) => {
       }}
       onRequestClose={() => setModal(false)}
     >
-        <FontAwesomeIcon 
+      <FontAwesomeIcon
         onClick={() => setModal(false)}
-        className="close-quick" icon={faTimes}/>
+        className="close-quick"
+        icon={faTimes}
+      />
       <div className="quick-pic">
         <div className="image-prev">
-          <img src={img} alt="" />
+          <img src={imagesLinks[0].org_link} alt="" />
         </div>
         <div className="quick-multi-pix">
-          <div className="">
-            <img src={img} alt="" />
-          </div>
-          <div className=""></div>
-          <div className=""></div>
-          <div className=""></div>
+        {
+          imagesLinks.map((img)=>   <div key={uuid()} className="">
+          <img src={img.comp_url} alt="" />
+        </div>)
+        } 
         </div>
       </div>
       <div className="quick-des">
-        <Heading fontSize="30">NAME</Heading>
+    <Heading fontSize="30" style={{textTransform:"capitalize"}}>{name}</Heading>
+
         <Heading style={{ display: "flex", alignItems: "center" }}>
-          <h3 style={{ marginRight: "1rem" }}>$35</h3>
-          <Link to="productDetail/12">View Details</Link>
+    <h3 style={{ marginRight: "1rem" }}>Rs{price}</h3>
+          <Link to={`/productDetail/${productId}`}>View Details</Link>
         </Heading>
         <div className="color-select-qv">
-            <div className="color-1 selected-color" style={{background:'var(--black)'}} onClick={colorSelector}></div>
-            <div className="color-2" style={{background:'var(--yellow)'}} onClick={colorSelector}></div>
-            <div className="color-3" style={{background:'var(--green)'}} onClick={colorSelector}></div>
+        {
+          selectedColors.map((color)=>    <div
+          key={uuid()}
+          className="color-1 "
+          style={{ background: `var(--${color})` }}
+          onClick={colorSelector}
+        ></div>)
+        }
         </div>
-        <SimpleInput
-          width="7rem"
-          type="number"
-          placeholder=""
-          label="Quantity"
-        />
-        <Button
-          value="ADD TO CART"
-          colorScheme="black"
-          style={{ width: "100%", height: "5rem" }}
-        />
+        <QVquantity/>
       </div>
     </Modal>
   );

@@ -1,13 +1,16 @@
 import React from 'react'
-import itemImage from "../../assets/img/item-1.jpg";
+
 import  './Product.css'
 import Paragraph from '../Paragraph/Paragraph';
 import {useHistory as history} from "react-router-dom"
 import QuickView from '../QuickView/QuickView';
 import { useState } from 'react';
-const Product = (props) => {
-var {imagePath,itemName,itemPrice,newArrival,style,className} = props;
+import Heading from '../Heading/Heading';
+const Product = ({productInfo,style,className}) => {
+  var {imagesLinks,name,price,newArrival} = productInfo;
+
 var [modalOpen,setModal] = useState(false)
+
 var productDetail = ()=>{
   history.push("/productDetail")
 }
@@ -25,16 +28,16 @@ var productDetail = ()=>{
  <div className="new">
    <p>New Arrival</p>
  </div>
- <img src={itemImage} />
+ <img src={imagesLinks[0].org_link} />
 </div>
 <div className="text">
- <h3 className="itemname" name="item-name">Item 1</h3>
- <p id="price-1">2000</p>
+    <Heading className="itemname" style={{textTransform:"capitalize"}} name="item-name">{name}</Heading>
+ <Heading id="price-1">{price}</Heading>
 </div>
 </div>
 {
   modalOpen ? 
-  <QuickView setModal={setModal}/>
+  <QuickView setModal={setModal} productInfo={productInfo}/>
   :""
 }
   </React.Fragment>

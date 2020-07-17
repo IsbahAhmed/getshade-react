@@ -3,16 +3,25 @@ import React from 'react'
 import Section from '../../Components/Section/Section'
 import Heading from '../../Components/Heading/Heading'
 import Paragraph from '../../Components/Paragraph/Paragraph'
-import SideCart from '../../Components/SideCart/SideCart'
+
 import "./Home.css";
 
-import CatagoryBox from '../../Components/CatagoryBox/CatagoryBox'
+
 import TopSeller from '../../Components/TopSeller/TopSeller'
 import Button from '../../Components/Button/Button'
 import NewProducts from '../../Components/NewProducts/NewProducts'
 import Collections from '../../Components/Collections/Collections'
 import NewsLetter from '../../Components/NewsLetter/NewsLetter'
-const Home = () => {
+import {connect} from "react-redux"
+import {fetchCatagories} from "../../Redux/catagoriesReducer/catagoriesActions"
+import CatagoriesList from '../../Components/CatagoriesList/CatagoriesList'
+
+const Home = ({fetchCatagories}) => {
+
+  React.useEffect(()=>{
+    fetchCatagories()
+  },[])
+
     return (
    <React.Fragment>
       <Section >
@@ -28,9 +37,7 @@ const Home = () => {
     <h4>catagories</h4>
   </div> 
   <div className="cats">
-      <CatagoryBox catName={"Watches"}/>
-      <CatagoryBox/>
-  
+  <CatagoriesList/>
   </div>
 </div>
 
@@ -58,5 +65,7 @@ const Home = () => {
    </React.Fragment>
     );
 }
-
-export default Home
+var actions = {
+  fetchCatagories
+}
+export default connect(null,actions)(Home)

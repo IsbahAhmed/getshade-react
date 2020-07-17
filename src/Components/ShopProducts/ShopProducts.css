@@ -1,10 +1,11 @@
 .shop-products{
     grid-area: products;
     display: grid;
-    grid-template-rows: 5rem minmax(5rem,min-content);
+    grid-template-rows: 5rem minmax(5rem,min-content) 10rem;
    
   
 }
+
 .main-product-sec{
     justify-content: center;
     display: grid;

@@ -6,11 +6,14 @@ import { Link, withRouter } from 'react-router-dom';
 import { useState } from 'react';
 import { getSiblings } from '../../Utility/Utility';
 import MobileNav from '../MobileNav/MobileNav';
+import {connect} from "react-redux"
+import { fetchProducts } from '../../Redux/productsReducer/productActions';
 
 const Navbar = (props) => {
     // var [slectedLink,linkSelector] = useState("home")
   var [navbar,setNavbar] = useState("mobile");
-  var [cartCount,setCountValue] = useState(0)
+  var [cartCount,setCountValue] = useState(0);
+
   React.useEffect(() => {
         function handleResize() {
         // console.log()
@@ -24,7 +27,14 @@ const Navbar = (props) => {
   window.addEventListener("load",handleResize)
 
   window.addEventListener("resize",handleResize)
-        })
+  props.fetchProducts()
+  return ()=>{
+    window.removeEventListener("load",handleResize)
+    window.removeEventListener("resize",handleResize)
+
+  }
+        },[])
+ 
     var {cartToglleHandler} = props;
 
     return (
@@ -77,5 +87,7 @@ const Navbar = (props) => {
         </div>
     )
 }
-
-export default withRouter(Navbar)
+var actions = {
+    fetchProducts
+}
+export default connect(null,actions)(Navbar)

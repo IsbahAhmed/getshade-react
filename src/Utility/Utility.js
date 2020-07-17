@@ -1,4 +1,28 @@
-
+export var productCategorization = (products) => {
+	var categorizedProducts = [];
+	var exist = null;
+	products.forEach((product) => {
+	  exist = categorizedProducts.some((cp) => cp.type === product.type);
+	  if (!exist) {
+		categorizedProducts.push({
+		  type: product.type,
+		  products: [product],
+		});
+	  } else {
+		categorizedProducts.map((cp) => {
+		  if (cp.type === product.type) {
+			return {
+			  ...cp,
+			  products: cp.products.push(product),
+			};
+		  } else {
+			return cp;
+		  }
+		});
+	  }
+	});
+	return categorizedProducts;
+  };
 
 export var getSiblings = function (elem) {
 
