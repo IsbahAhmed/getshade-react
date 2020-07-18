@@ -3,31 +3,54 @@ import "./ProductDetail.css";
 import ProductPreview from "../../Components/ProductPreview/ProductPreview";
 import Paragraph from "../../Components/Paragraph/Paragraph";
 import Heading from "../../Components/Heading/Heading";
-import Button from "../../Components/Button/Button";
-import SimpleInput from "../../Components/SiimpleInput/SimpleInput";
-import { getSiblings } from "../../Utility/Utility";
+import {connect} from "react-redux"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, useHistory } from "react-router-dom"
 import { faGreaterThan } from '@fortawesome/free-solid-svg-icons'
 import AddToCartSection from "../../Components/AddToCartSection/AddToCartSection";
+import { useEffect } from "react";
 const ProductDetail = (props) => {
-  var {match:{params:{pId}}} = props;
+  var {match:{params:{serial}},products} = props;
+  
   var history = useHistory();
- var productSwitcher = (pId,type)=>{
-   pId = Number(pId);
+const [desiredProduct,setDesiredProduct] = useState({})
+
+
+
+  ///putting out desired product
+useEffect(()=>{
+
+if(products.length ){
+  if(serial > products.length){
+    history.push('/productDetail/1')
+   }
+  var obj = products.filter((prod)=> prod.serial == serial);
+  setDesiredProduct(...obj)
+}
+
+},[products,serial])
+
+
+ var productSwitcher = (serial,type)=>{
+   serial = Number(serial);
    if(type === "prev"){
-    if(pId > 1){
-      pId = pId - 1;
+    if(serial > 1){
+      serial = serial - 1;
     }
     }
     else{
-      pId = pId+ 1;
+      if(serial < products.length)
+      serial = serial+ 1;
+  
     }
     
    
-   var link = `/productDetail/${pId}`
+   var link = `/productDetail/${serial}`
   history.push(link)
  }
+
+
+ var {name,description,price,productId,imagesLinks = [],selectedColors} = desiredProduct; 
 
   return (
     <div className="productdetail-container">
@@ -38,13 +61,13 @@ const ProductDetail = (props) => {
         </Paragraph>
         <Paragraph>
      <div className="prev-next-links">
-     <div id="prev-link" onClick={()=> productSwitcher(pId,"prev")}>
+     <div id="prev-link" onClick={()=> productSwitcher(serial,"prev")}>
    
        <FontAwesomeIcon flip="horizontal" icon={faGreaterThan}/>Prev
 
        </div> 
         |
-        <div id="next-link" onClick={()=> productSwitcher(pId,"next")}>
+        <div id="next-link" onClick={()=> productSwitcher(serial,"next")}>
  
           Next <FontAwesomeIcon icon={faGreaterThan}/>
         
@@ -52,26 +75,20 @@ const ProductDetail = (props) => {
      </div>
             </Paragraph>
       </div>
-      <ProductPreview />
+      <ProductPreview imagesLinks={imagesLinks}/>
       <div className="mainer ">
         <div className="p-description ">
           <Heading fontSize="25" fontWeight="600">
-            Name
+        {name}
           </Heading>
           <Paragraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
-            ut beatae! Mollitia voluptas ut quae dolore quibusdam dolorem libero
-            molestias, laudantium quidem adipisci quod, ab itaque deserunt ex.
-            Cum, quod.
+           {description}
           </Paragraph>
         </div>
         <div className="p-details">
           <Heading fontSize="25">Product Info</Heading>
           <Paragraph>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
-            natus perferendis quisquam? Quos in nostrum molestias, voluptas,
-            omnis fugiat nam quo labore explicabo veniam adipisci rem velit
-            voluptate, facilis eos.
+        {description}
           </Paragraph>
           {/*?php echo "".$row['p_name']."" ?*/}
         </div>
@@ -86,9 +103,11 @@ const ProductDetail = (props) => {
         </div>
       
       </div>
-    <AddToCartSection productId={pId}/>
+    <AddToCartSection productId={productId} colors={selectedColors} price={price}/>
     </div>
   );
 };
-
-export default ProductDetail;
+var mapState = (state)=>({
+  products:state.products
+})
+export default connect(mapState)(ProductDetail);

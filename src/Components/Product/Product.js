@@ -2,29 +2,29 @@ import React from 'react'
 
 import  './Product.css'
 import Paragraph from '../Paragraph/Paragraph';
-import {useHistory as history} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import QuickView from '../QuickView/QuickView';
 import { useState } from 'react';
 import Heading from '../Heading/Heading';
 const Product = ({productInfo,style,className}) => {
-  var {imagesLinks,name,price,newArrival} = productInfo;
+  var {imagesLinks,name,price,newArrival,serial} = productInfo;
 
 var [modalOpen,setModal] = useState(false)
-
+var history = useHistory()
 var productDetail = ()=>{
-  history.push("/productDetail")
+  history.push(`/productDetail/${serial}`)
 }
     return (
         
 <React.Fragment>
-<div className={`item item-setting ${className}`} style={{...style}} id="">
+<div className={`item item-setting ${className}`}  style={{...style}} id="">
    
    <div className="quick-view" onClick={()=> setModal(true)}>
    <Paragraph>
    Quick View 
    </Paragraph>
    </div>
-<div className="pic">
+<div className="pic" onClick={productDetail}>
  <div className="new">
    <p>New Arrival</p>
  </div>

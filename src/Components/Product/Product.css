@@ -25,11 +25,12 @@ align-items: center;
 transform: scaleY(0);
 transition: transform 300ms ease-in-out;
 transform-origin: top;
+
 }
 
 .pic{
     /* grid-area: pic; */
-    
+    cursor: pointer;
 }
 .new{
     display: none;

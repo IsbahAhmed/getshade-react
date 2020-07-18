@@ -15,7 +15,7 @@ Modal.setAppElement("#root");
 
 const QuickView = ({ setModal , productInfo}) => {
 
-  var {name,price,descriptions,imagesLinks,selectedColors,productId} = productInfo
+  var {name,price,descriptions,imagesLinks,selectedColors,productId,serial} = productInfo
   var [modalStyle, setModalStyle] = useState({
     width: "90",
 
@@ -107,7 +107,7 @@ const QuickView = ({ setModal , productInfo}) => {
 
         <Heading style={{ display: "flex", alignItems: "center" }}>
     <h3 style={{ marginRight: "1rem" }}>Rs{price}</h3>
-          <Link to={`/productDetail/${productId}`}>View Details</Link>
+          <Link to={`/productDetail/${serial}`}>View Details</Link>
         </Heading>
         <div className="color-select-qv">
         {

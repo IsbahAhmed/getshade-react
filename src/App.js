@@ -25,7 +25,7 @@ export class App extends Component {
     <Route path="/" component={Home} exact/>
     <Route path="/shop/:type" component={Shop} exact/>
     <Route path="/auth" component={Auth} exact/>
-    <Route path="/productDetail/:pId" component={ProductDetail} exact/>
+    <Route path="/productDetail/:serial" component={ProductDetail} exact/>
     <Route path="/shipping/:uid" component={Shipping} exact/>
     <Route path="/userProfile/:uid" component={UserProfile}/>
     <Route path="/thankyou/:orderId" component={Thankyou} exact/>
