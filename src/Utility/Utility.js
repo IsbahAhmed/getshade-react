@@ -41,6 +41,29 @@ export var getSiblings = function (elem) {
 	return siblings;
 
 };
+///adding cart items in sessoin storage
+
+
+
+//removing cart items from session storage
+export var removeItemFrom_SessionStorage = (itemId)=>{
+	var prevData = sessionStorage.getItem("cart");
+	var prevCart = JSON.parse(prevData);
+	var newCart = prevCart.filter(({productId})=> productId !== itemId);
+	sessionStorage.setItem('cart',JSON.stringify(newCart))
+	console.log(newCart)
+
+}
+
+export var subtotal_calculator = (cartArr)=>
+{
+var sumCalculator = (total,cartItem)=>{
+var multipliedPrice = Number(cartItem.price) * Number(cartItem.quantity);
+return total + multipliedPrice;
+}
+var sum = cartArr.reduce(sumCalculator,0)
+return sum
+}
 
 export var addItemToCartHelper = (itemsArr, itemToAdd) => {
 	//if itemToAdd already exist ?
@@ -50,22 +73,40 @@ export var addItemToCartHelper = (itemsArr, itemToAdd) => {
 	//if no
 	//then push item to cart with one additional property "quantity"
   
-	var exist = itemsArr.some((item) => item.id === itemToAdd.id);
+	var exist = itemsArr.some((item) => item.productId === itemToAdd.productId);
 	if (exist) {
 	  return itemsArr.map((item) => {
-		if (item.id === itemToAdd.id) {
+		if (item.productId === itemToAdd.productId) {
 		  return {
 			...item,
-			quantity: item.quantity + 1,
+			quantity: item.quantity + itemToAdd.quantity,
 		  };
 		} else {
 		  return item;
 		}
 	  });
 	} else {
-	  return [...itemsArr, { ...itemToAdd, quantity: 1 }];
+	  return [...itemsArr, { ...itemToAdd }];
 	}
   };
+
+  export var addCartItemTo_SessionStorage=(item)=>{
+	var prevData = sessionStorage.getItem("cart");
+	var prevCart = JSON.parse(prevData);
+	
+	if(prevCart){
+		var tempArr = addItemToCartHelper(prevCart,item)
+	  
+		sessionStorage.setItem('cart',JSON.stringify(tempArr))
+	  
+	}
+	else{
+		var item_ = [item]
+		sessionStorage.setItem('cart',JSON.stringify(item_))
+	}
+	
+}
+
 
 export var countries = [ 
 	{name: 'Afghanistan', code: 'AF'}, 

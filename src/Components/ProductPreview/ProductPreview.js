@@ -71,7 +71,7 @@ var bool = true;
 return (
 <React.Fragment>
   <div className="product-preview flex-center">
-  <img src={selectedImage.link} className={(loadCheck) && "blur-image"}/> 
+  <img src={selectedImage.link} className={loadCheck ? "blur-image":""}/> 
  
     
   </div>

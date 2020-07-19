@@ -2,17 +2,27 @@ import React from 'react'
 import "./Navbar.css"
 import cartIcon from '../../assets/img/shopping-cart.svg';
 import logo from "../../assets/img/logo-plane.png"
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { getSiblings } from '../../Utility/Utility';
+
 import MobileNav from '../MobileNav/MobileNav';
 import {connect} from "react-redux"
 import { fetchProducts } from '../../Redux/productsReducer/productActions';
 
 const Navbar = (props) => {
     // var [slectedLink,linkSelector] = useState("home")
+    var {cartToglleHandler,cart} = props;
   var [navbar,setNavbar] = useState("mobile");
   var [cartCount,setCountValue] = useState(0);
+    
+    React.useEffect(()=>{
+        if(cart.length){
+            setCountValue(cart.length)
+        }
+        else{
+            setCountValue(0)
+        }
+    },[cart])
 
   React.useEffect(() => {
         function handleResize() {
@@ -35,7 +45,6 @@ const Navbar = (props) => {
   }
         },[])
  
-    var {cartToglleHandler} = props;
 
     return (
         <div>
@@ -87,7 +96,10 @@ const Navbar = (props) => {
         </div>
     )
 }
+var mapState = (state)=>({
+    cart:state.cart
+})
 var actions = {
     fetchProducts
 }
-export default connect(null,actions)(Navbar)
+export default connect(mapState,actions)(Navbar)

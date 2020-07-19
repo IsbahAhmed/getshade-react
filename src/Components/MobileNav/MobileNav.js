@@ -55,6 +55,12 @@ const MobileNav = () => {
     }
   };
 
+  useEffect(()=>{
+    return ()=>{
+      clearTimeout(timeOut_1);
+      clearTimeout(timeOut_2)
+    }
+  },[])
   return (
     <div>
       <div className="mobile-nav">

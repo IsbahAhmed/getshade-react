@@ -7,7 +7,7 @@ import QuickView from '../QuickView/QuickView';
 import { useState } from 'react';
 import Heading from '../Heading/Heading';
 const Product = ({productInfo,style,className}) => {
-  var {imagesLinks,name,price,newArrival,serial} = productInfo;
+  var {imagesLinks=[],name,price,newArrival,serial} = productInfo;
 
 var [modalOpen,setModal] = useState(false)
 var history = useHistory()

@@ -5,17 +5,19 @@ import Heading from '../Heading/Heading'
 import SimpleInput from '../SiimpleInput/SimpleInput'
 import { getSiblings } from '../../Utility/Utility'
 import {v4 as uuid} from "uuid"
+import {connect} from "react-redux"
 import { useEffect } from 'react'
-const AddToCartSection = ({productId,price,colors = []}) => {
-
+import {addToCart} from "../../Redux/cartReducer/cartActions"
+const AddToCartSection = ({product,addToCart}) => {
+var {productId,price,selectedColors = []}=product;
+var [color,setColor] = useState()
   useEffect(()=>{
- if(colors.length){
-  setColor([colors[0]])
+ if(selectedColors.length){
+  setColor([selectedColors[0]])
  }
-  },[colors])
-  var [quantity,setQuantity] = useState(0)
+  },[selectedColors])
+  var [quantity,setQuantity] = useState(1)
 
-    var [color,setColor] = useState()
     var colorSelector = (e)=>{
         var siblings = getSiblings(e.target)
         var ele = e.target;
@@ -38,11 +40,11 @@ const AddToCartSection = ({productId,price,colors = []}) => {
         <SimpleInput width="6rem" placeholder="" value={quantity} 
         
         onChange={(e) => setQuantity(e.target.value)}
-        type="number" min="0" max="9"/>
+        type="number" min="1" max="9"/>
     <div className="color-select-container" >
       {
-        colors ? 
-        colors.map((color)=>{
+        selectedColors ? 
+        selectedColors.map((color)=>{
           if(bool){
             bool = false;
             return(
@@ -57,10 +59,14 @@ const AddToCartSection = ({productId,price,colors = []}) => {
       }
  
     </div>
-           <Button value="ADD TO CART" colorScheme="black"/>
+           <Button value="ADD TO CART" 
+           onClick={()=>addToCart({...product,color,quantity})} 
+           colorScheme="black"/>
        
           </div>
     )
 }
-
-export default AddToCartSection
+var actions = {
+  addToCart
+}
+export default connect(null,actions)(AddToCartSection)

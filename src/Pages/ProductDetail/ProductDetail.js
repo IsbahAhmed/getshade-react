@@ -90,7 +90,7 @@ if(products.length ){
           <Paragraph>
         {description}
           </Paragraph>
-          {/*?php echo "".$row['p_name']."" ?*/}
+     
         </div>
         <div className="return-policy">
           <Heading fontSize="25">Refund Policy</Heading>
@@ -103,7 +103,7 @@ if(products.length ){
         </div>
       
       </div>
-    <AddToCartSection productId={productId} colors={selectedColors} price={price}/>
+    <AddToCartSection product={desiredProduct}/>
     </div>
   );
 };
