@@ -43,7 +43,7 @@ const Home = ({fetchCatagories}) => {
 
       </Section>
 
-      <TopSeller/>
+      {/* <TopSeller/> */}
       <Section>
         <div className="extra-section">
         <div className="content">
@@ -59,7 +59,7 @@ const Home = ({fetchCatagories}) => {
         </div>
         </div>
       </Section>
-      <NewProducts/>
+      {/* <NewProducts/> */}
       <Collections/>
       <NewsLetter/>
    </React.Fragment>

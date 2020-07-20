@@ -1,42 +1,48 @@
 import React from 'react'
 import Paragraph from '../Paragraph/Paragraph'
-import img from "../../assets/img/item-1.jpg"
+
 import "./CartProductListItem.css"
-const CartProductListItem = () => {
+import { connect } from 'react-redux'
+import {removeItemFromCart} from "../../Redux/cartReducer/cartActions";
+import Heading from '../Heading/Heading';
+const CartProductListItem = ({cartItem,removeItemFromCart}) => {
+    var {name,price,quantity,imagesLinks,color,productId} = cartItem;
     return (
         <div className="item-1 item-row-setting">
         <div className="improduct">
-          <img src={img} className="thumb" alt />
+          <img src={imagesLinks[0].comp_url} className="thumb" alt="" />
           <div className="info">
-            <Paragraph>
-                Name
-            </Paragraph>
+            <Heading>
+           {name}
+            </Heading>
           <Paragraph>
-              Color : Black glossy
+              Color : {color}
           </Paragraph>
-            <Paragraph fontSize="12" style={{textDecoration:"underline"}}>
+            <Paragraph fontSize="12" className="remove-cart-item" onClick={()=> removeItemFromCart(productId)}>
                 Remove
             </Paragraph>
           </div>
         </div>
         <div className="item-price ">
             <Paragraph>
-                Rs 2000
+                Rs {price}
             </Paragraph>
         </div>
         <div className="quantity flex-center">
             <Paragraph>
-                1
+                {quantity}
             </Paragraph>
         </div>
         <div className="total-price flex-center">
             <Paragraph>
-                2000
+                {price * quantity}
             </Paragraph>
         </div>
       </div>
       
     )
 }
-
-export default CartProductListItem
+var actions = {
+    removeItemFromCart
+}
+export default connect(null,actions)(CartProductListItem)

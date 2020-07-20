@@ -12,6 +12,7 @@ import {
   retriveCartData_from_SessionStorage,
 } from "../../Redux/cartReducer/cartActions";
 import { subtotal_calculator } from "../../Utility/Utility";
+import { Link } from "react-router-dom";
 
 const SideCart = (props) => {
   var {
@@ -99,7 +100,9 @@ const SideCart = (props) => {
               
             </h2>
             <div className="view-cart-btn">
-              <Button value="View Cart" />
+          <Link to="/cart">
+          <Button value="View Cart" />
+          </Link>
             </div>
           </div>
         </div>

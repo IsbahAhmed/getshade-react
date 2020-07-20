@@ -47,6 +47,14 @@
      /* display: grid;
      justify-content: end; */
     }
+.remove-cart-item{
+    cursor: pointer;
+    justify-self: start;
+}
+.remove-cart-item:hover{
+    text-decoration: underline;
+}
+
     @media screen and (max-width:425px)
     {
         .item-row-setting{

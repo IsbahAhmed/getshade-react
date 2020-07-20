@@ -3,7 +3,13 @@
     display: grid;
    
     grid-template-rows: repeat(auto-fit,minmax(15rem,min-content));
-    
+    row-gap: 3rem;
     
     }
+  .empty-cart{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--lightblack);
+  }  
    
