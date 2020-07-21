@@ -1,16 +1,50 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Navbar.css"
 import cartIcon from '../../assets/img/shopping-cart.svg';
 import logo from "../../assets/img/logo-plane.png"
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
+import { createNewUser, removeCurrentUser } from '../../Redux/userReducer/userActions';
 import MobileNav from '../MobileNav/MobileNav';
 import {connect} from "react-redux"
 import { fetchProducts } from '../../Redux/productsReducer/productActions';
+import { auth, firestore } from '../../Firebase/firebase';
 
 const Navbar = (props) => {
     // var [slectedLink,linkSelector] = useState("home")
+
+    useEffect(()=>{
+        auth.onAuthStateChanged(async(user)=>{
+            try {
+             if(user){
+              
+               var {uid} = user;
+           if(uid){
+             var userSnap = await firestore.collection('users').doc(uid).get();
+             if(userSnap.exists){
+               var userData =  userSnap.data();
+            
+               var userObj = {
+                 firstName: userData.firstName,
+                 lastName:userData.lastName,
+                 uid,
+                 email:userData.email
+               }
+       
+               props.createNewUser(userObj)
+              }
+             }
+           }
+            
+             else {
+               props.removeCurrentUser()
+               console.log("hello")
+             }
+            } catch (error) {
+              console.log(error.message)
+            }
+                 })
+       },[])
     var {cartToglleHandler,cart} = props;
   var [navbar,setNavbar] = useState("mobile");
   var [cartCount,setCountValue] = useState(0);
@@ -77,10 +111,12 @@ const Navbar = (props) => {
        CONTACT
          </Link>
      </div>
-     <div className="auth hover flex-center" >
-         <Link to="/auth">
+     <div className="auth hover flex-center" style={{textTransform:"uppercase"}}>
+       { !props.user ? <Link to="/auth">
        ACCOUNT
-         </Link>
+         </Link>:
+         <Link to={`/userProfile/${props.user.uid}`}>{props.user.firstName}</Link>
+         }
      </div>
      <div className="cart-icon cart-123 flex-center" id="cart-icon">
      
@@ -97,9 +133,11 @@ const Navbar = (props) => {
     )
 }
 var mapState = (state)=>({
-    cart:state.cart
+    cart:state.cart,
+    user:state.user.currentUser
 })
 var actions = {
-    fetchProducts
+    fetchProducts,
+    createNewUser,removeCurrentUser
 }
 export default connect(mapState,actions)(Navbar)

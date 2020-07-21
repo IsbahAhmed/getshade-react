@@ -5,7 +5,9 @@ import Button from "../../Components/Button/Button";
 
 
 import UserDashboardWrapper from "../../Components/UserDashboardWrapper/UserDashboardWrapper";
-const UserProfile = () => {
+import { connect } from "react-redux";
+import { signout } from "../../Redux/userReducer/userActions";
+const UserProfile = ({signout}) => {
     console.log("CDM")
   return (
     <div className="user-dashboard">
@@ -17,11 +19,14 @@ const UserProfile = () => {
           value="SIGN OUT"
           style={{ width: "20rem", height: "5rem", color: "black" }}
           colorScheme="white"
+          onClick={signout}
         />
       </div>
         <UserDashboardWrapper/>
     </div>
   );
 };
-
-export default UserProfile;
+var actions = {
+  signout
+}
+export default connect(null,actions)(UserProfile);

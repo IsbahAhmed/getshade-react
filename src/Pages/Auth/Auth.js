@@ -1,32 +1,47 @@
 import React from 'react';
 import "./Auth.css";
-import {Link} from "react-router-dom"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGreaterThan } from '@fortawesome/free-solid-svg-icons';
-import Paragraph from '../../Components/Paragraph/Paragraph';
+import {Link, Redirect} from "react-router-dom"
+
 
 import AuthMain from '../../Components/AuthMain/AuthMain';
+
+import { connect } from 'react-redux';
+
+
 const Auth = (props) => {
-   
+   //checking user auth state
+
+  
+
     return (
-        <div className="auth-page-container">
-           <div className="brc">
-    
-         <Link to="/">
-               Home
-               </Link>
-            /
-               <Link to="/auth">
-                   Account
-               </Link>
-      
-           </div>
-     <div className="auth-main">
-     <AuthMain/>
-     </div>
-     <div className="sp"></div>
-        </div>
+        <React.Fragment>
+            {
+                !props.user ?
+                <div className="auth-page-container">
+                <div className="brc">
+         
+              <Link to="/">
+                    Home
+                    </Link>
+                 /
+                    <Link to="/auth">
+                        Account
+                    </Link>
+           
+                </div>
+          <div className="auth-main">
+          <AuthMain/>
+          </div>
+          <div className="sp"></div>
+             </div>
+             :
+             <Redirect to={`/userProfile/${props.user.uid}`}/>
+            }
+        </React.Fragment>
     )
 }
+var mapState = (state)=>({
+    user:state.user.currentUser
+})
 
-export default Auth
+export default connect(mapState)(Auth)
