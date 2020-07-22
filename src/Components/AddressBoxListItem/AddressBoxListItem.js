@@ -5,10 +5,30 @@ import Button from "../Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import Paragraph from "../Paragraph/Paragraph";
-import List from "../List/List";
 
-const AddressBoxListItem = () => {
+import { useEffect } from "react";
+import { countryNameFind } from "../../Utility/Utility";
+import { connect } from "react-redux";
+import { deleteAddress } from "../../Redux/userReducer/userActions";
+
+const AddressBoxListItem = ({address,deleteAddress,user}) => {
   var [drop_down, setDropDown] = useState(false);
+  var {address,postal,country,relatedUser,addressId} = address;
+  var {firstName,lastName} = user;
+  var [countryName,setCountryName] = useState()
+  useEffect(()=>{
+   var name =  countryNameFind(country);
+   setCountryName(name)
+  },[country])
+
+var handleAddressDelete = (addId)=>{
+  var filteredAddressList = user.addressList.filter(({addressId})=> addressId !== addId);
+  var userObj = {
+    ...user,addressList:[...filteredAddressList]
+  }
+  deleteAddress(userObj)
+}
+
   return (
     <div className="address-box">
       <div className="address-name">
@@ -27,23 +47,28 @@ const AddressBoxListItem = () => {
         </div>
         <div className={`drop-down ${drop_down && "drop-down-on"}`}>
           <ul>
-            <li>EDIT</li>
-            <li>DELETE</li>
+            <li >EDIT</li>
+            <li onClick={()=> handleAddressDelete(addressId)}>DELETE</li>
           </ul>
         </div>
       </div>
       <div className="address-des">
         <Heading>WHERE</Heading>
         <Paragraph>
-          1620 East Ayre Str Suite
-          <br /> M3115662 Wilmington, DE 19804
-          <br /> United States
+          {address}
+          <br /> {postal}
+          <br /> {countryName}
         </Paragraph>
         <Heading>TO</Heading>
-        <Paragraph>Michael Doe</Paragraph>
+        <Paragraph style={{textTransform:"capitalize"}}>{firstName+" "+lastName}</Paragraph>
       </div>
     </div>
   );
 };
-
-export default AddressBoxListItem;
+var mapState = (state)=>({
+  user : state.user.currentUser
+})
+var actions = {
+  deleteAddress
+}
+export default connect(mapState,actions)(AddressBoxListItem);

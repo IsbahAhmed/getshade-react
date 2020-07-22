@@ -4,6 +4,7 @@
     border: 1px solid var(--bordercolor);
     border-top: 2px solid var(--black);
     display: grid;
+
     grid-template-rows: 20fr 80fr;
 }
 .address-name{

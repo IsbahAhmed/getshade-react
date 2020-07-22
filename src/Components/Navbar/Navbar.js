@@ -25,10 +25,7 @@ const Navbar = (props) => {
                var userData =  userSnap.data();
             
                var userObj = {
-                 firstName: userData.firstName,
-                 lastName:userData.lastName,
-                 uid,
-                 email:userData.email
+                ...userData,uid
                }
        
                props.createNewUser(userObj)

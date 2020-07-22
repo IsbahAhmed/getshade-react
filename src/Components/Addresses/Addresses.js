@@ -4,7 +4,9 @@ import AddressBoxList from '../AddressBoxList/AddressBoxList'
 import Heading from '../Heading/Heading'
 import Paragraph from '../Paragraph/Paragraph'
 import AddNewAddressForm from '../AddNewAddressForm/AddNewAddressForm'
-const Addresses = () => {
+import { connect } from 'react-redux'
+const Addresses = (props) => {
+    var {user:{addressList}}=props;
     return (
         <div className="custom-address">
             <div className="custom-address-main">
@@ -12,10 +14,9 @@ const Addresses = () => {
                 Addresses
                 </Heading>
             <Paragraph style={{marginBottom:"3rem"}}>
-            2 ENTRY
-
+            {addressList.length} ENTRY
             </Paragraph>
-            <AddressBoxList/>
+            <AddressBoxList addressList={addressList}/>
             <Heading style={{marginTop:"3rem"}} fontSize="30">
             New Address
 
@@ -26,5 +27,7 @@ const Addresses = () => {
         </div>
     )
 }
-
-export default Addresses
+var mapState = (state)=>({
+    user:state.user.currentUser
+})
+export default connect(mapState)(Addresses)

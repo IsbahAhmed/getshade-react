@@ -108,6 +108,7 @@ export var addItemToCartHelper = (itemsArr, itemToAdd) => {
 }
 
 
+
 export var countries = [ 
 	{name: 'Afghanistan', code: 'AF'}, 
 	{name: 'Åland Islands', code: 'AX'}, 
@@ -353,3 +354,9 @@ export var countries = [
 	{name: 'Zambia', code: 'ZM'}, 
 	{name: 'Zimbabwe', code: 'ZW'} 
   ]
+
+  export var countryNameFind = (countryCode) =>{
+	var countryObj = countries.filter(({code})=> code === countryCode);
+	
+	return countryObj[0].name
+} 

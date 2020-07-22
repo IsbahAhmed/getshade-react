@@ -1,5 +1,5 @@
 import { auth, serverTimeStamp, firestore } from "../../Firebase/firebase";
-import { CREATE_NEW_USER, REMOVE_USER } from "./userConstants";
+import { CREATE_NEW_USER, REMOVE_USER, UPDATE_CURRENT_USER, SET_CURRENT_USER } from "./userConstants";
 
 export var createNewUser = (userObj)=>({
     type: CREATE_NEW_USER,
@@ -62,4 +62,74 @@ export var signUp = (userObj) => async (dispatch)=>{
            }
    
     
+}
+export var updateProfileInfo = (userObj,uid) => async (dispatch)=>{
+      
+        try {
+           await firestore.collection('users').doc(uid).update(userObj)
+           var user =  auth.currentUser;
+   
+            await user.updateProfile({
+                displayName: userObj.firstName
+            })
+          if(userObj.email){
+            await user.updateEmail(userObj.email)
+           
+          }
+     
+            dispatch({
+                type:UPDATE_CURRENT_USER,
+                payload:{
+                    userObj:{...userObj,uid}
+                }
+            })
+            return "success"
+
+        } catch (error) {
+            console.log(error)
+            return "An error occured please login again and then retry"
+        }
+}
+export var updatePassword = (newPassword) => async (dispatch)=>{
+    try{
+        var user =  auth.currentUser;
+       await user.updatePassword(newPassword)
+       return "success"
+    }
+    catch(error){
+        console.log(error.message)
+        return "An error ocured please login again and then retry!"
+    }
+} 
+
+export var addNewAddress = (userObj,uid) => async (dispatch) =>{
+    try {
+       await firestore.collection('users').doc(uid).set(userObj)
+       dispatch({
+           type:UPDATE_CURRENT_USER,
+           payload:{
+               userObj
+           }
+       })
+       return "success"
+    } catch (error) {
+        console.log(error.message)
+        return "An error ocured please try again!"
+    }
+}
+
+export var deleteAddress = (userObj)=>async (dispatch)=>{
+    try {
+        await firestore.collection('users').doc(userObj.uid).set(userObj)
+        dispatch({
+            type:UPDATE_CURRENT_USER,
+            payload:{
+                userObj
+            }
+        })
+        return "success"
+     } catch (error) {
+         console.log(error.message)
+         return "An error ocured please try again!"
+     }
 }

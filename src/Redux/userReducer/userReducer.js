@@ -1,4 +1,4 @@
-import { CREATE_NEW_USER, REMOVE_USER } from "./userConstants";
+import { CREATE_NEW_USER, REMOVE_USER, UPDATE_CURRENT_USER } from "./userConstants";
 
 
 var initialState = {
@@ -12,6 +12,10 @@ var userReducer = (state = initialState,actions)=>{
             return {...state,currentUser:payload.userObj}
     case REMOVE_USER:
         return {...state, currentUser:null}
+
+      case UPDATE_CURRENT_USER:
+        return {...state,currentUser:payload.userObj}
+
         default:
             return state
     }
