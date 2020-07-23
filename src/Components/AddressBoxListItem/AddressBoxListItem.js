@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AddressBoxListItem.css";
 import Heading from "../Heading/Heading";
-import Button from "../Button/Button";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import Paragraph from "../Paragraph/Paragraph";
@@ -11,7 +11,8 @@ import { countryNameFind } from "../../Utility/Utility";
 import { connect } from "react-redux";
 import { deleteAddress } from "../../Redux/userReducer/userActions";
 
-const AddressBoxListItem = ({address,deleteAddress,user}) => {
+const AddressBoxListItem = ({address,deleteAddress,user,handleEdit,addressName}) => {
+
   var [drop_down, setDropDown] = useState(false);
   var {address,postal,country,relatedUser,addressId} = address;
   var {firstName,lastName} = user;
@@ -29,13 +30,30 @@ var handleAddressDelete = (addId)=>{
   deleteAddress(userObj)
 }
 
+///dropdown close on any other click
+var dropdownCloser = (e)=>{
+  var targetedDiv = e.target.classList[1];
+
+  if(targetedDiv !== "drop-down-on" && drop_down === true){
+    setDropDown(false)
+
+  }
+}
+
+useEffect(()=>{
+window.addEventListener("click",dropdownCloser);
+return ()=>{
+  window.removeEventListener("click",dropdownCloser)
+}
+},[drop_down])
+
   return (
     <div className="address-box">
       <div className="address-name">
         <Heading
           style={{ display: "flex", alignItems: "center", marginLeft: "2rem" }}
         >
-          Address 1
+          Address {addressName}
         </Heading>
         <div
           className="ad-opt"
@@ -45,9 +63,9 @@ var handleAddressDelete = (addId)=>{
         >
           <FontAwesomeIcon icon={faEllipsisV} className="icon" />
         </div>
-        <div className={`drop-down ${drop_down && "drop-down-on"}`}>
+        <div className={`drop-down ${drop_down && "drop-down-on"}`} name="dropdown">
           <ul>
-            <li >EDIT</li>
+            <li onClick={()=>handleEdit(addressId)}>EDIT</li>
             <li onClick={()=> handleAddressDelete(addressId)}>DELETE</li>
           </ul>
         </div>

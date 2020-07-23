@@ -5,8 +5,15 @@ import Heading from '../Heading/Heading'
 import Paragraph from '../Paragraph/Paragraph'
 import AddNewAddressForm from '../AddNewAddressForm/AddNewAddressForm'
 import { connect } from 'react-redux'
+import { useState } from 'react'
 const Addresses = (props) => {
     var {user:{addressList}}=props;
+    const [toEditAddress,setToEditAddress] = useState()
+    var handleEdit = (addId)=>{
+        console.log(addId)
+        var desiredAddress = addressList.filter(({addressId})=> addressId === addId);
+        setToEditAddress(desiredAddress)
+    }
     return (
         <div className="custom-address">
             <div className="custom-address-main">
@@ -16,12 +23,12 @@ const Addresses = (props) => {
             <Paragraph style={{marginBottom:"3rem"}}>
             {addressList.length} ENTRY
             </Paragraph>
-            <AddressBoxList addressList={addressList}/>
+            <AddressBoxList handleEdit={handleEdit} addressList={addressList}/>
             <Heading style={{marginTop:"3rem"}} fontSize="30">
             New Address
 
                 </Heading>
-                <AddNewAddressForm/>
+                <AddNewAddressForm toEditAddress={toEditAddress}/>
             </div>
       
         </div>
