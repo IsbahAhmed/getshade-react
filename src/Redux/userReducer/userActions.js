@@ -142,3 +142,13 @@ export var deleteAddress = (userObj)=>async (dispatch)=>{
          return "An error ocured please try again!"
      }
 }
+
+export var resetPassword = (email)=> async ()=>{
+    try {
+        await auth.sendPasswordResetEmail(email);
+        return "success"
+    } catch (error) {
+        console.log(error)
+        return "An error occured"
+    }
+}
