@@ -9,6 +9,7 @@ import MobileNav from '../MobileNav/MobileNav';
 import {connect} from "react-redux"
 import { fetchProducts } from '../../Redux/productsReducer/productActions';
 import { auth, firestore } from '../../Firebase/firebase';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const Navbar = (props) => {
     // var [slectedLink,linkSelector] = useState("home")
@@ -17,26 +18,43 @@ const Navbar = (props) => {
         auth.onAuthStateChanged(async(user)=>{
             try {
              if(user){
+                console.log("puhnch gya")
               
-               var {uid} = user;
-           if(uid){
+               var {uid,emailVerified} = user;
+              console.log(uid,emailVerified)
+
+           if(uid && emailVerified){
              var userSnap = await firestore.collection('users').doc(uid).get();
              if(userSnap.exists){
                var userData =  userSnap.data();
             
                var userObj = {
-                ...userData,uid
+                ...userData,uid, emailVerified
                }
        
                props.createNewUser(userObj)
               }
              }
+             else if(uid && !emailVerified){
+                props.removeCurrentUser()
+                var userSnap = await firestore.collection('users').doc(uid).get();
+                if(userSnap.exists){
+                    var userData =  userSnap.data();
+             
+                 var userObj = {
+                  emailVerified,uid,firstName:userData.firstName
+                 }
+         
+                 props.createNewUser(userObj)
+              }
+            }
            }
-            
+   
              else {
                props.removeCurrentUser()
-               console.log("hello")
-             }
+       
+           }
+        
             } catch (error) {
               console.log(error.message)
             }
@@ -79,6 +97,7 @@ const Navbar = (props) => {
 
     return (
         <div>
+     
             {
                 navbar === "mobile"?
                 <MobileNav/>

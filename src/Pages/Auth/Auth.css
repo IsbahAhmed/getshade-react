@@ -1,4 +1,8 @@
+.auth-main{
+    position: relative;
+}
 .auth-page-container{
+
     background: white;
     display: grid;
     grid-template-rows: 10rem minmax(30rem,min-content) 5rem;

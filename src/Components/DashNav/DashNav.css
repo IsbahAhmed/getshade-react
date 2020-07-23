@@ -18,3 +18,8 @@
 .selected-dash-nav-link{
 background: rgb(61, 61, 61);
 }
+.dash-icon{
+    margin-right: 2rem;
+    font-size: 1.6rem;
+    
+}

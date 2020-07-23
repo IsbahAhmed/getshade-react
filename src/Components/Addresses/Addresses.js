@@ -7,7 +7,7 @@ import AddNewAddressForm from '../AddNewAddressForm/AddNewAddressForm'
 import { connect } from 'react-redux'
 import { useState } from 'react'
 const Addresses = (props) => {
-    var {user:{addressList}}=props;
+    var {user:{addressList = []}}=props;
     const [toEditAddress,setToEditAddress] = useState()
     var handleEdit = (addId)=>{
         console.log(addId)
@@ -21,7 +21,7 @@ const Addresses = (props) => {
                 Addresses
                 </Heading>
             <Paragraph style={{marginBottom:"3rem"}}>
-            {addressList.length} ENTRY
+            {addressList.length} ENTRY(IES)
             </Paragraph>
             <AddressBoxList handleEdit={handleEdit} addressList={addressList}/>
             <Heading style={{marginTop:"3rem"}} fontSize="30">

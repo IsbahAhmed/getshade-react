@@ -7,35 +7,48 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { signUp } from "../../Redux/userReducer/userActions";
 
-const SignUpForm = ({ openSignupForm ,signUp}) => {
-  const [formValues, setFormValues] = useState({
-
-  });
-
-  var handleFormValues = (e)=>{
-      var {name,value} = e.target;
-      setFormValues((prevValues)=>({
-          ...prevValues,
-          [name]:value
-      }))
-  }
-  var handleSubmit = (e)=>{
+const SignUpForm = ({ openSignupForm, signUp }) => {
+  const [formValues, setFormValues] = useState({});
+  const [error, setErrorMsg] = useState("");
+  var handleFormValues = (e) => {
+    var { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+  var handleSubmit = async (e) => {
     e.preventDefault();
-    var {fname,lname,email,password,cnfrm_pass} = formValues;
-    if(fname && lname && email && password && cnfrm_pass){
-        if(password === cnfrm_pass){
-          var userObj = {
-            firstName:fname,lastName:lname,email,password
-          }
-          signUp(userObj)
+    var { fname, lname, email, password, cnfrm_pass } = formValues;
+
+    if (fname && lname && email && password ) {
+      if (password === cnfrm_pass && password.length >= 6) {
+        var userObj = {
+          firstName: fname,
+          lastName: lname,
+          email,
+          password,
+        };
+        var status = await signUp(userObj);
+        if (status !== "success") {
+          setErrorMsg(status);
         }
+      }
+      else if(password !== cnfrm_pass){
+        setErrorMsg("Confirm password!");
+
+      }
+      else if(password.length < 6){
+        setErrorMsg("Password should be atleast 6 characters long")
+      }
     }
-  }
-var {fname,lname,email,password,cnfrm_pass} = formValues;
+  };
+  var { fname, lname, email, password, cnfrm_pass } = formValues;
+
   return (
-    <form  className="signup-form" onSubmit={handleSubmit}>
+    <form className="signup-form" onSubmit={handleSubmit}>
       <StyledInput
-      required
+        required
         type="text"
         name="fname"
         value={fname}
@@ -45,7 +58,7 @@ var {fname,lname,email,password,cnfrm_pass} = formValues;
         onChange={handleFormValues}
       />
       <StyledInput
-      required
+        required
         type="text"
         name="lname"
         value={lname}
@@ -55,8 +68,8 @@ var {fname,lname,email,password,cnfrm_pass} = formValues;
         onChange={handleFormValues}
       />
       <StyledInput
-      required
-      name="email"
+        required
+        name="email"
         type="email"
         value={email}
         outlineColor="var(--black)"
@@ -65,9 +78,9 @@ var {fname,lname,email,password,cnfrm_pass} = formValues;
         onChange={handleFormValues}
       />
       <StyledInput
-      required
-      name="password"
-      value={password}
+        required
+        name="password"
+        value={password}
         type="password"
         outlineColor="var(--black)"
         bottomLineColor="var(--lightblue)"
@@ -75,19 +88,21 @@ var {fname,lname,email,password,cnfrm_pass} = formValues;
         onChange={handleFormValues}
       />
       <StyledInput
-      required
-      name="cnfrm_pass"
-      value={cnfrm_pass}
+        required
+        name="cnfrm_pass"
+        value={cnfrm_pass}
         type="password"
         outlineColor="var(--black)"
-        bottomLineColor={password === cnfrm_pass ? "var(--lightblue)":"var(--red)"}
+        bottomLineColor={
+          password === cnfrm_pass ? "var(--lightblue)" : "var(--red)"
+        }
         placeholder="Confirm password"
         onChange={handleFormValues}
       />
+      {error ? <Paragraph style={{ color: "var(--red)" }}>{error}</Paragraph>:""}
       <div className="sign-in-btn">
         <Button
           value="REGISTER"
-          
           style={{ letterSpacing: "2px", width: "25rem", height: "5rem" }}
           colorScheme="black"
         />
@@ -104,6 +119,6 @@ var {fname,lname,email,password,cnfrm_pass} = formValues;
   );
 };
 var actions = {
-    signUp
-}
-export default connect(null,actions)(SignUpForm);
+  signUp,
+};
+export default connect(null, actions)(SignUpForm);

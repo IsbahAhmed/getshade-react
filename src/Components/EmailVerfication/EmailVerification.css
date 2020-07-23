@@ -1,0 +1,21 @@
+.email-verification-container{
+    height: 40rem;
+
+    display:grid;
+    grid-template-columns: 20fr 80fr 20fr;
+    grid-template-rows: 10fr 80fr 10fr;
+    grid-template-areas: ". . ."
+                        ". v-main ."
+                        ". . .";
+}
+.v-main{
+    grid-area: v-main;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.v-main > *{
+    margin: 2rem;
+}

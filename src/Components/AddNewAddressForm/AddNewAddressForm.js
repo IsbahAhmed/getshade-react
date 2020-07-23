@@ -39,46 +39,57 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress }) => {
 
   var handleSubmit = async (e) => {
     e.preventDefault();
-    var { address, postal, country, apt, addressId } = formValues;
-    if (address && postal && country && apt && !addressId) {
-      var addressObj = {
-        ...formValues,
-        addressId: uuid(),
-      };
- 
-      var userObj = {
-        ...user,
-        addressList: [...addressList, addressObj],
-      };
-      var status = await addNewAddress(userObj, user.uid);
-      if (status === "success") {
-        setTextMsg({
-          msg: `Address added successfully`,
-        });
-      } else {
-        setTextMsg({ error: status });
-      }
-    }
-
-
-    else if(address && postal && country && apt && addressId){
+    //limiting addresses
+    if(addressList.length < 3){
+      var { address, postal, country, apt, addressId } = formValues;
+      if (address && postal && country && apt && !addressId) {
         var addressObj = {
-            ...formValues
-        }
-        //filter old address with same id
-        var filteredAddressList = addressList.filter((address)=> address.addressId !== addressId )
+          ...formValues,
+          addressId: uuid(),
+        };
+   
         var userObj = {
-            ...user,
-            addressList: [...filteredAddressList, addressObj],
-          };
-          var status = await addNewAddress(userObj, user.uid);
-          if (status === "success") {
-            setTextMsg({
-              msg: `Address updated successfully`,
-            });
-          } else {
-            setTextMsg({ error: status });
+          ...user,
+          addressList: [...addressList, addressObj],
+        };
+        var status = await addNewAddress(userObj, user.uid);
+        if (status === "success") {
+          setTextMsg({
+            msg: `Address added successfully`,
+          });
+        } else {
+          setTextMsg({ error: status });
+        }
+      }
+  
+  
+      else if(address && postal && country && apt && addressId){
+          var addressObj = {
+              ...formValues
           }
+          //filter old address with same id
+          var filteredAddressList = addressList.filter((address)=> address.addressId !== addressId )
+          var userObj = {
+              ...user,
+              addressList: [...filteredAddressList, addressObj],
+            };
+            var status = await addNewAddress(userObj, user.uid);
+            if (status === "success") {
+              setTextMsg({
+                msg: `Address updated successfully`,
+              });
+            } else {
+              setTextMsg({ error: status });
+            }
+      }
+      else{
+      setTextMsg({ error: "Invalid entries" });
+      }
+     
+    }
+    else{
+      setTextMsg({ error: "You can add upto maximum 3 addresses." });
+
     }
   };
 
@@ -104,6 +115,7 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress }) => {
           name="address"
           value={address}
           onChange={handleFormValues}
+          required
         />
       </div>
       <div className="s-cont">
@@ -114,6 +126,7 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress }) => {
           name="country"
           value={country}
           onChange={handleFormValues}
+          required
         />
       </div>
       <div className="p-code">
@@ -123,6 +136,7 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress }) => {
           name="postal"
           value={postal}
           onChange={handleFormValues}
+          required
         />
       </div>
       <div className="apt">
@@ -132,6 +146,7 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress }) => {
           name="apt"
           value={apt}
           onChange={handleFormValues}
+          required
         />
       </div>
       <div style={{ gridColumn: "1 / span 3" }}>

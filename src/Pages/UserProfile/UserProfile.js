@@ -3,30 +3,44 @@ import "./UserProfile.css";
 import Heading from "../../Components/Heading/Heading";
 import Button from "../../Components/Button/Button";
 
-
 import UserDashboardWrapper from "../../Components/UserDashboardWrapper/UserDashboardWrapper";
 import { connect } from "react-redux";
 import { signout } from "../../Redux/userReducer/userActions";
-const UserProfile = ({signout}) => {
-    console.log("CDM")
+import { Redirect } from "react-router-dom";
+import EmailVerification from "../../Components/EmailVerfication/EmailVerification";
+const UserProfile = ({signout,user,match:{params:{uid}}}) => {
+  
   return (
-    <div className="user-dashboard">
-      <div className="user-dashboard-header">
-        <Heading fontSize="25" style={{ color: "white" }}>
-          isbah ahmed
-        </Heading>
-        <Button
-          value="SIGN OUT"
-          style={{ width: "20rem", height: "5rem", color: "black" }}
-          colorScheme="white"
-          onClick={signout}
-        />
+<React.Fragment>
+    {
+      user && uid === user.uid && user.emailVerified ? 
+      (
+        <div className="user-dashboard">
+        <div className="user-dashboard-header">
+          <Heading fontSize="25" style={{ color: "white" }}>
+           {user.firstName+" "+user.lastName}
+          </Heading>
+          <Button
+            value="SIGN OUT"
+            style={{ width: "20rem", height: "5rem", color: "black" }}
+            colorScheme="white"
+            onClick={signout}
+          />
+        </div>
+          <UserDashboardWrapper uid={uid}/>
       </div>
-        <UserDashboardWrapper/>
-    </div>
+      )
+      : user && uid === user.uid && !user.emailVerified ?
+      <EmailVerification/>:
+      <Redirect to="/auth"/>
+    }
+    </React.Fragment>
   );
 };
+var mapState = (state)=>({
+  user:state.user.currentUser
+})
 var actions = {
   signout
 }
-export default connect(null,actions)(UserProfile);
+export default connect(mapState,actions)(UserProfile);

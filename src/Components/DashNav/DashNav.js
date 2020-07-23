@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faList, faAddressBook, faHeart } from "@fortawesome/free-solid-svg-icons";
 const DashNav = (props) => {
   var [selectedNavLink, navLinkSetter] = useState("");
 
@@ -13,8 +14,10 @@ const DashNav = (props) => {
     navLinkSetter(props.location.pathname);
   }, [props.location.pathname]);
 
+  
   return (
     <div className="dash-nav">
+ 
       <Link
         to={`/userProfile/${props.uid}`}
         className={
@@ -23,7 +26,7 @@ const DashNav = (props) => {
             : ""
         }
       >
-        <FontAwesomeIcon /> <Paragraph>Profile</Paragraph>
+        <FontAwesomeIcon icon={faUser} className="dash-icon"/> <Paragraph>Profile</Paragraph>
       </Link>
 
       <Link
@@ -34,7 +37,7 @@ const DashNav = (props) => {
             : ""
         }
       >
-        <Paragraph>Orders</Paragraph>
+       <FontAwesomeIcon icon={faList} className="dash-icon"/>   <Paragraph>Orders</Paragraph>
       </Link>
 
       <Link
@@ -45,7 +48,7 @@ const DashNav = (props) => {
             : ""
         }
       >
-        <Paragraph>Addresses</Paragraph>
+        <FontAwesomeIcon icon={faAddressBook} className="dash-icon"/>  <Paragraph>Addresses</Paragraph>
       </Link>
 
       <Link
@@ -56,7 +59,7 @@ const DashNav = (props) => {
             : ""
         }
       >
-        <Paragraph>Wishlist</Paragraph>
+       <FontAwesomeIcon icon={faHeart} className="dash-icon"/>   <Paragraph>Wishlist</Paragraph>
       </Link>
     </div>
   );

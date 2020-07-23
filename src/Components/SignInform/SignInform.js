@@ -9,22 +9,26 @@ import { signin } from "../../Redux/userReducer/userActions";
 const SignInform = (props) => {
   var { setForgetPassword,signin, ...restProps } = props;
   const [formValues, setFormValues] = useState({});
+  const [statusMsg,setStatusMsg]=useState({});
 
-  var handleFormValues = (e) => {
+  var handleFormValues =  (e) => {
     var { name, value } = e.target;
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
   };
-  var handleSubmit = (e)=>{
+  var handleSubmit = async (e)=>{
     e.preventDefault();
     var {email,password} = formValues;
     if(email && password){
         var userObj = {
           email,password
         }
-          signin(userObj)
+         var status = await signin(userObj);
+        if(!status){
+          setStatusMsg({error:"Invalid email or password"})
+        }
         }
     
   }
@@ -52,6 +56,10 @@ const SignInform = (props) => {
       required
       onChange={handleFormValues}
       />
+      
+      {
+        (statusMsg.error) &&
+      <Paragraph style={{color:'var(--red)'}}>{statusMsg.error}</Paragraph>}
       <div className="sign-in-btn">
         <Button
           value="SIGN IN"

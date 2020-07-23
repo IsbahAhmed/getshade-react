@@ -2,7 +2,7 @@ import React from "react";
 import "./AddressBoxList.css";
 import AddressBoxListItem from "../AddressBoxListItem/AddressBoxListItem";
 import Heading from "../Heading/Heading";
-const AddressBoxList = ({addressList,handleEdit}) => {
+const AddressBoxList = ({addressList = [],handleEdit}) => {
   var count = 0;
   return (
     

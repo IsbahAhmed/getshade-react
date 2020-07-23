@@ -20,10 +20,11 @@ export var signin = (userObj)=>{
     try {
         var {email,password} = userObj;
     var {user} = await auth.signInWithEmailAndPassword(email,password)
-    
+    return true;
     
     } catch (error) {
         console.log(error)
+        return false
     }
     
     }
@@ -54,11 +55,19 @@ export var signUp = (userObj) => async (dispatch)=>{
             await createdUser.user.updateProfile({
                 displayName: firstName
             })
-     
-
+            var user = auth.currentUser;
+             await user.sendEmailVerification()
+          
+            return "success"
         //    navigate(userObjforState.uid)
            } catch (error) {
                console.log(error)
+               if(error.code === "auth/email-already-in-use"){
+                return "Email already in use"
+               }
+               else{
+                   return "Error occured!"
+               }
            }
    
     
