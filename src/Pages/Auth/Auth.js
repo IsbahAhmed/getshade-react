@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./Auth.css";
-import {Link, Redirect} from "react-router-dom"
+import {Link, Redirect, useHistory} from "react-router-dom"
 
 
 import AuthMain from '../../Components/AuthMain/AuthMain';
@@ -10,6 +10,13 @@ import LoadingSpinner from '../../Components/LoadingSpinner/LoadingSpinner';
 
 
 const Auth = (props) => {
+var history = useHistory();
+useEffect(()=>{
+if(props.user){
+  history.goBack()
+}
+},[props.user])
+
    //checking user auth state
 const [spinner,setSpinner] = useState(true)
   var spinnerOf_timeout = ()=> setTimeout(()=>{
@@ -45,7 +52,7 @@ const [spinner,setSpinner] = useState(true)
           <div className="sp"></div>
              </div>
              :
-             <Redirect to={`/userProfile/${props.user.uid}`}/>
+            ""
             }
         </React.Fragment>
     )

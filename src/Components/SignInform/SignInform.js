@@ -10,7 +10,7 @@ const SignInform = (props) => {
   var { setForgetPassword,signin, ...restProps } = props;
   const [formValues, setFormValues] = useState({});
   const [statusMsg,setStatusMsg]=useState({});
-
+  
   var handleFormValues =  (e) => {
     var { name, value } = e.target;
     setFormValues((prevValues) => ({
@@ -34,7 +34,7 @@ const SignInform = (props) => {
   }
   var {email,password} = formValues;
   return (
-    <form className="signin-form" onSubmit={handleSubmit} {...restProps}>
+    <form className="signin-form" onSubmit={handleSubmit} {...restProps} >
       <StyledInput
         bottomLineColor="var(--lightblue)"
         outlineColor="var(--lightblack)"
@@ -44,6 +44,7 @@ const SignInform = (props) => {
         value={email}
         required
         onChange={handleFormValues}
+
       />
       <StyledInput
 

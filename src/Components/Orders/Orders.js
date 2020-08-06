@@ -3,7 +3,19 @@ import "./Orders.css"
 import Heading from '../Heading/Heading'
 import Paragraph from '../Paragraph/Paragraph'
 import OrdersList from '../OrdersList/OrdersList'
-const Orders = () => {
+import { connect } from 'react-redux'
+
+import { useEffect } from 'react'
+import { useState } from 'react'
+
+const Orders = ({user,orders,reviews}) => {
+
+const [ordersContainer,setOrdersContainer] = useState([])
+useEffect(()=>{
+if(orders.length){
+    setOrdersContainer(orders)
+}
+},[orders])
     return (
         <div className="order-page-container">
             <div className="order-page-main">
@@ -11,12 +23,17 @@ const Orders = () => {
           Orders
           </Heading>
           <Paragraph>
-              8 ITEMS
+              {orders.length} ITEMS
           </Paragraph>
-          <OrdersList/>
+          <OrdersList orders={ordersContainer} reviews={reviews}/>
             </div>
         </div>
     )
 }
+var mapState = (state)=>({
+user : state.user.currentUser,
+orders : state.orders,
+reviews : state.reviews
+})
 
-export default Orders
+export default connect(mapState)(Orders)

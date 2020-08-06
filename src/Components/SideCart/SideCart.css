@@ -86,7 +86,7 @@ transition: background 300ms ease;
     grid-area: items;
    
     display: grid;
-    grid-template-rows: repeat(auto-fit,150px);
+    grid-template-rows: repeat(auto-fit,15rem);
     row-gap: 10px;
     overflow-y: auto;
 }

@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_ITEM_FROM_CART, SET_CART_ITEMS } from "./cartConstants";
+import { ADD_TO_CART, REMOVE_ITEM_FROM_CART, SET_CART_ITEMS, CLEAR_CART } from "./cartConstants";
 import { addItemToCartHelper } from "../../Utility/Utility";
 
 var initialState = []
@@ -11,6 +11,8 @@ var cartReducer = (state = initialState,actions)=>{
         return state.filter((item)=> item.productId !== payload.itemId);
       case SET_CART_ITEMS:
           return payload.cart;
+       case CLEAR_CART:
+         return [];   
         default:
           return state;
     }

@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import Button from "../Button/Button";
 import Paragraph from "../Paragraph/Paragraph";
 
-const ShopProducts = ({ products }) => {
+const ShopProducts = ({ products,catagory }) => {
 
   
   var [productSize, setProductSize] = useState({
@@ -46,9 +46,8 @@ setProductToShow((prevValue)=> ([...prevValue,...array]))
       productPoper()
      }
   },[productsArray])
-  useEffect(()=>{
-    console.log(productToShow)
-  },[productToShow])
+
+ 
 
   var handleProductSize = () => {
     if (window.innerWidth <= 425) {

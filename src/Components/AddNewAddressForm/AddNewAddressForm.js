@@ -9,7 +9,7 @@ import { addNewAddress } from "../../Redux/userReducer/userActions";
 import { v4 as uuid } from "uuid";
 import Paragraph from "../Paragraph/Paragraph";
 
-const AddNewAddressForm = ({ user, addNewAddress, toEditAddress }) => {
+const AddNewAddressForm = ({ user, addNewAddress, toEditAddress,setToEditAddress }) => {
   const [formValues, setFormValues] = useState({});
 
   ///checking edit address
@@ -40,8 +40,11 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress }) => {
   var handleSubmit = async (e) => {
     e.preventDefault();
     //limiting addresses
-    if(addressList.length < 3){
-      var { address, postal, country, apt, addressId } = formValues;
+    var { address, postal, country, apt, addressId } = formValues;
+    console.log(addressId)
+    if(addressList.length < 3 || addressId)
+    {
+
       if (address && postal && country && apt && !addressId) {
         var addressObj = {
           ...formValues,
@@ -103,6 +106,8 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress }) => {
     });
     setCountryDetails(countryArray);
   }, []);
+
+
   var { address, postal, country, apt } = formValues;
 
   var {msg,error} = textMsg;
@@ -158,13 +163,18 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress }) => {
           ""
         }
       </div>
-      <div>
+      <div className="edit-addressform-btn">
         <Button
-          value="ADD"
+          value={toEditAddress ? "EDIT":"ADD"}
           style={{ width: "100%", height: "5rem" }}
           colorScheme="black"
         />
+       
       </div>
+  {  (toEditAddress) && 
+   <Paragraph className="cancel-edit" onClick={()=>setToEditAddress(null)}>
+          Cancel Edit
+        </Paragraph>}
     </form>
   );
 };

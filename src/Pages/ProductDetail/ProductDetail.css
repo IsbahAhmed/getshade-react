@@ -1,7 +1,7 @@
 .productdetail-container{
     margin: 10% 0;
     width: 100%;
-    height: 150%;
+    height: 100%;
     display: grid;
     grid-template-rows: 5fr 35fr 5fr 35fr ;
     grid-template-columns: minmax(15rem,1fr) 45fr 5rem 30fr minmax(15rem,1fr);

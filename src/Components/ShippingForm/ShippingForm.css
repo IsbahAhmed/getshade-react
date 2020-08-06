@@ -31,6 +31,25 @@
     grid-template-columns: 50fr 50fr;
     column-gap: 10px;
 }
+.address-list{
+    height: 8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.address-list > div {
+    box-shadow: 0px 0px 9px 0px #b3b3b3;
+    cursor: pointer;
+    height: 7rem;
+    width: 30%;
+    /* background: rgba(124, 124, 124, 0.096); */
+    border-radius: 1rem;
+   transition: all 200ms ease;
+
+   color: var(--black);
+}
+
 @media screen and (max-width:375px){
     .postal{
         grid-template-columns: 1fr;

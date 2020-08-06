@@ -1,4 +1,4 @@
-import { ADD_TO_CART,REMOVE_ITEM_FROM_CART, SET_CART_ITEMS } from "./cartConstants";
+import { ADD_TO_CART,REMOVE_ITEM_FROM_CART, SET_CART_ITEMS, CLEAR_CART } from "./cartConstants";
 import { addCartItemTo_SessionStorage, removeItemFrom_SessionStorage } from "../../Utility/Utility";
 
 export var addToCart = (item)=>{
@@ -30,4 +30,11 @@ return {
         cart
     }
 }
+}
+export var clearCart = ()=>{
+    sessionStorage.clear();
+    return {
+        type: CLEAR_CART,
+     
+    }
 }

@@ -28,7 +28,7 @@ const Addresses = (props) => {
             New Address
 
                 </Heading>
-                <AddNewAddressForm toEditAddress={toEditAddress}/>
+                <AddNewAddressForm toEditAddress={toEditAddress} setToEditAddress={setToEditAddress}/>
             </div>
       
         </div>

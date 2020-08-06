@@ -18,7 +18,9 @@
 }
 .mini-cart-list-items{
     display: grid;
-    grid-template-rows: repeat(auto-fit,12rem);
+    grid-template-rows: repeat(auto-fit,minmax(16rem,min-content));
+    align-items: center;
+    row-gap: 1rem;
 }
 
 .mini-cart-list-items > div:hover .remove-this{

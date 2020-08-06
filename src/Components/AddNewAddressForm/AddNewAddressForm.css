@@ -4,6 +4,16 @@
     grid-template-columns: repeat(3,33fr);
     column-gap: 2rem;
 }
+.cancel-edit{
+    display: flex;
+    align-items: center;
+transition: color 200ms ease-in;
+justify-self: start;
+cursor: pointer;
+}
+.cancel-edit:hover{
+    color: var(--lightblack);
+}
 @media screen and (max-width:425px){
  .s-cont{
      grid-column: 1/span 3;

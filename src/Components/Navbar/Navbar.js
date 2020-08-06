@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import "./Navbar.css"
-import cartIcon from '../../assets/img/shopping-cart.svg';
+import cartIcon from '../../assets/img/new-cart-icon.svg';
 import logo from "../../assets/img/logo-plane.png"
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -9,7 +9,7 @@ import MobileNav from '../MobileNav/MobileNav';
 import {connect} from "react-redux"
 import { fetchProducts } from '../../Redux/productsReducer/productActions';
 import { auth, firestore } from '../../Firebase/firebase';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+
 
 const Navbar = (props) => {
     // var [slectedLink,linkSelector] = useState("home")
@@ -136,8 +136,8 @@ const Navbar = (props) => {
      </div>
      <div className="cart-icon cart-123 flex-center" id="cart-icon">
      
-        <img src={cartIcon} onClick={()=> cartToglleHandler(true)} alt=""/>
-            <div className={`cart-count flex-center ${(cartCount > 0) && "pop-count"}`} >
+        <img src={cartIcon} className={cartCount ? "wobble-hor-top":""} onClick={()=> cartToglleHandler(true)} alt=""/>
+            <div className={`cart-count flex-center  ${(cartCount > 0) && "pop-count"}`} >
             {cartCount}
             </div>
              </div>

@@ -12,14 +12,19 @@ import { connect } from 'react-redux'
 import { useEffect } from 'react'
 import { subtotal_calculator } from '../../Utility/Utility'
 import { useState } from 'react'
-const Cart = ({cart,user={}}) => {
+const Cart = ({cart,user}) => {
+const [userId,setUserId] = useState("null")
 const [subtotal,setSubtotal] = useState(0)
   useEffect(()=>{
    var subtotal = subtotal_calculator(cart)
+
    setSubtotal(subtotal)
   },[cart])
-  
-  var {uid = "null"} = user;
+useEffect(()=>{
+if(user){
+  setUserId(user.uid)
+}
+},[user])
     return (
        
             <div className="cart-container">
@@ -33,7 +38,7 @@ const [subtotal,setSubtotal] = useState(0)
    </Link>
   </div>
   
-    <Link to={`/shipping/${uid}`}>
+    <Link to={`/shipping/${userId}`}>
     <Button value="CHECK OUT" style={{padding:"1rem 3rem"}} colorScheme="black"/>
     </Link>
    
@@ -63,7 +68,7 @@ const [subtotal,setSubtotal] = useState(0)
       {subtotal}
     </Paragraph>
      <div className="btn" style={{gridColumn:"1/ span 2"}}>
-     <Link to={`/shipping/${uid}`} >
+     <Link to={`/shipping/${userId}`} >
     <Button value="CHECK OUT" style={{width:"100%",height:"5rem"}} colorScheme="black"/>
     </Link>
      </div>
@@ -79,7 +84,7 @@ const [subtotal,setSubtotal] = useState(0)
 }
 var mapState = (state)=>({
   cart:state.cart,
-  user:state.currentUser
+  user:state.user.currentUser
 })
 
 export default connect(mapState)(Cart)

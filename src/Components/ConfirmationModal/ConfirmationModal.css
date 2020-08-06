@@ -1,0 +1,15 @@
+.close-confrm-modal{
+    font-size: 1.6rem;
+    float: right;
+    cursor: pointer;
+}
+.txt-confrm-modal{
+    display: flex;
+    align-items: center;
+ 
+}
+.btn-cnfrm-modal{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

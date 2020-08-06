@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SimpleInput from '../SiimpleInput/SimpleInput'
 import Button from '../Button/Button'
 import "./DiscountForm.css"
-const DiscountForm = (props) => {
+const DiscountForm = () => {
+   
     var [inputValue,setInputValue] = useState("");
 
     return (

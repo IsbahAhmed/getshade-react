@@ -9,6 +9,9 @@ letter-spacing: 2px;
 .btn-container button:active{
     transform: scale(0.9);
 }
+.btn-container button:disabled{
+    background: rgb(189, 189, 189) ;
+}
 .white-scheme{
     color:white;
     border:1px solid white;

@@ -1,0 +1,11 @@
+.how-was-your-experience{
+ cursor: pointer;   
+ transition: color 300ms ease;
+}
+.add-review{
+    align-self: flex-start;
+
+}
+.how-was-your-experience:hover{
+    color:var(--lightblack)
+}

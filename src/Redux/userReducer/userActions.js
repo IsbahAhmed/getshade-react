@@ -1,5 +1,5 @@
 import { auth, serverTimeStamp, firestore } from "../../Firebase/firebase";
-import { CREATE_NEW_USER, REMOVE_USER, UPDATE_CURRENT_USER, SET_CURRENT_USER } from "./userConstants";
+import { CREATE_NEW_USER, REMOVE_USER, UPDATE_CURRENT_USER, SET_CURRENT_USER, ADD_ORDER_ID, SET_ORDERS } from "./userConstants";
 
 export var createNewUser = (userObj)=>({
     type: CREATE_NEW_USER,
@@ -152,3 +152,10 @@ export var resetPassword = (email)=> async ()=>{
         return "An error occured"
     }
 }
+export var addOrderIdtoUser = (orderId) => ({
+    type:ADD_ORDER_ID,
+    payload:{
+        orderId
+    }
+
+})

@@ -1,9 +1,35 @@
 import React from 'react'
 import "./MiniCart.css"
 import Heading from '../Heading/Heading'
-import SideCartItemList from '../Sidecart_ItemList/SideCartList'
+import SideCartList from '../Sidecart_ItemList/SideCartList'
 import DiscountForm from '../DiscountForm/DiscountForm'
-const MiniCart = () => {
+import { connect } from 'react-redux'
+import { useEffect } from 'react'
+import { subtotal_calculator } from '../../Utility/Utility'
+import { useState } from 'react'
+const MiniCart = ({cart,setOrderObj}) => {
+const [subtotal,setSubtotal] = useState(0)
+const [shippingCost,setShippingCost] = useState(100)
+const [cartItemsIds,setCartItemIds] = useState([]) 
+    useEffect(()=>{
+        if(cart.length){
+            var subtotal = subtotal_calculator(cart)
+            setSubtotal(subtotal)
+            var cartItemsArray = [];
+            cart.forEach(cartItem => {
+                cartItemsArray.push(`${cartItem.productId}`)
+            });
+            setCartItemIds(cartItemsArray)
+        }
+    },[cart])
+    useEffect(()=>{
+        if(cart.length){
+            setOrderObj((prevValue)=>({
+                ...prevValue,
+                subtotal,shippingCost,orderedItems:cartItemsIds
+            }))
+        }
+    },[cart,subtotal,shippingCost])
     return (
         <div className="mini-cart">
             <div className="mini-cart-main">
@@ -11,10 +37,10 @@ const MiniCart = () => {
                     Your Cart
                 </Heading>
                 <div className="mini-cart-list-items">
-                    <SideCartItemList />
+                    <SideCartList cart={cart}/>
                 </div>
                 <div className="discount-form-container flex-center">
-                <DiscountForm/>
+                <DiscountForm />
             
             </div>
                 <div className="amounts">
@@ -25,7 +51,7 @@ const MiniCart = () => {
                     </div>
                     <div className="st-am">
                     <Heading>
-                      Rs 2880
+                      Rs {subtotal}
                         </Heading>
                     </div>
                     <div className="sh">
@@ -35,7 +61,7 @@ const MiniCart = () => {
                     </div>
                     <div className="sh-am">
                     <Heading>
-                            Rs 0
+                            Rs {shippingCost}
                         </Heading>
                     </div>
                 </div>
@@ -44,7 +70,9 @@ const MiniCart = () => {
                       Total
                   </Heading>
                   <Heading>
-                      Rs 2880
+                      Rs {
+                          subtotal + shippingCost
+                      }
                   </Heading>
               </div>
             </div>
@@ -52,5 +80,7 @@ const MiniCart = () => {
         </div>
     )
 }
-
-export default MiniCart
+var mapState = (state)=>({
+    cart : state.cart
+})
+export default connect(mapState)(MiniCart)

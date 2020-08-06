@@ -3,8 +3,8 @@ import "./Shop.css"
 import ShopHeader from '../../Components/ShopHeader/ShopHeader'
 import ShopProducts from '../../Components/ShopProducts/ShopProducts'
 import ShopFilters from '../../Components/ShopFilters/ShopFilters'
-const Shop = () => {
-  
+const Shop = (props) => {
+  var {match:{params:{type}}} = props;
     return (
         <div className="shop-page">
             {/* <div className={`abc flex-center ${off === 1 ? ("off") : "on"}`}>
@@ -23,7 +23,7 @@ const Shop = () => {
         <ShopHeader/>
         <div className="shop-grid">
           <ShopFilters/>
-         <ShopProducts/>
+         <ShopProducts catagory={type}/>
         </div>
     </div>
         </div>
