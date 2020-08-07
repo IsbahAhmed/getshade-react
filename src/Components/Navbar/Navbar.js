@@ -9,6 +9,7 @@ import MobileNav from '../MobileNav/MobileNav';
 import {connect} from "react-redux"
 import { fetchProducts } from '../../Redux/productsReducer/productActions';
 import { auth, firestore } from '../../Firebase/firebase';
+import { fetchWishlistItems } from '../../Redux/wishlist/wishlistActions';
 
 
 const Navbar = (props) => {
@@ -60,6 +61,15 @@ const Navbar = (props) => {
             }
                  })
        },[])
+
+//getting wishlistitems 
+
+useEffect(()=>{
+if(props.user && props.user.uid){
+props.fetchWishlistItems(props.user.uid)
+}
+},[props.user])
+
     var {cartToglleHandler,cart} = props;
   var [navbar,setNavbar] = useState("mobile");
   var [cartCount,setCountValue] = useState(0);
@@ -154,6 +164,7 @@ var mapState = (state)=>({
 })
 var actions = {
     fetchProducts,
-    createNewUser,removeCurrentUser
+    createNewUser,removeCurrentUser,
+    fetchWishlistItems
 }
 export default connect(mapState,actions)(Navbar)

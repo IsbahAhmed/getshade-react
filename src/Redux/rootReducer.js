@@ -5,6 +5,7 @@ import productReducer from "./productsReducer/productsReducer";
 import catagoriesReducer from "./catagoriesReducer/catagoriesReducer";
 import ordersReducer from "./orders/ordersReducer";
 import reviewReducer from "./reviews/reviewReducer";
+import wishlistReducer from "./wishlist/wishlistReducer";
 
 var rootReducer = combineReducers({
    user: userReducer,
@@ -12,7 +13,8 @@ var rootReducer = combineReducers({
    products:productReducer,
    catagories:catagoriesReducer
    ,orders:ordersReducer,
-   reviews: reviewReducer
+   reviews: reviewReducer,
+   wishlist: wishlistReducer
 })
 
 export default rootReducer

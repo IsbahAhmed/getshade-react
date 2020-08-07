@@ -7,47 +7,41 @@ import { connect } from "react-redux";
 import Button from "../Button/Button";
 import Paragraph from "../Paragraph/Paragraph";
 
-const ShopProducts = ({ products,catagory }) => {
-
-  
+const ShopProducts = ({ products, catagory }) => {
   var [productSize, setProductSize] = useState({
     width: "30rem",
     height: "40rem",
   });
-  const [productToShow,setProductToShow] = useState([]);
-  const [productsArray,setProductsArray] = useState([]);
-  const [productsLimit,setProductLimit] = useState(false)
-  var productPoper = ()=>{
-  var array = []
-for (let i = 3; i > 0; i--) {
- var x = productsArray.pop();
-  if(x){
-    array.push(x)
-  }
-  else{
-    setProductLimit(true)
-    break;
-  }
-}
-
-setProductToShow((prevValue)=> ([...prevValue,...array]))
-
-  }
-
-
-  useEffect(()=>{
-    //Component did mount
-    setProductsArray([...products])
+  const [productToShow, setProductToShow] = useState([]);
+  const [productsArray, setProductsArray] = useState([]);
+  const [productsLimit, setProductLimit] = useState(false);
   
-  },[products])
+  var productPoper = () => {
+    var array = [];
+    for (let i = 3; i > 0; i--) {
+      var x = productsArray.pop();
+   
+      if (x) {
+        array.push(x);
+      } else {
+        setProductLimit(true);
+        break;
+      }
+    }
 
-  useEffect(()=>{
-    if(products.length > 0){
-      productPoper()
-     }
-  },[productsArray])
+    setProductToShow((prevValue) => [...prevValue, ...array]);
+  };
 
- 
+  useEffect(() => {
+    //Component did mount
+    setProductsArray([...products]);
+  }, [products]);
+
+  useEffect(() => {
+    if (products.length > 0) {
+      productPoper();
+    }
+  }, [productsArray]);
 
   var handleProductSize = () => {
     if (window.innerWidth <= 425) {
@@ -79,26 +73,33 @@ setProductToShow((prevValue)=> ([...prevValue,...array]))
       <div className="dropdown-row"></div>
       <div className="main-product-sec">
         {products.length > 0
-         ? productToShow.map((prod)=>   <Product
-         key={prod.productId}
-         productInfo={prod}
-           className={"shop-product-item"}
-     
-           style={{ width, height }}
-         />)
+          ? productToShow.map((prod) => (
+              <Product
+                key={prod.productId}
+                productInfo={prod}
+                className={"shop-product-item"}
+                style={{ width, height }}
+              />
+            ))
           : ""}
       </div>
       <div className="flex-center">
-    {  
-    !productsLimit ? 
-    <Button value="Show more" style={{width:"15rem",height:"5rem"}} onClick={productPoper} colorScheme="black"/>
-  : <Paragraph>No more to show</Paragraph>
-  }
+        {!productsLimit && products.length ? (
+          <Button
+            value="Show more"
+            style={{ width: "15rem", height: "5rem" }}
+            onClick={productPoper}
+            colorScheme="black"
+          />
+        ) : (
+          <Paragraph>No more to show</Paragraph>
+        )}
       </div>
     </div>
   );
 };
 var mapState = (state) => ({
-  products: state.products
+  products: state.products,
 });
+
 export default connect(mapState)(ShopProducts);

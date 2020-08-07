@@ -4,6 +4,7 @@ import Heading from '../Heading/Heading'
 import Paragraph from '../Paragraph/Paragraph'
 import WishListProducts from '../WishlistProducts/WishListProducts'
 const Wishlist = () => {
+    const [wishlistNumberOfItems,setwishlistNumberOfItems] = React.useState(0)
     return (
         <div className="wishlist-container"> 
            <div className="wishlist-main">
@@ -11,10 +12,10 @@ const Wishlist = () => {
                Wishlist
                </Heading>
                <Paragraph style={{marginTop:"0.5rem"}}>
-               3 PRODUCT
+               {wishlistNumberOfItems} Item(s) found
 
                </Paragraph>
-                <WishListProducts/>
+                <WishListProducts setwishlistNumberOfItems={setwishlistNumberOfItems}/>
            </div>
         </div>
     )

@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./WishListProductListItem.css"
 import Product from '../Product/Product'
-const WishListProductListItem = () => {
+
+const WishListProductListItem = ({product}) => {
+var {productId} = product;
+  
     return (
         <div className="wishlist-item">
-            <Product style={{width:"100%",height:"100%"}}/>
+          <Product
+                key={productId}
+                productInfo={product}
+                className={"shop-product-item"}
+                style={{ width:"100%", height:"100%" }}
+              />
         </div>
     )
 }

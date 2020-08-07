@@ -3,7 +3,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit,24rem);
-    column-gap: 2rem;
-    row-gap: 2rem;
+    column-gap: 3rem;
+    row-gap: 3rem;
     justify-content: center;
 }
