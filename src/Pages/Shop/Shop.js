@@ -5,6 +5,12 @@ import ShopProducts from '../../Components/ShopProducts/ShopProducts'
 import ShopFilters from '../../Components/ShopFilters/ShopFilters'
 const Shop = (props) => {
   var {match:{params:{type}}} = props;
+  const [filters,setFilters] = useState({
+      color:"",
+      minPrice:0,
+      maxPrice:null
+  })
+ 
     return (
         <div className="shop-page">
             {/* <div className={`abc flex-center ${off === 1 ? ("off") : "on"}`}>

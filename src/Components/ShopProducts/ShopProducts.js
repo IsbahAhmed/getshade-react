@@ -15,12 +15,13 @@ const ShopProducts = ({ products, catagory }) => {
   const [productToShow, setProductToShow] = useState([]);
   const [productsArray, setProductsArray] = useState([]);
   const [productsLimit, setProductLimit] = useState(false);
-  
+
   var productPoper = () => {
     var array = [];
     for (let i = 3; i > 0; i--) {
+ 
       var x = productsArray.pop();
-   
+ 
       if (x) {
         array.push(x);
       } else {
@@ -34,11 +35,20 @@ const ShopProducts = ({ products, catagory }) => {
 
   useEffect(() => {
     //Component did mount
-    setProductsArray([...products]);
-  }, [products]);
+    var catagorizedProducts = ()=>{
+    if(catagory === "all"){
+      return [...products]
+    }
+    else{
+      return products.filter(({type})=> catagory === type)
+    }
+    }
+    
+    setProductsArray([...catagorizedProducts()]);
+  }, [products,catagory]);
 
   useEffect(() => {
-    if (products.length > 0) {
+    if (productsArray.length) {
       productPoper();
     }
   }, [productsArray]);
@@ -91,7 +101,7 @@ const ShopProducts = ({ products, catagory }) => {
             onClick={productPoper}
             colorScheme="black"
           />
-        ) : (
+        ) : !products.length ? <Paragraph>Loading...</Paragraph>: (
           <Paragraph>No more to show</Paragraph>
         )}
       </div>
