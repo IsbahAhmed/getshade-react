@@ -17,7 +17,7 @@
   
    
 }
-.input-xs > div {
+.input-xs > div:nth-child(1) {
     width: 100%;
     display: grid;
     /* align-items: end; */
