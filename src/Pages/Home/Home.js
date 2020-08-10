@@ -5,8 +5,7 @@ import Heading from '../../Components/Heading/Heading'
 import Paragraph from '../../Components/Paragraph/Paragraph'
 
 import "./Home.css";
-
-
+import HomeSlider from "../../Components/HomeSlider/HomeSlider"
 import TopSeller from '../../Components/TopSeller/TopSeller'
 import Button from '../../Components/Button/Button'
 import NewProducts from '../../Components/NewProducts/NewProducts'
@@ -24,12 +23,7 @@ const Home = ({fetchCatagories}) => {
 
     return (
    <React.Fragment>
-      <Section >
-      <div className="flex-center" style={{height:"50vw",background:"pink"}}>
-      <h1>Slider</h1>
-      </div>
-  
-    </Section>
+    <HomeSlider/>
       <Section>
    <div className="catagories">
   <div className="cat-heading">
@@ -43,7 +37,7 @@ const Home = ({fetchCatagories}) => {
 
       </Section>
 
-      {/* <TopSeller/> */}
+      <TopSeller/>
       <Section>
         <div className="extra-section">
         <div className="content">
@@ -59,7 +53,7 @@ const Home = ({fetchCatagories}) => {
         </div>
         </div>
       </Section>
-      {/* <NewProducts/> */}
+      <NewProducts/>
       <Collections/>
       <NewsLetter/>
    </React.Fragment>

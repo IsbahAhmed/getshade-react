@@ -50,6 +50,12 @@ html a{
   background: transparent;
   border: 1px solid white;
 }
+.slick-list .slick-track .slick-slide {
+  outline: none !important
+}
+.slick-slide *{
+  outline: none;
+}
 @media only screen and (max-width:768px){
   html{
     font-size: 50%;
