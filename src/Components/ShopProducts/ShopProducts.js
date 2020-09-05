@@ -6,6 +6,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import Button from "../Button/Button";
 import Paragraph from "../Paragraph/Paragraph";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const ShopProducts = ({ products, catagory }) => {
   var [productSize, setProductSize] = useState({
@@ -93,7 +94,7 @@ const ShopProducts = ({ products, catagory }) => {
             ))
           : ""}
       </div>
-      <div className="flex-center">
+      <div className="flex-center" style={{position:"relative"}}>
         {!productsLimit && products.length ? (
           <Button
             value="Show more"
@@ -101,7 +102,7 @@ const ShopProducts = ({ products, catagory }) => {
             onClick={productPoper}
             colorScheme="black"
           />
-        ) : !products.length ? <Paragraph>Loading...</Paragraph>: (
+        ) : !products.length ? <LoadingSpinner/> : (
           <Paragraph>No more to show</Paragraph>
         )}
       </div>
