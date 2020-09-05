@@ -4,6 +4,10 @@
     grid-template-rows: 10fr 58fr 32fr ;
 
 }
+.ac-xyz{
+    display: flex;
+    align-items: center;
+}
 .forget-password-container{
 
     z-index: 20;

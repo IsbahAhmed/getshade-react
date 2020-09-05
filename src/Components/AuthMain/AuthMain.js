@@ -7,8 +7,8 @@ const AuthMain = () => {
   var [forgetPasswordToggle, setForgetPassword] = useState(false);
   return (
     <React.Fragment>
-      <div className="">
-        <Heading style={{ letterSpacing: "2px", marginTop: "4%" }}>
+      <div className="ac-xyz">
+        <Heading >
           ACCOUNT
         </Heading>
       </div>

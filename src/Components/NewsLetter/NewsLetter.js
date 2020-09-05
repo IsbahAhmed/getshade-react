@@ -30,7 +30,7 @@ const NewsLetter = () => {
   return (
     <div className="newsletter">
       <div className="text-part">
-        <Heading className="text-part-h" fontSize="25">
+        <Heading  fontSize="25">
           Getshade is here <br /> for creative pros to carry, build & hack life
           better
         </Heading>

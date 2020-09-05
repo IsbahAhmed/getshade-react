@@ -11,9 +11,10 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 import MobileMenu from "../MobileMenu/MobileMenu";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { within } from "@testing-library/react";
 
-const MobileNav = () => {
+const MobileNav = (props) => {
   var [mobile_menuStyle, toggleMobileMenu] = useState({
     display: "none",
     opacity: "0",
@@ -54,7 +55,9 @@ const MobileNav = () => {
       }));
     }
   };
-
+useEffect(()=>{
+setDisplayValue(false)
+},[props])
   useEffect(()=>{
     return ()=>{
       clearTimeout(timeOut_1);
@@ -94,4 +97,4 @@ const MobileNav = () => {
   );
 };
 
-export default MobileNav;
+export default withRouter(MobileNav);

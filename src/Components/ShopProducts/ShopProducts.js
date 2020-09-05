@@ -56,8 +56,8 @@ const ShopProducts = ({ products, catagory }) => {
   var handleProductSize = () => {
     if (window.innerWidth <= 425) {
       setProductSize({
-        width: "20rem",
-        height: "30rem",
+        width: "25rem",
+        height: "35rem",
       });
     } else {
       setProductSize({

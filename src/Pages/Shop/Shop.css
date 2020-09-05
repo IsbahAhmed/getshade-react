@@ -18,7 +18,7 @@ grid-area: main-shop;
 @media screen and (max-width:425px){
   .shop-grid{
     grid-template-columns: 1fr;
-    grid-template-rows: 20vh min-content;
+    grid-template-rows: minmax(20vh,min-content) min-content;
     grid-template-areas: "filters" "products";
   }
 }

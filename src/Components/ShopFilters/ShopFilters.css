@@ -36,8 +36,11 @@
 }
 .price-filter{
    
-justify-content: space-evenly;
+justify-content: center;
 padding-bottom: 2rem;
+}
+.price-filter > div{
+    margin:0 1rem
 }
 .color-filter{
    

@@ -1,3 +1,22 @@
 .slick-slide {
     outline: none !important
 }
+.slider-container-custom .slick-dots{
+bottom: 10% !important;
+}
+.slider-container-custom .slick-dots li.slick-active button:before{
+    color: white !important;
+    
+
+}
+.slider-container-custom .slick-dots li button::before{
+    color:white !important
+    ;
+}
+.slick-dots li button::before{
+    transition: all 300ms ease;
+
+}
+ .slick-dots li button:hover{
+transform: scale(2);
+}

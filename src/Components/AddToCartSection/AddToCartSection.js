@@ -8,7 +8,10 @@ import {v4 as uuid} from "uuid"
 import {connect} from "react-redux"
 import { useEffect } from 'react'
 import {addToCart} from "../../Redux/cartReducer/cartActions"
+import { useAlert } from 'react-alert'
 const AddToCartSection = ({product,addToCart}) => {
+var alert = useAlert()
+
 var {productId,price,selectedColors = []}=product;
 var [color,setColor] = useState()
   useEffect(()=>{
@@ -60,7 +63,10 @@ var [color,setColor] = useState()
  
     </div>
            <Button value="ADD TO CART" 
-           onClick={()=>addToCart({...product,color,quantity})} 
+           onClick={()=>{
+            addToCart({...product,color,quantity})
+            alert.success("Item Added")
+           }} 
            colorScheme="black"/>
        
           </div>

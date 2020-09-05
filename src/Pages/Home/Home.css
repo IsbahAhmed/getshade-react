@@ -9,11 +9,12 @@
                          ". . ." ;  
 
 }
+
 .cats{
     grid-area: cats;
     display: grid;
     /* grid-template-columns: 49fr 2fr 49fr; */
-     grid-template-rows: minmax(20vw,min-content); 
+     /* grid-template-rows: minmax(20vw,min-content);  */
     grid-template-columns: 50fr 50fr;
     column-gap: 2rem;
     row-gap: 2rem;
@@ -94,7 +95,14 @@ opacity: 1;
 }
 .content > * {
     margin-bottom: 3rem;
+
 }
+
+/* //removing slider btn */
+.slick-arrow {
+    display: none !important;
+}
+
 @media only screen and (max-width:425px){
     .extra-section{
         display: grid;

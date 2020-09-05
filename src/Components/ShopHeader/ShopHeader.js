@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import "./ShopHeader.css"
 import primaryImage from "../../assets/img/shop-primary-header.jpg";
 import Heading from '../Heading/Heading';
-import Product from '../Product/Product';
-import SimpleInput from '../SiimpleInput/SimpleInput';
+
 
 
 const ShopHeader = () => {

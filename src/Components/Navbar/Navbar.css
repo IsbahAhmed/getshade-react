@@ -34,11 +34,11 @@
         height: 35% ;
         border-right: 1px solid rgba(0, 0, 0, 0.616);
     }
-    .logo h3{
+    .logo .heading-container{
     padding: 0 0 0 3rem;
     font-size: 3rem;
     transform: translateY(2px);
-    font-family: 'Jhon Wick';
+
     }
     .home{
         grid-area: home;

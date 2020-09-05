@@ -16,10 +16,10 @@
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 30%;
-    height: 30%;
+    width: 10rem;
+    height: 10rem;
     margin: 0.8rem;
-    border: 1.5rem solid var(--lightblack);
+    border: 1rem solid var(--lightblack);
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: var(--lightblack) transparent transparent transparent;

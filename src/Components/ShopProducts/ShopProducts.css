@@ -15,6 +15,6 @@
 }
 @media only screen and (max-width:425px){
  .main-product-sec{
-     grid-template-columns: repeat(auto-fit,20rem);
+     grid-template-columns: repeat(auto-fit,25rem);
  }
 }

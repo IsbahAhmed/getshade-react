@@ -18,7 +18,7 @@ export default class HomeSlider extends Component {
   
       };
     return (
-      <div>
+      <div className="slider-container-custom">
      
         <Slider {...settings}>
           <div >

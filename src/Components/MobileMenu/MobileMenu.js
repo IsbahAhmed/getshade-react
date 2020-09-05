@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import Heading from "../Heading/Heading"
 import {Link} from "react-router-dom"
+import { connect } from 'react-redux'
 const MobileMenu = (props) => {
     var {mobile_menuStyle,mobileMenuOn,setDisplayValue,displayValue,timeOut_1,timeOut_2} = props;
   useEffect(() => {
@@ -44,11 +45,18 @@ clearTimeout(timeOut_2)
 
             </Heading>
             <Heading>
-            <Link to="/auth">SIGN IN</Link>
+            { !props.user ? <Link to="/auth">
+       LOGIN/SIGNUP
+         </Link>:
+         <Link to={`/userProfile/${props.user.uid}`}>{props.user.firstName}</Link>
+         }
             </Heading>
         </div>
       </div>
     )
 }
+var mapState = (state)=>({
 
-export default MobileMenu
+  user:state.user.currentUser
+})
+export default connect(mapState)(MobileMenu)

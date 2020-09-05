@@ -13,6 +13,7 @@ import {
   addToWishlist,
   removeFromWishlist,
 } from "../../Redux/wishlist/wishlistActions";
+import { useAlert } from "react-alert";
 
 const Product = ({
   productInfo,
@@ -34,6 +35,8 @@ const Product = ({
   const [wishlistItemMember, setwishlistItemMember] = useState(false);
 
   ///checking wishlist
+  const alert = useAlert()
+
   useEffect(() => {
     if (wishlist) {
       var tempCheck = wishlist.filter((item) => item.productId === productId);
@@ -59,8 +62,11 @@ const Product = ({
       >
         {user && wishlistItemMember ? (
           <abbr
-            onClick={() =>
-              removeFromWishlist(wishlistItemMember.wishlistItemId)
+            onClick={async() =>
+              {
+            await    removeFromWishlist(wishlistItemMember.wishlistItemId)
+            alert.success("Added to wishlist")
+              }
             }
             title="Remove from wishlist"
           >
@@ -70,20 +76,31 @@ const Product = ({
               style={{ color: "var(--red)" }}
             />
           </abbr>
-        ) : (
+        ) : user && !wishlistItemMember ?(
           <abbr
             title="Add to wishlist"
-            onClick={() =>
-              addToWishlist({
+            onClick={ async() =>{
+            await  addToWishlist({
                 productId,
                 addedBy: user.uid,
                 wishlistItemCode: productId + user.uid,
               })
+           
+            }
             }
           >
             <FontAwesomeIcon icon={faHeart} className="wishlist-btn" />
           </abbr>
-        )}
+        ):(
+          <abbr
+            title="Add to wishlist"
+            onClick={()=> alert.error("You are not logged in")}
+          >
+          
+            <FontAwesomeIcon icon={faHeart} className="wishlist-btn" />
+          </abbr>
+        )
+      }
 
         <div className="quick-view" onClick={() => setModal(true)}>
           <Paragraph>Quick View</Paragraph>

@@ -10,6 +10,7 @@ import {connect} from "react-redux"
 import { fetchProducts } from '../../Redux/productsReducer/productActions';
 import { auth, firestore } from '../../Firebase/firebase';
 import { fetchWishlistItems } from '../../Redux/wishlist/wishlistActions';
+import Heading from '../Heading/Heading';
 
 
 const Navbar = (props) => {
@@ -115,7 +116,7 @@ props.fetchWishlistItems(props.user.uid)
                 (     <div className="nav">
                 <div className="logo">
                     <img src={logo}/>
-                        <h3>Get Shade</h3>
+                        <Heading>Get Shade</Heading>
                         </div>
      <div className="home hover flex-center " >
          <Link to="/">
