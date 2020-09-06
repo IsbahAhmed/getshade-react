@@ -56,7 +56,7 @@ if(user){
 
   <div className="total-etc">
       <div className="ssl">
-     
+     <img src="https://www.surfsideweb.com/wp-content/uploads/2019/04/SSL_certificate.png"/>     
       </div>
       <div className="checkout-system">
       <Heading>

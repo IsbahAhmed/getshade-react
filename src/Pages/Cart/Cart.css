@@ -66,9 +66,15 @@ justify-self: end;
 }
 
 
-.ssl{
- 
-    background: lightgray
+.ssl {
+ display: flex;
+ /* justify-content: center; */
+align-items: center;
+
+}
+.ssl img{
+    width: 50%;
+    
 }
 .checkout-system{
     display: grid;
@@ -79,7 +85,7 @@ justify-self: end;
    justify-self: end;
 }
 
-@media screen and (max-width:425px){
+@media screen and (max-width:600px){
     .cart-container{
     
         grid-template-columns: 5fr 90fr 5fr;
