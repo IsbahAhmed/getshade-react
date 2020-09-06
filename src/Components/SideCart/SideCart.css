@@ -89,6 +89,7 @@ transition: background 300ms ease;
     grid-template-rows: repeat(auto-fit,15rem);
     row-gap: 10px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 .item-list::-webkit-scrollbar{
     width: 10px;
