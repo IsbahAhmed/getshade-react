@@ -20,7 +20,7 @@ const Navbar = (props) => {
         auth.onAuthStateChanged(async(user)=>{
             try {
              if(user){
-                console.log("puhnch gya")
+                
               
                var {uid,emailVerified} = user;
               console.log(uid,emailVerified)
@@ -87,7 +87,7 @@ props.fetchWishlistItems(props.user.uid)
   React.useEffect(() => {
         function handleResize() {
         // console.log()
-        if(window.innerWidth <= 768){
+        if(window.innerWidth <= 800){
             setNavbar("mobile")
         }
         else{

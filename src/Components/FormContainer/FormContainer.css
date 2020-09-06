@@ -40,7 +40,8 @@ margin: 1rem 2rem;
  border: 1px solid rgb(173, 173, 173);
 border-top: 2px solid var(--black);
 
-transition: transform 300ms ease-in-out;
+transition: all 300ms ease-in-out;
+opacity: 0;
 transform: translateY(102%);
     width: 100%;
     height: 100%;
@@ -53,6 +54,7 @@ transform: translateY(102%);
 }
 .signup-form-toggled{
     transform: translateY(0);
+    opacity: 1;
 }
 .yap{
     grid-area: yap;
@@ -79,7 +81,9 @@ transform: translateY(102%);
     grid-area: signupFormArea;
 
 }
-@media screen and (max-width:425px){
+
+
+@media screen and (max-width:660px){
     .form-container{
         height: min-content;
         flex-flow: column;

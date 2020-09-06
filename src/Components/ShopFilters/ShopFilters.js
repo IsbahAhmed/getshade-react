@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, createRef } from 'react'
 import "./ShopFilters.css"
 import Heading from '../Heading/Heading';
 import SimpleInput from '../SiimpleInput/SimpleInput';
 import Paragraph from '../Paragraph/Paragraph';
 import {getSiblings} from "../../Utility/Utility"
 const ShopFilters = () => {
+
+
     var [pricefilterScale,setFilterToggle] = useState(0)
     var [colorfilterScale,setcolorFilterToggle] = useState(0)
     var [priceMinValue,setPrice_minValue] = useState(0)
     var [priceMaxValue,setPrice_maxValue] = useState(4000)
+
+
+
+
 
   var colorSelector = (e)=>{
     var siblings = getSiblings(e.target)
@@ -32,7 +38,7 @@ const ShopFilters = () => {
            onClick={
             pricefilterScale === 1
               ? () => {
-                  setFilterToggle(0);
+                  setFilterToggle(0)
                 }
               : () => setFilterToggle(1)
           }
@@ -47,6 +53,7 @@ const ShopFilters = () => {
             </div>
           </div>
           <div className="filter-options price-filter" 
+
           style={pricefilterScale === 1 ? {display:"flex"}:{display:"none"}}>
            <div className="from" style={{width:"8rem"}}>
                <Paragraph style={{marginBottom:"1rem"}} fontWeight="600">
@@ -73,7 +80,9 @@ const ShopFilters = () => {
            value={priceMaxValue} placeholder=""/>
 
            </div>
-          </div>
+
+    
+        </div>
         </div>
         <div
           className="filter-row-setting" >

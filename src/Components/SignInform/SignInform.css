@@ -17,6 +17,14 @@
 .forget-link:hover{
     color: var(--lightblack);
 }
+@media only screen and (max-width:950px){
+    .sign-in-btn{
+        flex-flow: column;
+    }
+    .sign-in-btn > *{
+        margin: 1rem 0;
+    }
+}
 @media screen and (max-width:375px){
     .sign-in-btn{
         width: 100%;

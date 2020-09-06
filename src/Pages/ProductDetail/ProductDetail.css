@@ -11,7 +11,7 @@
                           ". main . form ."
                         ;
 }
-@media only screen and (max-width:768px){
+@media only screen and (max-width:835px){
   .productdetail-container{
     grid-template-columns: minmax(10rem,1fr) 45fr 5rem 30fr minmax(10rem,1fr);
   }
@@ -137,10 +137,10 @@ align-items: center;
 @media screen and (max-width:1024px){
 
 }
-@media screen and (max-width:425px){
+@media screen and (max-width:570px){
   .productdetail-container{
   
- height: 250vw;
+ min-height: 250vw;
     display: grid;
     grid-template-rows: 5fr 35fr 5fr 25fr  30fr ;
     grid-template-columns: minmax(5rem,1fr) 45fr 5rem 30fr minmax(5rem,1fr);
@@ -154,4 +154,23 @@ align-items: center;
 .links > *{
   margin:0 1rem
 }
+.price-and-style > *{
+  margin: 10px;
+}
+}
+
+@media screen and (max-width:350px){
+  .productdetail-container{
+  
+    min-height: 250vw;
+       display: grid;
+       grid-template-rows: 5fr 25fr 5fr 25fr  30fr 10fr;
+       grid-template-columns: minmax(5rem,1fr) 45fr 5rem 30fr minmax(5rem,1fr);
+       grid-template-areas: ". links links links ."
+                             ". pic32 pic32 pic32 ."
+                             ". multi multi multi ."
+                             ". main main main ."
+                             ". form form form ."
+                           ;
+   }
 }
