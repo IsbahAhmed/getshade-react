@@ -45,3 +45,8 @@ height: 15rem;
     font-size: 1.4rem;
 }
 
+.scale-out{
+    transition: all 300ms ease;
+    transform:translateX(100%);
+opacity: 0;
+}

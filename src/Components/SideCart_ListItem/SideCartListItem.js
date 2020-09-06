@@ -1,19 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./SideCartListItem.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Heading from "../Heading/Heading";
 const SideCartListItem = (props) => {
+
   var {
     removeItemFromCart,
     cartItem: { name, imagesLinks, quantity, productId, price, color },
   } = props;
+  var scaleTimeout = ()=> setTimeout(()=> removeItemFromCart(productId),300);
+
+
+  const [scaleAnimation,setScaleAnimation] = useState(false)
+
+useEffect(()=>{
+return()=>{
+  clearTimeout(scaleTimeout)
+}
+},[])
+
+
   return (
-    <div className="row-setting">
+    <div className={`row-setting ${(scaleAnimation) && "scale-out"}`}>
       <div
         className="remove-this"
-        onClick={() => removeItemFromCart(productId)}
+        onClick={(e) => {
+          setScaleAnimation(true)
+          scaleTimeout()
+        }}
       >
         <FontAwesomeIcon style={{ pointerEvents: "none" }} icon={faTimes} />
       </div>
