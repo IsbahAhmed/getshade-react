@@ -5,8 +5,10 @@
 	font-family: var(--font-raleway);
 	font-size: 1.2rem; 
     background: radial-gradient(circle, rgba(229,228,235,0.4458158263305322) 0%, rgba(34,34,33,0.43461134453781514) 0%, rgba(66,68,69,1) 100%), 
-    url("../../assets/img/footer-background.jpg");
+    url("../../assets/img/new-footer-image.jpg");
 	background-size: 100% 100%, cover;
+	background-position-y: 40%;
+	background-repeat: no-repeat;
 	filter: saturate(0.2);
 	display: grid;
 	grid-template-columns: 12fr 35fr 20fr 20fr 12fr;
