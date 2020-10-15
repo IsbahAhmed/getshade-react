@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Modal from "react-modal";
 import "./QuickView.css";
 import Heading from "../Heading/Heading";
+import useStateWithCallback from "use-state-with-callback";
 
 import { Link } from "react-router-dom";
 
@@ -9,18 +10,36 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { getSiblings } from "../../Utility/Utility";
-import {v4 as uuid} from "uuid"
+import { v4 as uuid } from "uuid";
 import QVquantity from "../QVquantity/QVquantity";
 Modal.setAppElement("#root");
 
-const QuickView = ({ setModal , productInfo}) => {
+const QuickView = ({ setModal, productInfo }) => {
+  var {
+    name,
+    price,
+    descriptions,
+    imagesLinks,
+    selectedColors,
+    productId,
+    serial,
+  } = productInfo;
+  ///setting timeouts for image change
+  var initialTimeout = (link) =>
+  setTimeout(() => {
+    selectImage({ linkType: "org", link });
+  }, 1000);
 
-  var {name,price,descriptions,imagesLinks,selectedColors,productId,serial} = productInfo
+var changeTimeout = (link) =>
+  setTimeout(() => {
+    selectImage({ linkType: "org", link });
+  }, 500);
   var [modalStyle, setModalStyle] = useState({
     width: "90",
 
     flexFlow: "",
   });
+  /////
   var handleResponsive = () => {
     if (window.innerWidth <= 425) {
       setModalStyle((prevState) => ({
@@ -28,14 +47,13 @@ const QuickView = ({ setModal , productInfo}) => {
         flexFlow: "column",
       }));
     } else if (window.innerWidth > 425) {
-     
-
       setModalStyle((prevState) => ({
         ...prevState,
         flexFlow: "",
       }));
     }
   };
+  /////////////////////
   useEffect(() => {
     window.addEventListener("load", handleResponsive);
     window.addEventListener("resize", handleResponsive);
@@ -44,9 +62,25 @@ const QuickView = ({ setModal , productInfo}) => {
     return () => {
       window.removeEventListener("load", handleResponsive);
       window.removeEventListener("resize", handleResponsive);
+      clearTimeout(initialTimeout);
+      clearTimeout(changeTimeout);
     };
   }, []);
+///////////////////
+  const [loadCheck, setLoadCheck] = useState(true);
+  const [multiPics, setMultiPics] = useState([]);
 
+  var [selectedImage, selectImage] = useStateWithCallback({}, () => {
+    if (selectedImage) {
+      if (selectedImage.linkType === "comp") {
+        setLoadCheck(true);
+      } else {
+        setLoadCheck(false);
+      }
+    }
+  });
+ 
+/////
   var colorSelector = (e) => {
     var siblings = getSiblings(e.target);
     var ele = e.target;
@@ -57,6 +91,34 @@ const QuickView = ({ setModal , productInfo}) => {
     });
   };
 
+  /// setting up multi pics and initial load
+  useEffect(() => {
+    if (imagesLinks.length) {
+      var tempArr = [];
+      selectImage({ linkType: "comp", link: imagesLinks[0].comp_url });
+      initialTimeout(imagesLinks[0].org_link);
+
+      imagesLinks.forEach((linkObj) => {
+        tempArr.push({ ...linkObj });
+      });
+      setMultiPics([...tempArr]);
+    }
+  }, [imagesLinks]);
+  
+  /// link selector
+  var linkSelector = (e) => {
+
+    var { name, src } = e.target;
+
+    var link = name;
+    if (link !== selectedImage.link) {
+      selectImage({ linkType: "comp", link: src });
+      changeTimeout(link);
+    }
+  };
+  
+
+  //
   var { width, display, flexFlow } = modalStyle;
 
   return (
@@ -92,34 +154,41 @@ const QuickView = ({ setModal , productInfo}) => {
       />
       <div className="quick-pic">
         <div className="image-prev">
-          <img src={imagesLinks[0].org_link} alt="" />
+          <img src={selectedImage.link} className={loadCheck ? "blur-image":""} alt="" />
         </div>
         <div className="quick-multi-pix">
-        {
-          imagesLinks.map((img)=>   <div key={uuid()} className="">
-          <img src={img.comp_url} alt="" />
-        </div>)
-        } 
+          {multiPics.map((img) => {
+            //check initial Image
+      
+              return (
+                <div key={uuid()} >
+                  <img src={img.comp_url} name={img.org_link} onClick={linkSelector} alt="" />
+                </div>
+              );
+  
+          })}
         </div>
       </div>
       <div className="quick-des">
-    <Heading fontSize="30" style={{textTransform:"capitalize"}}>{name}</Heading>
+        <Heading fontSize="30" style={{ textTransform: "capitalize" }}>
+          {name}
+        </Heading>
 
         <Heading style={{ display: "flex", alignItems: "center" }}>
-    <h3 style={{ marginRight: "1rem" }}>Rs{price}</h3>
+          <h3 style={{ marginRight: "1rem" }}>Rs{price}</h3>
           <Link to={`/productDetail/${serial}`}>View Details</Link>
         </Heading>
         <div className="color-select-qv">
-        {
-          selectedColors.map((color)=>    <div
-          key={uuid()}
-          className="color-1 "
-          style={{ background: `var(--${color})` }}
-          onClick={colorSelector}
-        ></div>)
-        }
+          {selectedColors.map((color) => (
+            <div
+              key={uuid()}
+              className="color-1 "
+              style={{ background: `var(--${color})` }}
+              onClick={colorSelector}
+            ></div>
+          ))}
         </div>
-        <QVquantity/>
+        <QVquantity />
       </div>
     </Modal>
   );

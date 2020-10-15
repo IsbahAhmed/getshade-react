@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 const QVquantity = () => {
     
-    const [quantity,setQuantity] = useState()
+    const [quantity,setQuantity] = useState(1)
     return (
       <React.Fragment>
              <SimpleInput
