@@ -1,3 +1,5 @@
+import { firestore } from "../Firebase/firebase";
+
 export var productCategorization = (products) => {
 	var categorizedProducts = [];
 	var exist = null;
@@ -108,6 +110,19 @@ export var addItemToCartHelper = (itemsArr, itemToAdd) => {
 }
 
 
+export var fetchSliderItems =async ()=>{
+	try {
+		var sliderItems = [];
+		var sliderrSnap = await firestore.collection('slider_content').get();
+		sliderrSnap.forEach((doc)=>{
+			sliderItems.push({...doc.data(),id:doc.id})
+		})
+
+		return sliderItems
+	} catch (error) {
+		console.log(error.message);
+	}
+}
 
 export var countries = [ 
 	{name: 'Afghanistan', code: 'AF'}, 
