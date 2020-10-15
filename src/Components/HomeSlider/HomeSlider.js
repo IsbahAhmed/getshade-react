@@ -3,8 +3,9 @@ import Slider from "react-slick";
 
 import "./HomeSlider.css";
 import { fetchSliderItems } from "../../Utility/Utility";
+import SliderLoader from "../SliderLoader/SliderLoader";
 export default class HomeSlider extends Component {
-  state = {}
+  state = {sliderItems:[]}
   componentDidMount = async()=>{
    var sliderItems = await fetchSliderItems();
 
@@ -31,9 +32,9 @@ export default class HomeSlider extends Component {
      
       <Slider {...settings}>
        {
-         sliderItems ? sliderItems.map((item)=> <div key={item.id}>
-         <img style={{width:"100%",height:"40vw"}} src={item.imageUrl} alt=""/>
-        </div>):<div></div>
+         sliderItems.length ? sliderItems.map((item)=> <div key={item.id}>
+         <img style={{width:"100%",height:"42vw"}} src={item.imageUrl} alt=""/>
+        </div>):<SliderLoader/>
        }
       
     
