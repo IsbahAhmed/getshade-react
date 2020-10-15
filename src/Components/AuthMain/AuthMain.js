@@ -4,7 +4,14 @@ import FormContainer from "../FormContainer/FormContainer";
 import ForgetPasswordForm from "../../Components/ForgetPasswordForm/ForgetPassword";
 import "./AuthMain.css";
 const AuthMain = () => {
-  var [forgetPasswordToggle, setForgetPassword] = useState(false);
+  var [forgetPasswordToggle, setResetForm] = useState(false);
+ const  setForgetPassword = (value)=>{
+   setResetForm(value);
+   if(value){
+     var x = document.querySelector(".forget-password-form");
+      x.scrollIntoView()
+   }
+ }
   return (
     <React.Fragment>
       <div className="ac-xyz">
