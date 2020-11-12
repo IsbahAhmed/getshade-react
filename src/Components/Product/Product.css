@@ -72,7 +72,7 @@ transform: scaleY(1);
     left: 50%;
     top: 80%;
     color: white;
-    background: var(--black)
+    background: rgb(2, 74, 87)
 
 }
 .text *{
