@@ -28,9 +28,9 @@ export default class HomeSlider extends Component {
       };
       var {sliderItems} = this.state;
     return (
-      <div>
+      <div className="slider-container-custom">
      
-      <Slider {...settings}>
+      <Slider  {...settings}>
        {
          sliderItems.length ? sliderItems.map((item)=> <div key={item.id}>
          <img style={{width:"100%",height:"42vw"}} src={item.imageUrl} alt=""/>
