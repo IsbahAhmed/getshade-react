@@ -1,6 +1,6 @@
 .product-preview img{
-    width: 70%;
-  height: 70%;
+    width: 50%;
+  /* height: 70%; */
   transition: all 100ms ease-out;
   }
   .multi-pics{
