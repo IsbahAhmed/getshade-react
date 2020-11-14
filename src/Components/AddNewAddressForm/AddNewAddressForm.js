@@ -16,6 +16,10 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress,setToEditAddress
   useEffect(() => {
     if (toEditAddress) {
       setFormValues({ ...toEditAddress[0] });
+      setTextMsg(({
+        msg:"",
+        error:""
+      }))
       window.scrollTo(0, 700);
     }
   }, [toEditAddress]);
@@ -35,6 +39,10 @@ const AddNewAddressForm = ({ user, addNewAddress, toEditAddress,setToEditAddress
       ...prevValues,
       [name]: value,
     }));
+    setTextMsg(({
+      msg:"",
+      error:""
+    }))
   };
 
   var handleSubmit = async (e) => {
