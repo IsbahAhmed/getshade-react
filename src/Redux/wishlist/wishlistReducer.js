@@ -12,6 +12,7 @@ var wishlistReducer = (state = initialState, actions)=>{
             return payload.wishlist
 
           case REMOVE_FROM_WISHLIST:
+             
               return state.filter(({wishlistItemId})=> payload.wishlistItemId !== wishlistItemId);  
         default:
          return state

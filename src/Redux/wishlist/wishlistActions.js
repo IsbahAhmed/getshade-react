@@ -3,11 +3,13 @@ import { ADD_TO_WISHLIST,SET_WISHLIST, REMOVE_FROM_WISHLIST } from "./wishlistCo
 
 export var addToWishlist = (wishlistItem) => async (dispatch)=>{
    try {
-       await firestore.collection('wishlist').add(wishlistItem)
+       var addedItem = await firestore.collection('wishlist').add(wishlistItem)
+     
        dispatch({
            type: ADD_TO_WISHLIST,
            payload:{
-               wishlistItem
+               wishlistItem:{...wishlistItem,wishlistItemId:addedItem.id},
+               
            }
        })
    } catch (error) {
@@ -35,8 +37,9 @@ export var fetchWishlistItems = (userId)=>async (dispatch)=>{
     }
 }
 export var removeFromWishlist = (wishlistItemId)=> async (dispatch)=>{
-  
+    
     try {
+       
         await firestore.collection('wishlist').doc(wishlistItemId).delete()
         dispatch({
             type:REMOVE_FROM_WISHLIST,

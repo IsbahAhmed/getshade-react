@@ -38,6 +38,7 @@ const Product = ({
   const alert = useAlert()
 
   useEffect(() => {
+  
     if (wishlist) {
       var tempCheck = wishlist.filter((item) => item.productId === productId);
       if (tempCheck.length) {
@@ -53,6 +54,7 @@ const Product = ({
   var productDetail = () => {
     history.push(`/productDetail/${serial}`);
   };
+
   return (
     <React.Fragment>
       <div
@@ -65,7 +67,7 @@ const Product = ({
             onClick={async() =>
               {
             await    removeFromWishlist(wishlistItemMember.wishlistItemId)
-            alert.success("Added to wishlist")
+            alert.success("Removed from wishlist")
               }
             }
             title="Remove from wishlist"
@@ -85,6 +87,7 @@ const Product = ({
                 addedBy: user.uid,
                 wishlistItemCode: productId + user.uid,
               })
+              alert.success("Added to wishlist")
            
             }
             }
